@@ -35,7 +35,7 @@
             <span data-i18n="armor-class-u">ARMOR CLASS</span>
             <input class="num" type="text" name="attr_npc_ac" placeholder="10">
             <span data-i18n="type-u">TYPE</span>
-            <input type="text" name="attr_npc_actype" placeholder="scale mail" data-i18n-placeholder="npc-armor-place" value="">
+            <input type="text" name="attr_npc_actype" placeholder="armor vest" data-i18n-placeholder="npc-armor-place" value="">
             <span data-i18n="damage-threshold-u">DAMAGE THRESHOLD</span>
             <input class="num" type="text" name="attr_npc_dt" placeholder="0">
         </div>
@@ -207,7 +207,7 @@
         </div>
         <div class="row">
             <span data-i18n="damage-vuln-u">DAMAGE VULNERABILITIES</span>
-            <input type="text" name="attr_npc_vulnerabilities" placeholder="fire" data-i18n-placeholder="npc-dmg-vuln-place">
+            <input type="text" name="attr_npc_vulnerabilities" placeholder="heat" data-i18n-placeholder="npc-dmg-vuln-place">
         </div>
         <div class="row">
             <span data-i18n="damage-res-u">DAMAGE RESISTANCES</span>
@@ -215,7 +215,7 @@
         </div>
         <div class="row">
             <span data-i18n="damage-imm-u">DAMAGE IMMUNITIES</span>
-            <input type="text" name="attr_npc_immunities" placeholder="lighting, thunder" data-i18n-placeholder="npc-dmg-imm-place">
+            <input type="text" name="attr_npc_immunities" placeholder="electrical" data-i18n-placeholder="npc-dmg-imm-place">
         </div>
         <div class="row">
             <span data-i18n="cond-imm-u">CONDITION IMMUNITIES</span>
@@ -227,7 +227,7 @@
         </div>
         <div class="row">
             <span data-i18n="langs-u">LANGUAGES</span>
-            <input type="text" name="attr_npc_languages" placeholder="Abyssal, Common, Infernal" value="—" data-i18n-placeholder="npc-langs-place">
+            <input type="text" name="attr_npc_languages" placeholder="English, Manderin, French" value="—" data-i18n-placeholder="npc-langs-place">
         </div>
         <div class="row">
             <span data-i18n="challenge-u">CHALLENGE</span>
@@ -677,7 +677,7 @@
                         <div class="row attack_option">
                             <span data-i18n="on-hit2:-u">ON HIT 2:</span>
                             <input type="text" name="attr_attack_damage2" placeholder="2d6+5" style="width: 65px;">
-                            <input type="text" name="attr_attack_damagetype2" placeholder="fire" style="width: 100px;" data-i18n-placeholder="on-hit-2-place">
+                            <input type="text" name="attr_attack_damagetype2" placeholder="heat" style="width: 100px;" data-i18n-placeholder="on-hit-2-place">
                             <input type="hidden" name="attr_attack_crit2">
                         </div>
                         <div class="row attack_option">
@@ -770,7 +770,7 @@
                         <div class="row attack_option">
                             <span data-i18n="on-hit2:-u">ON HIT 2:</span>
                             <input type="text" name="attr_attack_damage2" placeholder="2d6+5" style="width: 65px;">
-                            <input type="text" name="attr_attack_damagetype2" placeholder="fire" style="width: 100px;" data-i18n-placeholder="on-hit-2-place">
+                            <input type="text" name="attr_attack_damagetype2" placeholder="heat" style="width: 100px;" data-i18n-placeholder="on-hit-2-place">
                             <input type="hidden" name="attr_attack_crit2">
                         </div>
                         <div class="row attack_option">
@@ -1315,7 +1315,7 @@
                                 </div>
                                 <div class="row" style="margin-bottom: 3px;">
                                     <span data-i18n="proficency-u">PROFICIENCY</span><span>:</span>
-                                    <input type="text" name="attr_name" style="width: 165px;" placeholder="Elven, Dwarven, and Common">
+                                    <input type="text" name="attr_name" style="width: 165px;" placeholder="French, English, and Spanish">
                                 </div>
                             </div>
                             <div class="display" style="margin-bottom: 2px;">
@@ -3355,24 +3355,8 @@
                         <span data-i18n="lvl-u">LEVEL</span><span class="num_plus">5 +</span>
                         <input type="text" class="num" name="attr_lvl5_slots_mod" value="0" placeholder="0" title="@{lvl5_slots_mod}">
                     </div>
-                    <div class="row">
-                        <span data-i18n="lvl-u">LEVEL</span><span class="num_plus">6 +</span>
-                        <input type="text" class="num" name="attr_lvl6_slots_mod" value="0" placeholder="0" title="@{lvl6_slots_mod}">
-                    </div>
                 </div>
                 <div class="column">
-                    <div class="row">
-                        <span data-i18n="lvl-u">LEVEL</span><span class="num_plus">7 +</span>
-                        <input type="text" class="num" name="attr_lvl7_slots_mod" value="0" placeholder="0" title="@{lvl7_slots_mod}">
-                    </div>
-                    <div class="row">
-                        <span data-i18n="lvl-u">LEVEL</span><span class="num_plus">8 +</span>
-                        <input type="text" class="num" name="attr_lvl8_slots_mod" value="0" placeholder="0" title="@{lvl8_slots_mod}">
-                    </div>
-                    <div class="row">
-                        <span data-i18n="lvl-u">LEVEL</span><span class="num_plus">9 +</span>
-                        <input type="text" class="num" name="attr_lvl9_slots_mod" value="0" placeholder="0" title="@{lvl9_slots_mod}">
-                    </div>
                 </div>
                 <div class="row title">
                     <span data-i18n="hack_slot_modifiers-u">HACK SLOT MODIFIERS</span>
@@ -3866,10 +3850,6 @@
 <input type='hidden' name='attr_lvl3_slots_total' value='0'>
 <input type='hidden' name='attr_lvl4_slots_total' value='0'>
 <input type='hidden' name='attr_lvl5_slots_total' value='0'>
-<input type='hidden' name='attr_lvl6_slots_total' value='0'>
-<input type='hidden' name='attr_lvl7_slots_total' value='0'>
-<input type='hidden' name='attr_lvl8_slots_total' value='0'>
-<input type='hidden' name='attr_lvl9_slots_total' value='0'>
 
 <input type='hidden' name='attr_l1mancer_status' value=''>
 <input type='hidden' name='attr_lpmancer_status' value=''>
@@ -5512,7 +5492,7 @@
         set_level();
     });
 
-    on("change:level_calculations change:hacker_level change:lvl1_slots_mod change:lvl2_slots_mod change:lvl3_slots_mod change:lvl4_slots_mod change:lvl5_slots_mod change:lvl6_slots_mod change:lvl7_slots_mod change:lvl8_slots_mod change:lvl9_slots_mod", function(eventinfo) {
+    on("change:level_calculations change:hacker_level change:lvl1_slots_mod change:lvl2_slots_mod change:lvl3_slots_mod change:lvl4_slots_mod change:lvl5_slots_mod", function(eventinfo) {
         if(eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
             return;
         }
@@ -8540,7 +8520,7 @@ Hack                    if (hackattackmod != 0) {hbonus += ` + ${hackattackmod}[
     };
 
     var update_hack_slots = function() {
-        getAttrs(["lvl1_slots_mod","lvl2_slots_mod","lvl3_slots_mod","lvl4_slots_mod","lvl5_slots_mod","lvl6_slots_mod","lvl7_slots_mod","lvl8_slots_mod","lvl9_slots_mod","hacker_level"], function(v) {
+        getAttrs(["lvl1_slots_mod","lvl2_slots_mod","lvl3_slots_mod","lvl4_slots_mod","lvl5_slots_mod","hacker_level"], function(v) {
             var update = {};
             var lvl = v["hacker_level"] && !isNaN(parseInt(v["hacker_level"], 10)) ? parseInt(v["hacker_level"], 10) : 0;
             var l1 = v["lvl1_slots_mod"] && !isNaN(parseInt(v["lvl1_slots_mod"], 10)) ? parseInt(v["lvl1_slots_mod"], 10) : 0;
@@ -8548,20 +8528,12 @@ Hack                    if (hackattackmod != 0) {hbonus += ` + ${hackattackmod}[
             var l3 = v["lvl3_slots_mod"] && !isNaN(parseInt(v["lvl3_slots_mod"], 10)) ? parseInt(v["lvl3_slots_mod"], 10) : 0;
             var l4 = v["lvl4_slots_mod"] && !isNaN(parseInt(v["lvl4_slots_mod"], 10)) ? parseInt(v["lvl4_slots_mod"], 10) : 0;
             var l5 = v["lvl5_slots_mod"] && !isNaN(parseInt(v["lvl5_slots_mod"], 10)) ? parseInt(v["lvl5_slots_mod"], 10) : 0;
-            var l6 = v["lvl6_slots_mod"] && !isNaN(parseInt(v["lvl6_slots_mod"], 10)) ? parseInt(v["lvl6_slots_mod"], 10) : 0;
-            var l7 = v["lvl7_slots_mod"] && !isNaN(parseInt(v["lvl7_slots_mod"], 10)) ? parseInt(v["lvl7_slots_mod"], 10) : 0;
-            var l8 = v["lvl8_slots_mod"] && !isNaN(parseInt(v["lvl8_slots_mod"], 10)) ? parseInt(v["lvl8_slots_mod"], 10) : 0;
-            var l9 = v["lvl9_slots_mod"] && !isNaN(parseInt(v["lvl9_slots_mod"], 10)) ? parseInt(v["lvl9_slots_mod"], 10) : 0;
             if(lvl > 0) {
-                l1 = l1 + Math.min((lvl + 1),4);
-                if(lvl < 3) {l2 = l2 + 0;} else if(lvl === 3) {l2 = l2 + 2;} else {l2 = l2 + 3;};
-                if(lvl < 5) {l3 = l3 + 0;} else if(lvl === 5) {l3 = l3 + 2;} else {l3 = l3 + 3;};
-                if(lvl < 7) {l4 = l4 + 0;} else if(lvl === 7) {l4 = l4 + 1;} else if(lvl === 8) {l4 = l4 + 2;} else {l4 = l4 + 3;};
-                if(lvl < 9) {l5 = l5 + 0;} else if(lvl === 9) {l5 = l5 + 1;} else if(lvl < 18) {l5 = l5 + 2;} else {l5 = l5 + 3;};
-                if(lvl < 11) {l6 = l6 + 0;} else if(lvl < 19) {l6 = l6 + 1;} else {l6 = l6 + 2;};
-                if(lvl < 13) {l7 = l7 + 0;} else if(lvl < 20) {l7 = l7 + 1;} else {l7 = l7 + 2;};
-                if(lvl < 15) {l8 = l8 + 0;} else {l8 = l8 + 1;};
-                if(lvl < 17) {l9 = l9 + 0;} else {l9 = l9 + 1;};
+                if(lvl < 5) {l1 = l1 + lvl + 3;} else if(lvl < 9) {l1 = l1 + 7;} else if(lvl < 13) {l1 = l1 + 8;} else if(lvl < 17) {l1 = l1 + 9;} else {l1 = l1 + 10;};
+                if(lvl < 5) {l2 = l2 + 0;} else if(lvl < 10) {l2 = l2 + lvl - 4;} else {l2 = l2 + 5;};
+                if(lvl < 9) {l3 = l3 + 0;} else if(lvl < 14) {l3 = l3 + lvl - 8;} else {l3 = l3 + 5;};
+                if(lvl < 13) {l4 = l4 + 0;} else if(lvl < 18) {l4 = l4 + lvl - 12;} else {l4 = l4 + 5;};
+                if(lvl < 17) {l5 = l5 + 0;} else {l5 = l5 + lvl - 16;};
             };
 
             update["lvl1_slots_total"] = l1;
@@ -8569,10 +8541,6 @@ Hack                    if (hackattackmod != 0) {hbonus += ` + ${hackattackmod}[
             update["lvl3_slots_total"] = l3;
             update["lvl4_slots_total"] = l4;
             update["lvl5_slots_total"] = l5;
-            update["lvl6_slots_total"] = l6;
-            update["lvl7_slots_total"] = l7;
-            update["lvl8_slots_total"] = l8;
-            update["lvl9_slots_total"] = l9;
             setAttrs(update, {silent: true});
         });
     };
