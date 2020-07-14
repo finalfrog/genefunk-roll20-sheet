@@ -129,27 +129,31 @@
                     <span data-i18n="insight-u">INSIGHT</span>
                     <input class="num" type="text" name="attr_npc_insight_base" placeholder="0">
                 </div>
-                <div class="row" data-i18n-list-item="intimidation">
-                    <span data-i18n="intimidation-u">INTIMIDATION</span>
-                    <input class="num" type="text" name="attr_npc_intimidation_base" placeholder="0">
-                </div>
                 <div class="row" data-i18n-list-item="investigation">
                     <span data-i18n="investigation-u">INVESTIGATION</span>
                     <input class="num" type="text" name="attr_npc_investigation_base" placeholder="0">
                 </div>
-                <div class="row" data-i18n-list-item="medicine">
-                    <span data-i18n="medicine-u">MEDICINE</span>
-                    <input class="num" type="text" name="attr_npc_medicine_base" placeholder="0">
+                <div class="row" data-i18n-list-item="life_science">
+                    <span data-i18n="life_science-u">LIFE SCIENCE</span>
+                    <input class="num" type="text" name="attr_npc_life_science_base" placeholder="0">
                 </div>
                 <div class="row" data-i18n-list-item="perception">
                     <span data-i18n="perception-u">PERCEPTION</span>
                     <input class="num" type="text" name="attr_npc_perception_base" placeholder="0">
+                </div>
+                <div class="row" data-i18n-list-item="survival">
+                    <span data-i18n="survival-u">SURVIVAL</span>
+                    <input class="num" type="text" name="attr_npc_survival_base" placeholder="0">
                 </div>
             </div>
             <div class="col" data-i18n-list-sublist>
                 <div class="row" data-i18n-list-item="deception">
                     <span data-i18n="deception-u">DECEPTION</span>
                     <input class="num" type="text" name="attr_npc_deception_base" placeholder="0">
+                </div>
+                <div class="row" data-i18n-list-item="intimidation">
+                    <span data-i18n="intimidation-u">INTIMIDATION</span>
+                    <input class="num" type="text" name="attr_npc_intimidation_base" placeholder="0">
                 </div>
                 <div class="row" data-i18n-list-item="performance">
                     <span data-i18n="performance-u">PERFORMANCE</span>
@@ -159,10 +163,6 @@
                     <span data-i18n="persuasion-u">PERSUASION</span>
                     <input class="num" type="text" name="attr_npc_persuasion_base" placeholder="0">
                 </div>
-                <div class="row" data-i18n-list-item="survival">
-                    <span data-i18n="survival-u">SURVIVAL</span>
-                    <input class="num" type="text" name="attr_npc_survival_base" placeholder="0">
-                </div>
                 <div class="row" data-i18n-list-item="history">
                     <span data-i18n="history-u">HISTORY</span>
                     <input class="num" type="text" name="attr_npc_history_base" placeholder="0">
@@ -170,6 +170,12 @@
                 <div class="row" data-i18n-list-item="arcana">
                     <span data-i18n="arcana-u">ARCANA</span>
                     <input class="num" type="text" name="attr_npc_arcana_base" placeholder="0">
+                </div>
+            </div>
+            <div class="col" data-i18n-list-sublist>
+                <div class="row" data-i18n-list-item="medicine">
+                    <span data-i18n="medicine-u">MEDICINE</span>
+                    <input class="num" type="text" name="attr_npc_medicine_base" placeholder="0">
                 </div>
             </div>
             <input type="hidden" name="attr_npc_acrobatics" value="@{dexterity_mod}">
@@ -181,6 +187,7 @@
             <input type="hidden" name="attr_npc_insight" value="@{wisdom_mod}">
             <input type="hidden" name="attr_npc_intimidation" value="@{charisma_mod}">
             <input type="hidden" name="attr_npc_investigation" value="@{intelligence_mod}">
+            <input type="hidden" name="attr_npc_life_science" value="@{intelligence_mod}">
             <input type="hidden" name="attr_npc_medicine" value="@{wisdom_mod}">
             <input type="hidden" name="attr_npc_computers" value="@{intelligence_mod}">
             <input type="hidden" name="attr_npc_perception" value="@{wisdom_mod}">
@@ -431,6 +438,14 @@
         <input class="flag" type="hidden" name="attr_npc_skills_flag" value="">
         <div class="row skills skills-list red" data-i18n-list="skills-list">
             <span class="bold" data-i18n="skills">Skills</span>
+            <span data-i18n-list-item="athletics">
+                <input class="flag" type="hidden" name="attr_npc_athletics_flag" value="0">
+                <button type="roll" name="roll_npc_athletics" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{athletics}}} {{mod=@{npc_athletics}}} {{r1=[[@{d20}+@{npc_athletics}]]}} @{rtype}+@{npc_athletics}]]}} {{type=Skill}}">
+                    <span data-i18n="athletics">Athletics</span>
+                    <span class="stat" name="attr_npc_athletics"></span>
+                </button>
+            </span>
+
             <span data-i18n-list-item="acrobatics">
                 <input class="flag" type="hidden" name="attr_npc_acrobatics_flag" value="0">
                 <button type="roll" name="roll_npc_acrobatics" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{acrobatics}}} {{mod=@{npc_acrobatics}}} {{r1=[[@{d20}+@{npc_acrobatics}]]}} @{rtype}+@{npc_acrobatics}]]}} {{type=Skill}}">
@@ -443,97 +458,6 @@
                 <button type="roll" name="roll_npc_drive" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{drive}}} {{mod=@{npc_drive}}} {{r1=[[@{d20}+@{npc_drive}]]}} @{rtype}+@{npc_drive}]]}} {{type=Skill}}">
                     <span data-i18n="drive">Animal Handling</span>
                     <span class="stat" name="attr_npc_drive"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="arcana">
-                <input class="flag" type="hidden" name="attr_npc_arcana_flag" value="0">
-                <button type="roll" name="roll_npc_arcana" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{arcana}}} {{mod=@{npc_arcana}}} {{r1=[[@{d20}+@{npc_arcana}]]}} @{rtype}+@{npc_arcana}]]}} {{type=Skill}}">
-                    <span data-i18n="arcana">Arcana</span>
-                    <span class="stat" name="attr_npc_arcana"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="athletics">
-                <input class="flag" type="hidden" name="attr_npc_athletics_flag" value="0">
-                <button type="roll" name="roll_npc_athletics" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{athletics}}} {{mod=@{npc_athletics}}} {{r1=[[@{d20}+@{npc_athletics}]]}} @{rtype}+@{npc_athletics}]]}} {{type=Skill}}">
-                    <span data-i18n="athletics">Athletics</span>
-                    <span class="stat" name="attr_npc_athletics"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="deception">
-                <input class="flag" type="hidden" name="attr_npc_deception_flag" value="0">
-                <button type="roll" name="roll_npc_deception" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{deception}}} {{mod=@{npc_deception}}} {{r1=[[@{d20}+@{npc_deception}]]}} @{rtype}+@{npc_deception}]]}} {{type=Skill}}">
-                    <span data-i18n="deception">Deception</span>
-                    <span class="stat" name="attr_npc_deception"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="history">
-                <input class="flag" type="hidden" name="attr_npc_history_flag" value="0">
-                <button type="roll" name="roll_npc_history" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{history}}} {{mod=@{npc_history}}} {{r1=[[@{d20}+@{npc_history}]]}} @{rtype}+@{npc_history}]]}} {{type=Skill}}">
-                    <span data-i18n="history">History</span>
-                    <span class="stat" name="attr_npc_history"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="insight">
-                <input class="flag" type="hidden" name="attr_npc_insight_flag" value="0">
-                <button type="roll" name="roll_npc_insight" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{insight}}} {{mod=@{npc_insight}}} {{r1=[[@{d20}+@{npc_insight}]]}} @{rtype}+@{npc_insight}]]}} {{type=Skill}}">
-                    <span data-i18n="insight">Insight</span>
-                    <span class="stat" name="attr_npc_insight"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="intimidation">
-                <input class="flag" type="hidden" name="attr_npc_intimidation_flag" value="0">
-                <button type="roll" name="roll_npc_intimidation" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{intimidation}}} {{mod=@{npc_intimidation}}} {{r1=[[@{d20}+@{npc_intimidation}]]}} @{rtype}+@{npc_intimidation}]]}} {{type=Skill}}">
-                    <span data-i18n="intimidation">Intimidation</span>
-                    <span class="stat" name="attr_npc_intimidation"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="investigation">
-                <input class="flag" type="hidden" name="attr_npc_investigation_flag" value="0">
-                <button type="roll" name="roll_npc_investigation" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{investigation}}} {{mod=@{npc_investigation}}} {{r1=[[@{d20}+@{npc_investigation}]]}} @{rtype}+@{npc_investigation}]]}} {{type=Skill}}">
-                    <span data-i18n="investigation">Investigation</span>
-                    <span class="stat" name="attr_npc_investigation"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="medicine">
-                <input class="flag" type="hidden" name="attr_npc_medicine_flag" value="0">
-                <button type="roll" name="roll_npc_medicine" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{medicine}}} {{mod=@{npc_medicine}}} {{r1=[[@{d20}+@{npc_medicine}]]}} @{rtype}+@{npc_medicine}]]}} {{type=Skill}}">
-                    <span data-i18n="medicine">Medicine</span>
-                    <span class="stat" name="attr_npc_medicine"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="computers">
-                <input class="flag" type="hidden" name="attr_npc_computers_flag" value="0">
-                <button type="roll" name="roll_npc_computers" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{computers}}} {{mod=@{npc_computers}}} {{r1=[[@{d20}+@{npc_computers}]]}} @{rtype}+@{npc_computers}]]}} {{type=Skill}}">
-                    <span data-i18n="computers">Computers</span>
-                    <span class="stat" name="attr_npc_computers"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="perception">
-                <input class="flag" type="hidden" name="attr_npc_perception_flag" value="0">
-                <button type="roll" name="roll_npc_perception" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{perception}}} {{mod=@{npc_perception}}} {{r1=[[@{d20}+@{npc_perception}]]}} @{rtype}+@{npc_perception}]]}} {{type=Skill}}">
-                    <span data-i18n="perception">Perception</span>
-                    <span class="stat" name="attr_npc_perception"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="performance">
-                <input class="flag" type="hidden" name="attr_npc_performance_flag" value="0">
-                <button type="roll" name="roll_npc_performance" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{performance}}} {{mod=@{npc_performance}}} {{r1=[[@{d20}+@{npc_performance}]]}} @{rtype}+@{npc_performance}]]}} {{type=Skill}}">
-                    <span data-i18n="performance">Performance</span>
-                    <span class="stat" name="attr_npc_performance"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="persuasion">
-                <input class="flag" type="hidden" name="attr_npc_persuasion_flag" value="0">
-                <button type="roll" name="roll_npc_persuasion" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{persuasion}}} {{mod=@{npc_persuasion}}} {{r1=[[@{d20}+@{npc_persuasion}]]}} @{rtype}+@{npc_persuasion}]]}} {{type=Skill}}">
-                    <span data-i18n="persuasion">Persuasion</span>
-                    <span class="stat" name="attr_npc_persuasion"></span>
-                </button>
-            </span>
-            <span data-i18n-list-item="bureaucracy">
-                <input class="flag" type="hidden" name="attr_npc_bureaucracy_flag" value="0">
-                <button type="roll" name="roll_npc_bureaucracy" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{bureaucracy}}} {{mod=@{npc_bureaucracy}}} {{r1=[[@{d20}+@{npc_bureaucracy}]]}} @{rtype}+@{npc_bureaucracy}]]}} {{type=Skill}}">
-                    <span data-i18n="bureaucracy">Bureaucracy</span>
-                    <span class="stat" name="attr_npc_bureaucracy"></span>
                 </button>
             </span>
             <span data-i18n-list-item="sleight_of_hand">
@@ -550,11 +474,106 @@
                     <span class="stat" name="attr_npc_stealth"></span>
                 </button>
             </span>
+
+            <span data-i18n-list-item="bureaucracy">
+                <input class="flag" type="hidden" name="attr_npc_bureaucracy_flag" value="0">
+                <button type="roll" name="roll_npc_bureaucracy" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{bureaucracy}}} {{mod=@{npc_bureaucracy}}} {{r1=[[@{d20}+@{npc_bureaucracy}]]}} @{rtype}+@{npc_bureaucracy}]]}} {{type=Skill}}">
+                    <span data-i18n="bureaucracy">Bureaucracy</span>
+                    <span class="stat" name="attr_npc_bureaucracy"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="computers">
+                <input class="flag" type="hidden" name="attr_npc_computers_flag" value="0">
+                <button type="roll" name="roll_npc_computers" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{computers}}} {{mod=@{npc_computers}}} {{r1=[[@{d20}+@{npc_computers}]]}} @{rtype}+@{npc_computers}]]}} {{type=Skill}}">
+                    <span data-i18n="computers">Computers</span>
+                    <span class="stat" name="attr_npc_computers"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="investigation">
+                <input class="flag" type="hidden" name="attr_npc_investigation_flag" value="0">
+                <button type="roll" name="roll_npc_investigation" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{investigation}}} {{mod=@{npc_investigation}}} {{r1=[[@{d20}+@{npc_investigation}]]}} @{rtype}+@{npc_investigation}]]}} {{type=Skill}}">
+                    <span data-i18n="investigation">Investigation</span>
+                    <span class="stat" name="attr_npc_investigation"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="life_science">
+                <input class="flag" type="hidden" name="attr_npc_life_science_flag" value="0">
+                <button type="roll" name="roll_npc_life_science" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{life_science}}} {{mod=@{npc_life_science}}} {{r1=[[@{d20}+@{npc_life_science}]]}} @{rtype}+@{npc_life_science}]]}} {{type=Skill}}">
+                    <span data-i18n="life_science">Life Science</span>
+                    <span class="stat" name="attr_npc_life_science"></span>
+                </button>
+            </span>
+
+            <span data-i18n-list-item="insight">
+                <input class="flag" type="hidden" name="attr_npc_insight_flag" value="0">
+                <button type="roll" name="roll_npc_insight" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{insight}}} {{mod=@{npc_insight}}} {{r1=[[@{d20}+@{npc_insight}]]}} @{rtype}+@{npc_insight}]]}} {{type=Skill}}">
+                    <span data-i18n="insight">Insight</span>
+                    <span class="stat" name="attr_npc_insight"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="perception">
+                <input class="flag" type="hidden" name="attr_npc_perception_flag" value="0">
+                <button type="roll" name="roll_npc_perception" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{perception}}} {{mod=@{npc_perception}}} {{r1=[[@{d20}+@{npc_perception}]]}} @{rtype}+@{npc_perception}]]}} {{type=Skill}}">
+                    <span data-i18n="perception">Perception</span>
+                    <span class="stat" name="attr_npc_perception"></span>
+                </button>
+            </span>
             <span data-i18n-list-item="survival">
                 <input class="flag" type="hidden" name="attr_npc_survival_flag" value="0">
                 <button type="roll" name="roll_npc_survival" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{survival}}} {{mod=@{npc_survival}}} {{r1=[[@{d20}+@{npc_survival}]]}} @{rtype}+@{npc_survival}]]}} {{type=Skill}}">
                     <span data-i18n="survival">Survival</span>
                     <span class="stat" name="attr_npc_survival"></span>
+                </button>
+            </span>
+
+            <span data-i18n-list-item="deception">
+                <input class="flag" type="hidden" name="attr_npc_deception_flag" value="0">
+                <button type="roll" name="roll_npc_deception" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{deception}}} {{mod=@{npc_deception}}} {{r1=[[@{d20}+@{npc_deception}]]}} @{rtype}+@{npc_deception}]]}} {{type=Skill}}">
+                    <span data-i18n="deception">Deception</span>
+                    <span class="stat" name="attr_npc_deception"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="intimidation">
+                <input class="flag" type="hidden" name="attr_npc_intimidation_flag" value="0">
+                <button type="roll" name="roll_npc_intimidation" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{intimidation}}} {{mod=@{npc_intimidation}}} {{r1=[[@{d20}+@{npc_intimidation}]]}} @{rtype}+@{npc_intimidation}]]}} {{type=Skill}}">
+                    <span data-i18n="intimidation">Intimidation</span>
+                    <span class="stat" name="attr_npc_intimidation"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="performance">
+                <input class="flag" type="hidden" name="attr_npc_performance_flag" value="0">
+                <button type="roll" name="roll_npc_performance" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{performance}}} {{mod=@{npc_performance}}} {{r1=[[@{d20}+@{npc_performance}]]}} @{rtype}+@{npc_performance}]]}} {{type=Skill}}">
+                    <span data-i18n="performance">Performance</span>
+                    <span class="stat" name="attr_npc_performance"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="persuasion">
+                <input class="flag" type="hidden" name="attr_npc_persuasion_flag" value="0">
+                <button type="roll" name="roll_npc_persuasion" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{persuasion}}} {{mod=@{npc_persuasion}}} {{r1=[[@{d20}+@{npc_persuasion}]]}} @{rtype}+@{npc_persuasion}]]}} {{type=Skill}}">
+                    <span data-i18n="persuasion">Persuasion</span>
+                    <span class="stat" name="attr_npc_persuasion"></span>
+                </button>
+            </span>
+
+            <span data-i18n-list-item="arcana">
+                <input class="flag" type="hidden" name="attr_npc_arcana_flag" value="0">
+                <button type="roll" name="roll_npc_arcana" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{arcana}}} {{mod=@{npc_arcana}}} {{r1=[[@{d20}+@{npc_arcana}]]}} @{rtype}+@{npc_arcana}]]}} {{type=Skill}}">
+                    <span data-i18n="arcana">Arcana</span>
+                    <span class="stat" name="attr_npc_arcana"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="history">
+                <input class="flag" type="hidden" name="attr_npc_history_flag" value="0">
+                <button type="roll" name="roll_npc_history" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{history}}} {{mod=@{npc_history}}} {{r1=[[@{d20}+@{npc_history}]]}} @{rtype}+@{npc_history}]]}} {{type=Skill}}">
+                    <span data-i18n="history">History</span>
+                    <span class="stat" name="attr_npc_history"></span>
+                </button>
+            </span>
+            <span data-i18n-list-item="medicine">
+                <input class="flag" type="hidden" name="attr_npc_medicine_flag" value="0">
+                <button type="roll" name="roll_npc_medicine" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{medicine}}} {{mod=@{npc_medicine}}} {{r1=[[@{d20}+@{npc_medicine}]]}} @{rtype}+@{npc_medicine}]]}} {{type=Skill}}">
+                    <span data-i18n="medicine">Medicine</span>
+                    <span class="stat" name="attr_npc_medicine"></span>
                 </button>
             </span>
         </div>
@@ -1162,6 +1181,12 @@
                 </div>
                 <div class="skills-container skills-list">
                     <div data-i18n-list="skills-list">
+                        <div class="skill" data-i18n-list-item="athletics">
+                            <input type="checkbox" name="attr_athletics_prof" title="@{athletics_prof}" value="(@{pb}*@{athletics_type})">
+                            <span name='attr_athletics_bonus' title='@{athletics_bonus}'>0</span>
+                            <button type='roll' name='roll_athletics' value='@{wtype}&{template:simple} {{rname=^{athletics-u}}} {{mod=@{athletics_bonus}}} {{r1=[[@{d20}+@{athletics_bonus}@{pbd_safe}]]}} @{rtype}+@{athletics_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='athletics-core'>Athletics <span>(Str)</span></button>
+                        </div>
+
                         <div class="skill" data-i18n-list-item="acrobatics">
                             <input type="checkbox" name="attr_acrobatics_prof" title="@{acrobatics_prof}" value="(@{pb}*@{acrobatics_type})">
                             <span name="attr_acrobatics_bonus" title="@{acrobatics_bonus}">0</span>
@@ -1171,71 +1196,6 @@
                             <input type="checkbox" name="attr_drive_prof" title="@{drive_prof}" value="(@{pb}*@{drive_type})">
                             <span name='attr_drive_bonus' title='@{drive_bonus}'>0</span>
                             <button type='roll' name='roll_drive' value='@{wtype}&{template:simple} {{rname=^{drive-u}}} {{mod=@{drivebonus}}} {{r1=[[@{d20}+@{drive_bonus}@{pbd_safe}]]}} @{rtype}+@{drive_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='drive-core'>Drive <span>(Dex)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="arcana">
-                            <input type="checkbox" name="attr_arcana_prof" title="@{arcana_prof}" value="(@{pb}*@{arcana_type})">
-                            <span name='attr_arcana_bonus' title='@{arcana_bonus}'>0</span>
-                            <button type='roll' name='roll_arcana' value='@{wtype}&{template:simple} {{rname=^{arcana-u}}} {{mod=@{arcana_bonus}}} {{r1=[[@{d20}+@{arcana_bonus}@{pbd_safe}]]}} @{rtype}+@{arcana_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='arcana-core'>Arcana <span>(Int)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="athletics">
-                            <input type="checkbox" name="attr_athletics_prof" title="@{athletics_prof}" value="(@{pb}*@{athletics_type})">
-                            <span name='attr_athletics_bonus' title='@{athletics_bonus}'>0</span>
-                            <button type='roll' name='roll_athletics' value='@{wtype}&{template:simple} {{rname=^{athletics-u}}} {{mod=@{athletics_bonus}}} {{r1=[[@{d20}+@{athletics_bonus}@{pbd_safe}]]}} @{rtype}+@{athletics_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='athletics-core'>Athletics <span>(Str)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="deception">
-                            <input type="checkbox" name="attr_deception_prof" title="@{deception_prof}" value="(@{pb}*@{deception_type})">
-                            <span name='attr_deception_bonus' title='@{deception_bonus}'>0</span>
-                            <button type='roll' name='roll_deception' value='@{wtype}&{template:simple} {{rname=^{deception-u}}} {{mod=@{deception_bonus}}} {{r1=[[@{d20}+@{deception_bonus}@{pbd_safe}]]}} @{rtype}+@{deception_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='deception-core'>Deception <span>(Cha)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="history">
-                            <input type="checkbox" name="attr_history_prof" title="@{history_prof}" value="(@{pb}*@{history_type})">
-                            <span name='attr_history_bonus' title='@{history_bonus}'>0</span>
-                            <button type='roll' name='roll_history' value='@{wtype}&{template:simple} {{rname=^{history-u}}} {{mod=@{history_bonus}}} {{r1=[[@{d20}+@{history_bonus}@{pbd_safe}]]}} @{rtype}+@{history_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='history-core'>History <span>(Int)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="insight">
-                            <input type="checkbox" name="attr_insight_prof" title="@{insight_prof}" value="(@{pb}*@{insight_type})">
-                            <span name='attr_insight_bonus' title='@{insight_bonus}'>0</span>
-                            <button type='roll' name='roll_insight' value='@{wtype}&{template:simple} {{rname=^{insight-u}}} {{mod=@{insight_bonus}}} {{r1=[[@{d20}+@{insight_bonus}@{pbd_safe}]]}} @{rtype}+@{insight_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='insight-core'>Insight <span>(Wis)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="intimidation">
-                            <input type="checkbox" name="attr_intimidation_prof" title="@{intimidation_prof}" value="(@{pb}*@{intimidation_type})">
-                            <span name='attr_intimidation_bonus' title='@{intimidation_bonus}'>0</span>
-                            <button type='roll' name='roll_intimidation' value='@{wtype}&{template:simple} {{rname=^{intimidation-u}}} {{mod=@{intimidation_bonus}}} {{r1=[[@{d20}+@{intimidation_bonus}@{pbd_safe}]]}} @{rtype}+@{intimidation_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='intimidation-core'>Intimidation <span>(Cha)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="investigation">
-                            <input type="checkbox" name="attr_investigation_prof" title="@{investigation_prof}" value="(@{pb}*@{investigation_type})">
-                            <span name='attr_investigation_bonus' title='@{investigation_bonus}'>0</span>
-                            <button type='roll' name='roll_investigation' value='@{wtype}&{template:simple} {{rname=^{investigation-u}}} {{mod=@{investigation_bonus}}} {{r1=[[@{d20}+@{investigation_bonus}@{pbd_safe}]]}} @{rtype}+@{investigation_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='investigation-core'>Investigation <span>(Int)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="medicine">
-                            <input type="checkbox" name="attr_medicine_prof" title="@{medicine_prof}" value="(@{pb}*@{medicine_type})">
-                            <span name='attr_medicine_bonus' title='@{medicine_bonus}'>0</span>
-                            <button type='roll' name='roll_medicine' value='@{wtype}&{template:simple} {{rname=^{medicine-u}}} {{mod=@{medicine_bonus}}} {{r1=[[@{d20}+@{medicine_bonus}@{pbd_safe}]]}} @{rtype}+@{medicine_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='medicine-core'>Medicine <span>(Wis)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="computers">
-                            <input type="checkbox" name="attr_computers_prof" title="@{computers_prof}" value="(@{pb}*@{computers_type})">
-                            <span name='attr_computers_bonus' title='@{computers_bonus}'>0</span>
-                            <button type='roll' name='roll_computers' value='@{wtype}&{template:simple} {{rname=^{computers-u}}} {{mod=@{computers_bonus}}} {{r1=[[@{d20}+@{computers_bonus}@{pbd_safe}]]}} @{rtype}+@{computers_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='computers-core'>Computers <span>(Int)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="perception">
-                            <input type="checkbox" name="attr_perception_prof" title="@{perception_prof}" value="(@{pb}*@{perception_type})">
-                            <span name='attr_perception_bonus' title='@{perception_bonus}'>0</span>
-                            <button type='roll' name='roll_perception' value='@{wtype}&{template:simple} {{rname=^{perception-u}}} {{mod=@{perception_bonus}}} {{r1=[[@{d20}+@{perception_bonus}@{pbd_safe}]]}} @{rtype}+@{perception_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='perception-core'>Perception <span>(Wis)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="performance">
-                            <input type="checkbox" name="attr_performance_prof" title="@{performance_prof}" value="(@{pb}*@{performance_type})">
-                            <span name='attr_performance_bonus' title='@{performance_bonus}'>0</span>
-                            <button type='roll' name='roll_performance' value='@{wtype}&{template:simple} {{rname=^{performance-u}}} {{mod=@{performance_bonus}}} {{r1=[[@{d20}+@{performance_bonus}@{pbd_safe}]]}} @{rtype}+@{performance_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='performance-core'>Performance <span>(Cha)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="persuasion">
-                            <input type="checkbox" name="attr_persuasion_prof" title="@{persuasion_prof}" value="(@{pb}*@{persuasion_type})">
-                            <span name='attr_persuasion_bonus' title='@{persuasion_bonus}'>0</span>
-                            <button type='roll' name='roll_persuasion' value='@{wtype}&{template:simple} {{rname=^{persuasion-u}}} {{mod=@{persuasion_bonus}}} {{r1=[[@{d20}+@{persuasion_bonus}@{pbd_safe}]]}} @{rtype}+@{persuasion_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='persuasion-core'>Persuasion <span>(Wis)</span></button>
-                        </div>
-                        <div class="skill" data-i18n-list-item="bureaucracy">
-                            <input type="checkbox" name="attr_bureaucracy_prof" title="@{bureaucracy_prof}" value="(@{pb}*@{bureaucracy_type})">
-                            <span name='attr_bureaucracy_bonus' title='@{bureaucracy_bonus}'>0</span>
-                            <button type='roll' name='roll_bureaucracy' value='@{wtype}&{template:simple} {{rname=^{bureaucracy-u}}} {{mod=@{bureaucracy_bonus}}} {{r1=[[@{d20}+@{bureaucracy_bonus}@{pbd_safe}]]}} @{rtype}+@{bureaucracy_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='bureaucracy-core'>Bureaucracy <span>(Int)</span></button>
                         </div>
                         <div class="skill" data-i18n-list-item="sleight_of_hand">
                             <input type="checkbox" name="attr_sleight_of_hand_prof" title="@{sleight_of_hand_prof}" value="(@{pb}*@{sleight_of_hand_type})">
@@ -1247,10 +1207,79 @@
                             <span name='attr_stealth_bonus' title='@{stealth_bonus}'>0</span>
                             <button type='roll' name='roll_stealth' value='@{wtype}&{template:simple} {{rname=^{stealth-u}}} {{mod=@{stealth_bonus}}} {{r1=[[@{d20}+@{stealth_bonus}@{pbd_safe}]]}} @{rtype}+@{stealth_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='stealth-core'>Stealth <span>(Dex)</span></button>
                         </div>
+
+                        <div class="skill" data-i18n-list-item="bureaucracy">
+                            <input type="checkbox" name="attr_bureaucracy_prof" title="@{bureaucracy_prof}" value="(@{pb}*@{bureaucracy_type})">
+                            <span name='attr_bureaucracy_bonus' title='@{bureaucracy_bonus}'>0</span>
+                            <button type='roll' name='roll_bureaucracy' value='@{wtype}&{template:simple} {{rname=^{bureaucracy-u}}} {{mod=@{bureaucracy_bonus}}} {{r1=[[@{d20}+@{bureaucracy_bonus}@{pbd_safe}]]}} @{rtype}+@{bureaucracy_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='bureaucracy-core'>Bureaucracy <span>(Int)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="computers">
+                            <input type="checkbox" name="attr_computers_prof" title="@{computers_prof}" value="(@{pb}*@{computers_type})">
+                            <span name='attr_computers_bonus' title='@{computers_bonus}'>0</span>
+                            <button type='roll' name='roll_computers' value='@{wtype}&{template:simple} {{rname=^{computers-u}}} {{mod=@{computers_bonus}}} {{r1=[[@{d20}+@{computers_bonus}@{pbd_safe}]]}} @{rtype}+@{computers_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='computers-core'>Computers <span>(Int)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="investigation">
+                            <input type="checkbox" name="attr_investigation_prof" title="@{investigation_prof}" value="(@{pb}*@{investigation_type})">
+                            <span name='attr_investigation_bonus' title='@{investigation_bonus}'>0</span>
+                            <button type='roll' name='roll_investigation' value='@{wtype}&{template:simple} {{rname=^{investigation-u}}} {{mod=@{investigation_bonus}}} {{r1=[[@{d20}+@{investigation_bonus}@{pbd_safe}]]}} @{rtype}+@{investigation_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='investigation-core'>Investigation <span>(Int)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="life_science">
+                            <input type="checkbox" name="attr_life_scienceprof" title="@{life_science_prof}" value="(@{pb}*@{life_science_type})">
+                            <span name='attr_life_science_bonus' title='@{life_science_bonus}'>0</span>
+                            <button type='roll' name='roll_life_science' value='@{wtype}&{template:simple} {{rname=^{life_science-u}}} {{mod=@{life_science_bonus}}} {{r1=[[@{d20}+@{life_science_bonus}@{pbd_safe}]]}} @{rtype}+@{life_science_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='life_science-core'>Life Science <span>(Int)</span></button>
+                        </div>
+
+                        <div class="skill" data-i18n-list-item="insight">
+                            <input type="checkbox" name="attr_insight_prof" title="@{insight_prof}" value="(@{pb}*@{insight_type})">
+                            <span name='attr_insight_bonus' title='@{insight_bonus}'>0</span>
+                            <button type='roll' name='roll_insight' value='@{wtype}&{template:simple} {{rname=^{insight-u}}} {{mod=@{insight_bonus}}} {{r1=[[@{d20}+@{insight_bonus}@{pbd_safe}]]}} @{rtype}+@{insight_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='insight-core'>Insight <span>(Wis)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="perception">
+                            <input type="checkbox" name="attr_perception_prof" title="@{perception_prof}" value="(@{pb}*@{perception_type})">
+                            <span name='attr_perception_bonus' title='@{perception_bonus}'>0</span>
+                            <button type='roll' name='roll_perception' value='@{wtype}&{template:simple} {{rname=^{perception-u}}} {{mod=@{perception_bonus}}} {{r1=[[@{d20}+@{perception_bonus}@{pbd_safe}]]}} @{rtype}+@{perception_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='perception-core'>Perception <span>(Wis)</span></button>
+                        </div>
                         <div class="skill" data-i18n-list-item="survival">
                             <input type="checkbox" name="attr_survival_prof" title="@{survival_prof}" value="(@{pb}*@{survival_type})">
                             <span name='attr_survival_bonus' title='@{survival_bonus}'>0</span>
                             <button type='roll' name='roll_survival' value='@{wtype}&{template:simple} {{rname=^{survival-u}}} {{mod=@{survival_bonus}}} {{r1=[[@{d20}+@{survival_bonus}@{pbd_safe}]]}} @{rtype}+@{survival_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='survival-core'>Survival <span>(Wis)</span></button>
+                        </div>
+
+                        <div class="skill" data-i18n-list-item="deception">
+                            <input type="checkbox" name="attr_deception_prof" title="@{deception_prof}" value="(@{pb}*@{deception_type})">
+                            <span name='attr_deception_bonus' title='@{deception_bonus}'>0</span>
+                            <button type='roll' name='roll_deception' value='@{wtype}&{template:simple} {{rname=^{deception-u}}} {{mod=@{deception_bonus}}} {{r1=[[@{d20}+@{deception_bonus}@{pbd_safe}]]}} @{rtype}+@{deception_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='deception-core'>Deception <span>(Cha)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="intimidation">
+                            <input type="checkbox" name="attr_intimidation_prof" title="@{intimidation_prof}" value="(@{pb}*@{intimidation_type})">
+                            <span name='attr_intimidation_bonus' title='@{intimidation_bonus}'>0</span>
+                            <button type='roll' name='roll_intimidation' value='@{wtype}&{template:simple} {{rname=^{intimidation-u}}} {{mod=@{intimidation_bonus}}} {{r1=[[@{d20}+@{intimidation_bonus}@{pbd_safe}]]}} @{rtype}+@{intimidation_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='intimidation-core'>Intimidation <span>(Cha)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="performance">
+                            <input type="checkbox" name="attr_performance_prof" title="@{performance_prof}" value="(@{pb}*@{performance_type})">
+                            <span name='attr_performance_bonus' title='@{performance_bonus}'>0</span>
+                            <button type='roll' name='roll_performance' value='@{wtype}&{template:simple} {{rname=^{performance-u}}} {{mod=@{performance_bonus}}} {{r1=[[@{d20}+@{performance_bonus}@{pbd_safe}]]}} @{rtype}+@{performance_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='performance-core'>Performance <span>(Cha)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="persuasion">
+                            <input type="checkbox" name="attr_persuasion_prof" title="@{persuasion_prof}" value="(@{pb}*@{persuasion_type})">
+                            <span name='attr_persuasion_bonus' title='@{persuasion_bonus}'>0</span>
+                            <button type='roll' name='roll_persuasion' value='@{wtype}&{template:simple} {{rname=^{persuasion-u}}} {{mod=@{persuasion_bonus}}} {{r1=[[@{d20}+@{persuasion_bonus}@{pbd_safe}]]}} @{rtype}+@{persuasion_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='persuasion-core'>Persuasion <span>(Wis)</span></button>
+                        </div>
+
+                        <div class="skill" data-i18n-list-item="history">
+                            <input type="checkbox" name="attr_history_prof" title="@{history_prof}" value="(@{pb}*@{history_type})">
+                            <span name='attr_history_bonus' title='@{history_bonus}'>0</span>
+                            <button type='roll' name='roll_history' value='@{wtype}&{template:simple} {{rname=^{history-u}}} {{mod=@{history_bonus}}} {{r1=[[@{d20}+@{history_bonus}@{pbd_safe}]]}} @{rtype}+@{history_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='history-core'>History <span>(Int)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="medicine">
+                            <input type="checkbox" name="attr_medicine_prof" title="@{medicine_prof}" value="(@{pb}*@{medicine_type})">
+                            <span name='attr_medicine_bonus' title='@{medicine_bonus}'>0</span>
+                            <button type='roll' name='roll_medicine' value='@{wtype}&{template:simple} {{rname=^{medicine-u}}} {{mod=@{medicine_bonus}}} {{r1=[[@{d20}+@{medicine_bonus}@{pbd_safe}]]}} @{rtype}+@{medicine_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='medicine-core'>Medicine <span>(Wis)</span></button>
+                        </div>
+                        <div class="skill" data-i18n-list-item="arcana">
+                            <input type="checkbox" name="attr_arcana_prof" title="@{arcana_prof}" value="(@{pb}*@{arcana_type})">
+                            <span name='attr_arcana_bonus' title='@{arcana_bonus}'>0</span>
+                            <button type='roll' name='roll_arcana' value='@{wtype}&{template:simple} {{rname=^{arcana-u}}} {{mod=@{arcana_bonus}}} {{r1=[[@{d20}+@{arcana_bonus}@{pbd_safe}]]}} @{rtype}+@{arcana_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='arcana-core'>Arcana <span>(Int)</span></button>
                         </div>
                     </div>
                     <div class="label">
@@ -5049,6 +5078,12 @@
             </div>
             <div class="skill_options" style="width: 234px;">
                 <div data-i18n-list="skills-list">
+                    <div class="row skill" data-i18n-list-item="athletics">
+                        <select name="attr_athletics_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="athletics-core">Athletics <span>(Str)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_athletics_flat" value="0" placeholder="0" title="@{athletics_flat}">
+                    </div>
+
                     <div class="row skill" data-i18n-list-item="acrobatics">
                         <select name="attr_acrobatics_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
                         <span data-i18n="acrobatics-core">Acrobatics <span>(Dex)</span></span>
@@ -5058,71 +5093,6 @@
                         <select name="attr_drive_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
                         <span data-i18n="drive-core">Animal Handling <span>(Dex)</span></span>
                         <span>+</span><input type="text" class="num" name="attr_drive_flat" value="0" placeholder="0" title="@{drive_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="arcana">
-                        <select name="attr_arcana_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="arcana-core">Arcana <span>(Int)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_arcana_flat" value="0" placeholder="0" title="@{arcana_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="athletics">
-                        <select name="attr_athletics_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="athletics-core">Athletics <span>(Str)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_athletics_flat" value="0" placeholder="0" title="@{athletics_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="deception">
-                        <select name="attr_deception_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="deception-core">Deception <span>(Cha)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_deception_flat" value="0" placeholder="0" title="@{deception_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="history">
-                        <select name="attr_history_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="history-core">History <span>(Int)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_history_flat" value="0" placeholder="0" title="@{history_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="insight">
-                        <select name="attr_insight_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="insight-core">Insight <span>(Wis)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_insight_flat" value="0" placeholder="0" title="@{insight_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="intimidation">
-                        <select name="attr_intimidation_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="intimidation-core">Intimidation <span>(Cha)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_intimidation_flat" value="0" placeholder="0" title="@{intimidation_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="investigation">
-                        <select name="attr_investigation_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="investigation-core">Investigation <span>(Int)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_investigation_flat" value="0" placeholder="0" title="@{investigation_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="medicine">
-                        <select name="attr_medicine_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="medicine-core">Medicine <span>(Wis)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_medicine_flat" value="0" placeholder="0" title="@{medicine_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="computers">
-                        <select name="attr_computers_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="computers-core">Computers <span>(Int)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_computers_flat" value="0" placeholder="0" title="@{computers_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="perception">
-                        <select name="attr_perception_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="perception-core">Perception <span>(Wis)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_perception_flat" value="0" placeholder="0" title="@{perception_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="performance">
-                        <select name="attr_performance_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="performance-core">Performance <span>(Cha)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_performance_flat" value="0" placeholder="0" title="@{performance_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="persuasion">
-                        <select name="attr_persuasion_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="persuasion-core">Persuasion <span>(Cha)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_persuasion_flat" value="0" placeholder="0" title="@{persuasion_flat}">
-                    </div>
-                    <div class="row skill" data-i18n-list-item="bureaucracy">
-                        <select name="attr_bureaucracy_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="bureaucracy-core">Bureaucracy <span>(Int)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_bureaucracy_flat" value="0" placeholder="0" title="@{bureaucracy_flat}">
                     </div>
                     <div class="row skill" data-i18n-list-item="sleight_of_hand">
                         <select name="attr_sleight_of_hand_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
@@ -5134,10 +5104,80 @@
                         <span data-i18n="stealth-core">Stealth <span>(Dex)</span></span>
                         <span>+</span><input type="text" class="num" name="attr_stealth_flat" value="0" placeholder="0" title="@{stealth_flat}">
                     </div>
+
+                    <div class="row skill" data-i18n-list-item="bureaucracy">
+                        <select name="attr_bureaucracy_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="bureaucracy-core">Bureaucracy <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_bureaucracy_flat" value="0" placeholder="0" title="@{bureaucracy_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="computers">
+                        <select name="attr_computers_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="computers-core">Computers <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_computers_flat" value="0" placeholder="0" title="@{computers_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="investigation">
+                        <select name="attr_investigation_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="investigation-core">Investigation <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_investigation_flat" value="0" placeholder="0" title="@{investigation_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="life_science">
+                        <select name="attr_life_science_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="life_science-core">Life Science <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_life_science_flat" value="0" placeholder="0" title="@{life_science_flat}">
+                    </div>
+
+                    <div class="row skill" data-i18n-list-item="insight">
+                        <select name="attr_insight_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="insight-core">Insight <span>(Wis)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_insight_flat" value="0" placeholder="0" title="@{insight_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="perception">
+                        <select name="attr_perception_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="perception-core">Perception <span>(Wis)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_perception_flat" value="0" placeholder="0" title="@{perception_flat}">
+                    </div>
+
                     <div class="row skill" data-i18n-list-item="survival">
                         <select name="attr_survival_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
                         <span data-i18n="survival-core">Survival <span>(Wis)</span></span>
                         <span>+</span><input type="text" class="num" name="attr_survival_flat" value="0" placeholder="0" title="@{survival_flat}">
+                    </div>
+
+                    <div class="row skill" data-i18n-list-item="deception">
+                        <select name="attr_deception_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="deception-core">Deception <span>(Cha)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_deception_flat" value="0" placeholder="0" title="@{deception_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="intimidation">
+                        <select name="attr_intimidation_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="intimidation-core">Intimidation <span>(Cha)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_intimidation_flat" value="0" placeholder="0" title="@{intimidation_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="performance">
+                        <select name="attr_performance_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="performance-core">Performance <span>(Cha)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_performance_flat" value="0" placeholder="0" title="@{performance_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="persuasion">
+                        <select name="attr_persuasion_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="persuasion-core">Persuasion <span>(Cha)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_persuasion_flat" value="0" placeholder="0" title="@{persuasion_flat}">
+                    </div>
+
+                    <div class="row skill" data-i18n-list-item="arcana">
+                        <select name="attr_arcana_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="arcana-core">Arcana <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_arcana_flat" value="0" placeholder="0" title="@{arcana_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="history">
+                        <select name="attr_history_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="history-core">History <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_history_flat" value="0" placeholder="0" title="@{history_flat}">
+                    </div>
+                    <div class="row skill" data-i18n-list-item="medicine">
+                        <select name="attr_medicine_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="medicine-core">Medicine <span>(Wis)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_medicine_flat" value="0" placeholder="0" title="@{medicine_flat}">
                     </div>
                 </div>
                 <div class="row" style="margin-top:10px;">
@@ -5388,6 +5428,7 @@
 <input type='hidden' name='attr_insight_bonus' value='0'>
 <input type='hidden' name='attr_intimidation_bonus' value='0'>
 <input type='hidden' name='attr_investigation_bonus' value='0'>
+<input type='hidden' name='attr_life_science_bonus' value='0'>
 <input type='hidden' name='attr_medicine_bonus' value='0'>
 <input type='hidden' name='attr_computers_bonus' value='0'>
 <input type='hidden' name='attr_perception_bonus' value='0'>
@@ -6750,7 +6791,7 @@
                     update_initiative();
                     break;
                 case "intelligence":
-                    update_skills(["arcana", "history", "investigation", "computers", "bureaucracy"]);
+                    update_skills(["arcana", "history", "investigation", "life_science", "computers", "bureaucracy"]);
                     break;
                 case "wisdom":
                     update_skills([ "insight", "medicine", "perception", "survival"]);
@@ -6781,7 +6822,7 @@
         update_save("death");
     });
 
-    ['acrobatics','drive','arcana','athletics','deception','history','insight','intimidation','investigation',
+    ['acrobatics','drive','arcana','athletics','deception','history','insight','intimidation','investigation','life_science',
     'medicine','computers','perception','performance','persuasion','bureaucracy','sleight_of_hand','stealth','survival'].forEach(attr => {
         on(`change:${attr}_prof change:${attr}_type change:${attr}_flat`, function(eventinfo) {
             if(eventinfo.sourceType === "sheetworker") {return;};
@@ -7125,7 +7166,7 @@
         update_npc_saves();
     });
 
-    on("change:npc_acrobatics_base change:npc_drive_base change:npc_arcana_base change:npc_athletics_base change:npc_deception_base change:npc_history_base change:npc_insight_base change:npc_intimidation_base change:npc_investigation_base change:npc_medicine_base change:npc_computers_base change:npc_perception_base change:npc_performance_base change:npc_persuasion_base change:npc_bureaucracy_base change:npc_sleight_of_hand_base change:npc_stealth_base change:npc_survival_base", function(eventinfo) {
+    on("change:npc_acrobatics_base change:npc_drive_base change:npc_arcana_base change:npc_athletics_base change:npc_deception_base change:npc_history_base change:npc_insight_base change:npc_intimidation_base change:npc_investigation_base change:npc_life_science_base change:npc_medicine_base change:npc_computers_base change:npc_perception_base change:npc_performance_base change:npc_persuasion_base change:npc_bureaucracy_base change:npc_sleight_of_hand_base change:npc_stealth_base change:npc_survival_base", function(eventinfo) {
         update_npc_skills();
     });
 
@@ -7455,11 +7496,11 @@
 
     var update_all_ability_checks = function(){
         update_initiative();
-        update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
+        update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "life_science", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
     };
 
     var update_skills = function (skills_array) {
-        var skill_parent = {athletics: "strength", acrobatics: "dexterity", sleight_of_hand: "dexterity", stealth: "dexterity", arcana: "intelligence", history: "intelligence", investigation: "intelligence", computers: "intelligence", bureaucracy: "intelligence", drive: "dexterity", insight: "wisdom", medicine: "wisdom", perception: "wisdom", survival: "wisdom", deception: "charisma", intimidation: "charisma", performance: "charisma", persuasion: "charisma"};
+        var skill_parent = {athletics: "strength", acrobatics: "dexterity", sleight_of_hand: "dexterity", stealth: "dexterity", arcana: "intelligence", history: "intelligence", investigation: "intelligence", life_science: "intelligence", computers: "intelligence", bureaucracy: "intelligence", drive: "dexterity", insight: "wisdom", medicine: "wisdom", perception: "wisdom", survival: "wisdom", deception: "charisma", intimidation: "charisma", performance: "charisma", persuasion: "charisma"};
         var attrs_to_get = ["pb","pb_type","jack_of_all_trades","jack"];
         var update = {};
         var callbacks = [];
@@ -8074,7 +8115,7 @@
             update["npc_senses"] = senses;
 
             //SAVES & SKILLS
-            const npcSavesSkills = ["str_save", "dex_save", "con_save", "int_save", "wis_save", "cha_save",'acrobatics','drive','arcana','athletics','deception','history','insight','intimidation','investigation','medicine','computers','perception','performance','persuasion','bureaucracy','sleight_of_hand','stealth','survival'];
+            const npcSavesSkills = ["str_save", "dex_save", "con_save", "int_save", "wis_save", "cha_save",'acrobatics','drive','arcana','athletics','deception','history','insight','intimidation','investigation','life_science','medicine','computers','perception','performance','persuasion','bureaucracy','sleight_of_hand','stealth','survival'];
             npcSavesSkills.forEach((attr) => {
                 update[`npc_${attr}_base`] = "";
             });
@@ -8859,6 +8900,7 @@
             if(mod.indexOf("insight") > -1) {update_skills(["insight"]);};
             if(mod.indexOf("intimidation") > -1) {update_skills(["intimidation"]);};
             if(mod.indexOf("investigation") > -1) {update_skills(["investigation"]);};
+            if(mod.indexOf("life_science") > -1) {update_skills(["life_science"]);};
             if(mod.indexOf("medicine") > -1) {update_skills(["medicine"]);};
             if(mod.indexOf("computers") > -1) {update_skills(["computers"]);};
             if(mod.indexOf("perception") > -1) {update_skills(["perception"]);};
@@ -10189,7 +10231,7 @@
             callbacks.push( function() {update_initiative();} );
             callbacks.push( function() {update_tool("all");} );
             callbacks.push( function() {update_all_saves();} );
-            callbacks.push( function() {update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);} );
+            callbacks.push( function() {update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "life_science", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);} );
 
             setAttrs(update, {silent: true}, function() {callbacks.forEach(function(callback) {callback(); })} );
         });
@@ -10348,7 +10390,7 @@
     };
 
     const update_npc_skills = () => {
-        const list = ["npc_acrobatics_base","npc_drive_base","npc_arcana_base","npc_athletics_base","npc_deception_base","npc_history_base","npc_insight_base","npc_intimidation_base","npc_investigation_base","npc_medicine_base","npc_computers_base","npc_perception_base","npc_performance_base","npc_persuasion_base","npc_bureaucracy_base","npc_sleight_of_hand_base","npc_stealth_base","npc_survival_base"];
+        const list = ["npc_acrobatics_base","npc_drive_base","npc_arcana_base","npc_athletics_base","npc_deception_base","npc_history_base","npc_insight_base","npc_intimidation_base","npc_investigation_base","npc_life_science_base","npc_medicine_base","npc_computers_base","npc_perception_base","npc_performance_base","npc_persuasion_base","npc_bureaucracy_base","npc_sleight_of_hand_base","npc_stealth_base","npc_survival_base"];
         const type = "skills";
         update_npc_lists(list, type);
     };
@@ -10840,10 +10882,10 @@
     }
 
     var upgrade_to_2_0 = function(doneupdating) {
-        getAttrs(["npc","strength","dexterity","constitution","intelligence","wisdom","charisma","strength_base","dexterity_base","constitution_base","intelligence_base","wisdom_base","charisma_base","deathsavemod","death_save_mod","npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_str_save_base","npc_dex_save_base","npc_con_save_base","npc_int_save_base","npc_wis_save_base","npc_cha_save_base","npc_acrobatics_base", "npc_drive_base", "npc_arcana_base", "npc_athletics_base", "npc_deception_base", "npc_history_base", "npc_insight_base", "npc_intimidation_base", "npc_investigation_base", "npc_medicine_base", "npc_computers_base", "npc_perception_base", "npc_performance_base", "npc_persuasion_base", "npc_bureaucracy_base", "npc_sleight_of_hand_base", "npc_stealth_base", "npc_survival_base", "npc_acrobatics", "npc_drive", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_medicine", "npc_computers", "npc_perception", "npc_performance", "npc_persuasion", "npc_bureaucracy", "npc_sleight_of_hand", "npc_stealth", "npc_survival"], function(v) {
+        getAttrs(["npc","strength","dexterity","constitution","intelligence","wisdom","charisma","strength_base","dexterity_base","constitution_base","intelligence_base","wisdom_base","charisma_base","deathsavemod","death_save_mod","npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_str_save_base","npc_dex_save_base","npc_con_save_base","npc_int_save_base","npc_wis_save_base","npc_cha_save_base","npc_acrobatics_base", "npc_drive_base", "npc_arcana_base", "npc_athletics_base", "npc_deception_base", "npc_history_base", "npc_insight_base", "npc_intimidation_base", "npc_investigation_base", "npc_life_science_base", "npc_medicine_base", "npc_computers_base", "npc_perception_base", "npc_performance_base", "npc_persuasion_base", "npc_bureaucracy_base", "npc_sleight_of_hand_base", "npc_stealth_base", "npc_survival_base", "npc_acrobatics", "npc_drive", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_life_science", "npc_medicine", "npc_computers", "npc_perception", "npc_performance", "npc_persuasion", "npc_bureaucracy", "npc_sleight_of_hand", "npc_stealth", "npc_survival"], function(v) {
             var update = {};
             var stats = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
-            var npc_stats = ["npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_acrobatics", "npc_drive", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_medicine", "npc_computers", "npc_perception", "npc_performance", "npc_persuasion", "npc_bureaucracy", "npc_sleight_of_hand", "npc_stealth", "npc_survival"];
+            var npc_stats = ["npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_acrobatics", "npc_drive", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_life_science", "npc_medicine", "npc_computers", "npc_perception", "npc_performance", "npc_persuasion", "npc_bureaucracy", "npc_sleight_of_hand", "npc_stealth", "npc_survival"];
             _.each(stats, function(attr) {
                 if(v[attr] && v[attr] != "10" && v[attr + "_base"] == "10") {
                     update[attr + "_base"] = v[attr];
@@ -10883,7 +10925,7 @@
                     update_mod("wisdom");
                     update_mod("charisma");
                     update_all_saves();
-                    update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
+                    update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "life_science", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
                     update_tool("all")
                     update_attacks("all");
                     update_pb();
@@ -14373,7 +14415,7 @@
         var allDrops = [];
         var currentDrop = 0;
         var totalDrops = 1;
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "life_science", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var allAbilities = abilityList.map(function(x) {return x.toLowerCase()});
         var eraseSections = ["attack", "inventory", "traits", "resource", "proficiencies", "tool", "damagemod", "spell-cantrip", "hpmod", "acmod", "tohitmod", "savemod", "skillmod"];
         console.log(blobs);
@@ -14842,7 +14884,7 @@
             }).join(" ");
         };
         var spellSections = ["spell-cantrip"];
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "life_science", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var skillget = [];
         for(var x=1; x<=9; x++) {
             spellSections.push("spell-" + x);
@@ -17067,7 +17109,7 @@
         var allDrops = [];
         var currentDrop = 0;
         var totalDrops = 1;
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "life_science", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var allAbilities = abilityList.map(function(x) {return x.toLowerCase()});
         set["lp-mancer_status"] = "";
         console.log(blobs);
