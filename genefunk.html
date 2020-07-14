@@ -318,10 +318,6 @@
             <input type="checkbox" name="attr_init_tiebreaker" value="@{dexterity}/100">
             <span data-i18n="add-dex-tiebreaker-u">ADD DEX TIEBREAKER TO INITIATIVE</span>
         </div>
-        <div class="row">
-            <input type="checkbox" name="attr_licensedsheet" value="1">
-            <span data-i18n="use-licensed-sheet-styling">USE OFFICIAL D&D STYLING</span>
-        </div>
     </div>
     <div class="display stat-block">
         <div class="row title red">
@@ -5339,32 +5335,8 @@
                         <option value="0" data-i18n="off" selected="selected">Off</option>
                     </select>
                 </div>
-                <div class="row">
-                    <input type="checkbox" name="attr_licensedsheet" value="1">
-                    <span data-i18n="use-licensed-sheet-styling">USE OFFICIAL D&D STYLING</span>
-                </div>
                 <div class="row title">
                     <span data-i18n="general-opts-u">GENERAL OPTIONS</span>
-                </div>
-            </div>
-            <div class="general_options charactermancer_options">
-                <input type="hidden" class="warningflag" name="attr_leveler_warningflag">
-                <div class="warning">
-                    <span>
-                        <label><input type="checkbox" name="attr_leveler_warningflag" value="hide">*</label>
-                        <span data-i18n="warning-leveler_start-u">
-                            ATTENTION - YOU CANNOT LAUNCH THE CHARACTERMANCER LEVEL UP UNTIL YOU HAVE A CLASS, LEVEL, AND HP SET FOR LEVEL ONE. PLEASE RUN THE CHARACTERMANCER CREATOR FIRST. THE LEVEL UP TOOL DOESN'T WORK WITH CUSTOM CLASSES OR IF THE MULTICLASS OPTIONS ARE SET UP INCORRECTLY.
-                        </span>
-                    </span>
-                </div>
-                <div class="row">
-                    <button type="action" name="act_relaunch_lvl1mancer" style="padding: 0px;"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/5th%20Edition%20OGL%20by%20Roll20/images/CharactermancerIcon200px.png" style="height: 32px; width: 32px" alt="Wand & Hammer of Charactermancer"></button><span style="width: 180px; margin-left: 10px; display: inline-block;" data-i18n="relaunch-lvl1mancer-u">LAUNCH LEVEL 1 CHARACTERMANCER (CANNOT BE UNDONE)</span>
-                </div>
-                <div class="row">
-                    <button type="action" name="act_launch_lvl+mancer" style="padding: 0px;"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/5th%20Edition%20OGL%20by%20Roll20/images/CharactermancerIcon200px.png" style="height: 32px; width: 32px" alt="Wand & Hammer of Charactermancer"></button><span style="width: 180px; margin-left: 10px; display: inline-block;">LAUNCH LEVEL+ CHARACTERMANCER</span>
-                </div>
-                <div class="row title">
-                    <span data-i18n="mancer-opts-u">CHARACTERMANCER OPTIONS</span>
                 </div>
             </div>
         </div>
@@ -5488,9 +5460,6 @@
 <div class="mancer_confirm">
     <span style="line-height: 25px" data-i18n="do_you_want_mancer">How do  you want to create this character?</span>
     <div style="margin-top: 20px;">
-        <div style="position: relative; display: inline-block; width:130px;">
-            <input class="yes" type="checkbox" style="width:130px;" name="attr_mancer_confirm"><span class="yes" style="width:130px;" data-i18n="mancer-confirm-yes">Use the Charactermancer</span>
-        </div>
         <div style="position: relative; display: inline-block; width:80px;">
             <input class="yes" style="width:80px;" type="checkbox" name="attr_mancer_npc"><span class="yes" style="width:80px;" data-i18n="npc-new">Create an NPC</span>
         </div>
