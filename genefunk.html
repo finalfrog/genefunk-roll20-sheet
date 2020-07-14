@@ -121,6 +121,10 @@
                 </div>
             </div>
             <div class="col" data-i18n-list-sublist>
+                <div class="row" data-i18n-list-item="computers">
+                    <span data-i18n="computers-u">COMPUTERS</span>
+                    <input class="num" type="text" name="attr_npc_computers_base" placeholder="0">
+                </div>
                 <div class="row" data-i18n-list-item="insight">
                     <span data-i18n="insight-u">INSIGHT</span>
                     <input class="num" type="text" name="attr_npc_insight_base" placeholder="0">
@@ -136,10 +140,6 @@
                 <div class="row" data-i18n-list-item="medicine">
                     <span data-i18n="medicine-u">MEDICINE</span>
                     <input class="num" type="text" name="attr_npc_medicine_base" placeholder="0">
-                </div>
-                <div class="row" data-i18n-list-item="nature">
-                    <span data-i18n="nature-u">NATURE</span>
-                    <input class="num" type="text" name="attr_npc_nature_base" placeholder="0">
                 </div>
                 <div class="row" data-i18n-list-item="perception">
                     <span data-i18n="perception-u">PERCEPTION</span>
@@ -182,7 +182,7 @@
             <input type="hidden" name="attr_npc_intimidation" value="@{charisma_mod}">
             <input type="hidden" name="attr_npc_investigation" value="@{intelligence_mod}">
             <input type="hidden" name="attr_npc_medicine" value="@{wisdom_mod}">
-            <input type="hidden" name="attr_npc_nature" value="@{intelligence_mod}">
+            <input type="hidden" name="attr_npc_computers" value="@{intelligence_mod}">
             <input type="hidden" name="attr_npc_perception" value="@{wisdom_mod}">
             <input type="hidden" name="attr_npc_performance" value="@{charisma_mod}">
             <input type="hidden" name="attr_npc_persuasion" value="@{charisma_mod}">
@@ -501,11 +501,11 @@
                     <span class="stat" name="attr_npc_medicine"></span>
                 </button>
             </span>
-            <span data-i18n-list-item="nature">
-                <input class="flag" type="hidden" name="attr_npc_nature_flag" value="0">
-                <button type="roll" name="roll_npc_nature" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{nature}}} {{mod=@{npc_nature}}} {{r1=[[@{d20}+@{npc_nature}]]}} @{rtype}+@{npc_nature}]]}} {{type=Skill}}">
-                    <span data-i18n="nature">Nature</span>
-                    <span class="stat" name="attr_npc_nature"></span>
+            <span data-i18n-list-item="computers">
+                <input class="flag" type="hidden" name="attr_npc_computers_flag" value="0">
+                <button type="roll" name="roll_npc_computers" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=^{computers}}} {{mod=@{npc_computers}}} {{r1=[[@{d20}+@{npc_computers}]]}} @{rtype}+@{npc_computers}]]}} {{type=Skill}}">
+                    <span data-i18n="computers">Computers</span>
+                    <span class="stat" name="attr_npc_computers"></span>
                 </button>
             </span>
             <span data-i18n-list-item="perception">
@@ -1212,10 +1212,10 @@
                             <span name='attr_medicine_bonus' title='@{medicine_bonus}'>0</span>
                             <button type='roll' name='roll_medicine' value='@{wtype}&{template:simple} {{rname=^{medicine-u}}} {{mod=@{medicine_bonus}}} {{r1=[[@{d20}+@{medicine_bonus}@{pbd_safe}]]}} @{rtype}+@{medicine_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='medicine-core'>Medicine <span>(Wis)</span></button>
                         </div>
-                        <div class="skill" data-i18n-list-item="nature">
-                            <input type="checkbox" name="attr_nature_prof" title="@{nature_prof}" value="(@{pb}*@{nature_type})">
-                            <span name='attr_nature_bonus' title='@{nature_bonus}'>0</span>
-                            <button type='roll' name='roll_nature' value='@{wtype}&{template:simple} {{rname=^{nature-u}}} {{mod=@{nature_bonus}}} {{r1=[[@{d20}+@{nature_bonus}@{pbd_safe}]]}} @{rtype}+@{nature_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='nature-core'>Nature <span>(Int)</span></button>
+                        <div class="skill" data-i18n-list-item="computers">
+                            <input type="checkbox" name="attr_computers_prof" title="@{computers_prof}" value="(@{pb}*@{computers_type})">
+                            <span name='attr_computers_bonus' title='@{computers_bonus}'>0</span>
+                            <button type='roll' name='roll_computers' value='@{wtype}&{template:simple} {{rname=^{computers-u}}} {{mod=@{computers_bonus}}} {{r1=[[@{d20}+@{computers_bonus}@{pbd_safe}]]}} @{rtype}+@{computers_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output} {{licensedsheet=@{licensedsheet}}}' data-i18n='computers-core'>Computers <span>(Int)</span></button>
                         </div>
                         <div class="skill" data-i18n-list-item="perception">
                             <input type="checkbox" name="attr_perception_prof" title="@{perception_prof}" value="(@{pb}*@{perception_type})">
@@ -5099,10 +5099,10 @@
                         <span data-i18n="medicine-core">Medicine <span>(Wis)</span></span>
                         <span>+</span><input type="text" class="num" name="attr_medicine_flat" value="0" placeholder="0" title="@{medicine_flat}">
                     </div>
-                    <div class="row skill" data-i18n-list-item="nature">
-                        <select name="attr_nature_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                        <span data-i18n="nature-core">Nature <span>(Int)</span></span>
-                        <span>+</span><input type="text" class="num" name="attr_nature_flat" value="0" placeholder="0" title="@{nature_flat}">
+                    <div class="row skill" data-i18n-list-item="computers">
+                        <select name="attr_computers_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
+                        <span data-i18n="computers-core">Computers <span>(Int)</span></span>
+                        <span>+</span><input type="text" class="num" name="attr_computers_flat" value="0" placeholder="0" title="@{computers_flat}">
                     </div>
                     <div class="row skill" data-i18n-list-item="perception">
                         <select name="attr_perception_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
@@ -5389,7 +5389,7 @@
 <input type='hidden' name='attr_intimidation_bonus' value='0'>
 <input type='hidden' name='attr_investigation_bonus' value='0'>
 <input type='hidden' name='attr_medicine_bonus' value='0'>
-<input type='hidden' name='attr_nature_bonus' value='0'>
+<input type='hidden' name='attr_computers_bonus' value='0'>
 <input type='hidden' name='attr_perception_bonus' value='0'>
 <input type='hidden' name='attr_performance_bonus' value='0'>
 <input type='hidden' name='attr_persuasion_bonus' value='0'>
@@ -6750,7 +6750,7 @@
                     update_initiative();
                     break;
                 case "intelligence":
-                    update_skills(["arcana", "history", "investigation", "nature", "bureaucracy"]);
+                    update_skills(["arcana", "history", "investigation", "computers", "bureaucracy"]);
                     break;
                 case "wisdom":
                     update_skills([ "insight", "medicine", "perception", "survival"]);
@@ -6782,7 +6782,7 @@
     });
 
     ['acrobatics','drive','arcana','athletics','deception','history','insight','intimidation','investigation',
-    'medicine','nature','perception','performance','persuasion','bureaucracy','sleight_of_hand','stealth','survival'].forEach(attr => {
+    'medicine','computers','perception','performance','persuasion','bureaucracy','sleight_of_hand','stealth','survival'].forEach(attr => {
         on(`change:${attr}_prof change:${attr}_type change:${attr}_flat`, function(eventinfo) {
             if(eventinfo.sourceType === "sheetworker") {return;};
             update_skills([`${attr}`]);
@@ -7125,7 +7125,7 @@
         update_npc_saves();
     });
 
-    on("change:npc_acrobatics_base change:npc_drive_base change:npc_arcana_base change:npc_athletics_base change:npc_deception_base change:npc_history_base change:npc_insight_base change:npc_intimidation_base change:npc_investigation_base change:npc_medicine_base change:npc_nature_base change:npc_perception_base change:npc_performance_base change:npc_persuasion_base change:npc_bureaucracy_base change:npc_sleight_of_hand_base change:npc_stealth_base change:npc_survival_base", function(eventinfo) {
+    on("change:npc_acrobatics_base change:npc_drive_base change:npc_arcana_base change:npc_athletics_base change:npc_deception_base change:npc_history_base change:npc_insight_base change:npc_intimidation_base change:npc_investigation_base change:npc_medicine_base change:npc_computers_base change:npc_perception_base change:npc_performance_base change:npc_persuasion_base change:npc_bureaucracy_base change:npc_sleight_of_hand_base change:npc_stealth_base change:npc_survival_base", function(eventinfo) {
         update_npc_skills();
     });
 
@@ -7455,11 +7455,11 @@
 
     var update_all_ability_checks = function(){
         update_initiative();
-        update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
+        update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
     };
 
     var update_skills = function (skills_array) {
-        var skill_parent = {athletics: "strength", acrobatics: "dexterity", sleight_of_hand: "dexterity", stealth: "dexterity", arcana: "intelligence", history: "intelligence", investigation: "intelligence", nature: "intelligence", bureaucracy: "intelligence", drive: "dexterity", insight: "wisdom", medicine: "wisdom", perception: "wisdom", survival: "wisdom", deception: "charisma", intimidation: "charisma", performance: "charisma", persuasion: "charisma"};
+        var skill_parent = {athletics: "strength", acrobatics: "dexterity", sleight_of_hand: "dexterity", stealth: "dexterity", arcana: "intelligence", history: "intelligence", investigation: "intelligence", computers: "intelligence", bureaucracy: "intelligence", drive: "dexterity", insight: "wisdom", medicine: "wisdom", perception: "wisdom", survival: "wisdom", deception: "charisma", intimidation: "charisma", performance: "charisma", persuasion: "charisma"};
         var attrs_to_get = ["pb","pb_type","jack_of_all_trades","jack"];
         var update = {};
         var callbacks = [];
@@ -8074,7 +8074,7 @@
             update["npc_senses"] = senses;
 
             //SAVES & SKILLS
-            const npcSavesSkills = ["str_save", "dex_save", "con_save", "int_save", "wis_save", "cha_save",'acrobatics','drive','arcana','athletics','deception','history','insight','intimidation','investigation','medicine','nature','perception','performance','persuasion','bureaucracy','sleight_of_hand','stealth','survival'];
+            const npcSavesSkills = ["str_save", "dex_save", "con_save", "int_save", "wis_save", "cha_save",'acrobatics','drive','arcana','athletics','deception','history','insight','intimidation','investigation','medicine','computers','perception','performance','persuasion','bureaucracy','sleight_of_hand','stealth','survival'];
             npcSavesSkills.forEach((attr) => {
                 update[`npc_${attr}_base`] = "";
             });
@@ -8860,7 +8860,7 @@
             if(mod.indexOf("intimidation") > -1) {update_skills(["intimidation"]);};
             if(mod.indexOf("investigation") > -1) {update_skills(["investigation"]);};
             if(mod.indexOf("medicine") > -1) {update_skills(["medicine"]);};
-            if(mod.indexOf("nature") > -1) {update_skills(["nature"]);};
+            if(mod.indexOf("computers") > -1) {update_skills(["computers"]);};
             if(mod.indexOf("perception") > -1) {update_skills(["perception"]);};
             if(mod.indexOf("performance") > -1) {update_skills(["performance"]);};
             if(mod.indexOf("persuasion") > -1) {update_skills(["persuasion"]);};
@@ -10189,7 +10189,7 @@
             callbacks.push( function() {update_initiative();} );
             callbacks.push( function() {update_tool("all");} );
             callbacks.push( function() {update_all_saves();} );
-            callbacks.push( function() {update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);} );
+            callbacks.push( function() {update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);} );
 
             setAttrs(update, {silent: true}, function() {callbacks.forEach(function(callback) {callback(); })} );
         });
@@ -10348,7 +10348,7 @@
     };
 
     const update_npc_skills = () => {
-        const list = ["npc_acrobatics_base","npc_drive_base","npc_arcana_base","npc_athletics_base","npc_deception_base","npc_history_base","npc_insight_base","npc_intimidation_base","npc_investigation_base","npc_medicine_base","npc_nature_base","npc_perception_base","npc_performance_base","npc_persuasion_base","npc_bureaucracy_base","npc_sleight_of_hand_base","npc_stealth_base","npc_survival_base"];
+        const list = ["npc_acrobatics_base","npc_drive_base","npc_arcana_base","npc_athletics_base","npc_deception_base","npc_history_base","npc_insight_base","npc_intimidation_base","npc_investigation_base","npc_medicine_base","npc_computers_base","npc_perception_base","npc_performance_base","npc_persuasion_base","npc_bureaucracy_base","npc_sleight_of_hand_base","npc_stealth_base","npc_survival_base"];
         const type = "skills";
         update_npc_lists(list, type);
     };
@@ -10840,10 +10840,10 @@
     }
 
     var upgrade_to_2_0 = function(doneupdating) {
-        getAttrs(["npc","strength","dexterity","constitution","intelligence","wisdom","charisma","strength_base","dexterity_base","constitution_base","intelligence_base","wisdom_base","charisma_base","deathsavemod","death_save_mod","npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_str_save_base","npc_dex_save_base","npc_con_save_base","npc_int_save_base","npc_wis_save_base","npc_cha_save_base","npc_acrobatics_base", "npc_drive_base", "npc_arcana_base", "npc_athletics_base", "npc_deception_base", "npc_history_base", "npc_insight_base", "npc_intimidation_base", "npc_investigation_base", "npc_medicine_base", "npc_nature_base", "npc_perception_base", "npc_performance_base", "npc_persuasion_base", "npc_bureaucracy_base", "npc_sleight_of_hand_base", "npc_stealth_base", "npc_survival_base", "npc_acrobatics", "npc_drive", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_medicine", "npc_nature", "npc_perception", "npc_performance", "npc_persuasion", "npc_bureaucracy", "npc_sleight_of_hand", "npc_stealth", "npc_survival"], function(v) {
+        getAttrs(["npc","strength","dexterity","constitution","intelligence","wisdom","charisma","strength_base","dexterity_base","constitution_base","intelligence_base","wisdom_base","charisma_base","deathsavemod","death_save_mod","npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_str_save_base","npc_dex_save_base","npc_con_save_base","npc_int_save_base","npc_wis_save_base","npc_cha_save_base","npc_acrobatics_base", "npc_drive_base", "npc_arcana_base", "npc_athletics_base", "npc_deception_base", "npc_history_base", "npc_insight_base", "npc_intimidation_base", "npc_investigation_base", "npc_medicine_base", "npc_computers_base", "npc_perception_base", "npc_performance_base", "npc_persuasion_base", "npc_bureaucracy_base", "npc_sleight_of_hand_base", "npc_stealth_base", "npc_survival_base", "npc_acrobatics", "npc_drive", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_medicine", "npc_computers", "npc_perception", "npc_performance", "npc_persuasion", "npc_bureaucracy", "npc_sleight_of_hand", "npc_stealth", "npc_survival"], function(v) {
             var update = {};
             var stats = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
-            var npc_stats = ["npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_acrobatics", "npc_drive", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_medicine", "npc_nature", "npc_perception", "npc_performance", "npc_persuasion", "npc_bureaucracy", "npc_sleight_of_hand", "npc_stealth", "npc_survival"];
+            var npc_stats = ["npc_str_save","npc_dex_save","npc_con_save","npc_int_save","npc_wis_save","npc_cha_save","npc_acrobatics", "npc_drive", "npc_arcana", "npc_athletics", "npc_deception", "npc_history", "npc_insight", "npc_intimidation", "npc_investigation", "npc_medicine", "npc_computers", "npc_perception", "npc_performance", "npc_persuasion", "npc_bureaucracy", "npc_sleight_of_hand", "npc_stealth", "npc_survival"];
             _.each(stats, function(attr) {
                 if(v[attr] && v[attr] != "10" && v[attr + "_base"] == "10") {
                     update[attr + "_base"] = v[attr];
@@ -10883,7 +10883,7 @@
                     update_mod("wisdom");
                     update_mod("charisma");
                     update_all_saves();
-                    update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
+                    update_skills(["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"]);
                     update_tool("all")
                     update_attacks("all");
                     update_pb();
@@ -14373,7 +14373,7 @@
         var allDrops = [];
         var currentDrop = 0;
         var totalDrops = 1;
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var allAbilities = abilityList.map(function(x) {return x.toLowerCase()});
         var eraseSections = ["attack", "inventory", "traits", "resource", "proficiencies", "tool", "damagemod", "spell-cantrip", "hpmod", "acmod", "tohitmod", "savemod", "skillmod"];
         console.log(blobs);
@@ -14842,7 +14842,7 @@
             }).join(" ");
         };
         var spellSections = ["spell-cantrip"];
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var skillget = [];
         for(var x=1; x<=9; x++) {
             spellSections.push("spell-" + x);
@@ -17067,7 +17067,7 @@
         var allDrops = [];
         var currentDrop = 0;
         var totalDrops = 1;
-        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "nature", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
+        var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "arcana", "history", "investigation", "computers", "bureaucracy", "drive", "insight", "medicine", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var allAbilities = abilityList.map(function(x) {return x.toLowerCase()});
         set["lp-mancer_status"] = "";
         console.log(blobs);
