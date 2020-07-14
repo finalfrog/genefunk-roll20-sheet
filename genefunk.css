@@ -112,8 +112,8 @@ input[type=radio].sheet-tab-button:checked + span {
 .sheet-toggleflag[value="1"] + .sheet-row.sheet-hidden {
   display: block; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc,
-.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header {
+.sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc,
+.sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header {
   display: block;
   visibility: hidden;
   width: 0px;
@@ -121,18 +121,18 @@ input[type=radio].sheet-tab-button:checked + span {
   margin: 0px;
   padding: 0px; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks {
+.sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks {
   display: block; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-core,
-.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-bio,
-.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-options {
+.sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-core,
+.sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-bio,
+.sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-options {
   display: none; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body {
+.sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body {
   visibility: visible; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col {
+.sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col {
   display: block; }
 
 .sheet-hidden,
@@ -1568,7 +1568,7 @@ span.sheet-hackconcentration {
   min-height: 60px;
   margin-bottom: 1px; }
 
-.sheet-hack-container input[name="attr_hackcastingtime"] {
+.sheet-hack-container input[name="attr_hackingtime"] {
   width: 168px; }
 
 .sheet-hack-container input[name="attr_hackrange"] {
@@ -2624,7 +2624,7 @@ By Miguel
 .sheet-container.sheet-npc .sheet-legendary,
 .sheet-container.sheet-npc .sheet-reaction,
 .sheet-npchack_flag[value="0"] ~ .sheet-npchack,
-.sheet-npchackcastingflag:not(:checked) ~ .sheet-npchackoptions {
+.sheet-npchackingflag:not(:checked) ~ .sheet-npchackoptions {
   display: none; }
 
 .sheet-legendary_flag:not([value="0"]) ~ .sheet-legendary,
@@ -3243,7 +3243,7 @@ By Miguel
 
 /* Translation Overrides */
 /* Spanish */
-.lang-es .sheet-hack-container input[name="attr_hackcastingtime"] {
+.lang-es .sheet-hack-container input[name="attr_hackingtime"] {
   width: 115px; }
 
 .lang-es .sheet-hack-container input[name="attr_hackrange"] {
@@ -4741,8 +4741,8 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
   input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select,
   input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part input {
     border: none; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select[name=attr_hackcasting_ability],
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select[name=attr_hackcasting_ability] {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select[name=attr_hacking_ability],
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select[name=attr_hacking_ability] {
     text-align-last: center; }
   div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-header div.sheet-part span.sheet-display,
   input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-header div.sheet-part span.sheet-display {
@@ -5296,19 +5296,19 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
     flex-flow: wrap;
     margin-bottom: 2%;
     min-width: 100%; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_total-u"],
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_remaining-u"],
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_total-u"],
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_remaining-u"],
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_total-u"],
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_remaining-u"],
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_total-u"],
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_remaining-u"],
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header {
     display: none; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc {
     top: unset;
     width: 100%; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -5319,8 +5319,8 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col {
     background: #fff;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
