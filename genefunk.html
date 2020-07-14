@@ -832,11 +832,9 @@
                                     <option value="necromancy" data-i18n="necromancy">Necromancy</option>
                                     <option value="transmutation" data-i18n="transmutation">Transmutation</option>
                                 </select>
-                                <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
+                                <span data-i18n="launch-time:-u">LAUNCH TIME:</span>
                                 <input type="text" name="attr_hackingtime">
                             </div>
                             <div class="row">
@@ -846,17 +844,6 @@
                             <div class="row">
                                 <span data-i18n="target:-u">TARGET:</span>
                                 <input type="text" name="attr_hacktarget">
-                            </div>
-                            <input type="hidden" name="attr_hackcomp">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="hack-component-verbal">V</span>
-                                <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="hack-component-somatic">S</span>
-                                <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="hack-component-material">M</span>
-                                <input type="text" name="attr_hackcomp_materials" style="margin-left: 17px;" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                             </div>
                             <div class="row">
                                 <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
@@ -961,14 +948,12 @@
                             <input type="hidden" name="attr_rollbase">
                         </div>
                         <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output}">
+                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}}{{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output}">
                             <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
                                 <input type="hidden" name="attr_hackprepared"><span class="prep"></span>
                                 <span class="hackname" name="attr_hackname"></span>
                             </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
                             <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <span class="hackritual">R</span>
                             <span class="hackconcentration">C</span>
                         </div>
                     </div>
@@ -1969,261 +1954,6 @@
     <input type="hidden" class="hackicon_flag" name="attr_hackicon_flag" value="all">
     <div class="body">
         <div class="col col1">
-            <div class="hack-level">
-                <div class="level">
-                    <span class="label">0</span>
-                </div>
-                <div class="cantrips">
-                    <span class="label" data-i18n="cantrips-u">CANTRIPS</span>
-                </div>
-            </div>
-            <div class="hack-container">
-                <fieldset class="repeating_hack-cantrip">
-                    <div class="hack">
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
-                            <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
-                                <span class="hackname" name="attr_hackname"></span>
-                                <input class="innate_flag" type="hidden" name="attr_innate" value="">
-                                <span class="innate" name="attr_innate"></span>
-                            </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
-                            <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
-                            <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
-                        </div>
-                        <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
-                        <div class="wrapper">
-                            <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                            <div class="options">
-                                <div class="row">
-                                    <span data-i18n="name:-u">NAME:</span>
-                                    <input type="text" name="attr_hackname">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="school:-u">SCHOOL:</span>
-                                    <select name="attr_hackschool">
-                                        <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                        <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                        <option value="divination" data-i18n="divination">Divination</option>
-                                        <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                        <option value="evocation" data-i18n="evocation">Evocation</option>
-                                        <option value="illusion" data-i18n="illusion">Illusion</option>
-                                        <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                        <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                    </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
-                                    <input type="text" name="attr_hackingtime">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="range:-u">RANGE:</span>
-                                    <input type="text" name="attr_hackrange">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="target:-u">TARGET:</span>
-                                    <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration-u">CONCENTRATION</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="duration:-u">DURATION:</span>
-                                    <input type="text" name="attr_hackduration">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="hack-ability-u">HACKING ABILITY</span>
-                                    <select name="attr_hack_ability">
-                                        <option value="0*" data-i18n="none-u">NONE</option>
-                                        <option value="hack" data-i18n="hack-u">HACK</option>
-                                        <option value="@{strength_mod}+" data-i18n="strength-u">STRENGTH</option>
-                                        <option value="@{dexterity_mod}+" data-i18n="dexterity-u">DEXTERITY</option>
-                                        <option value="@{constitution_mod}+" data-i18n="constitution-u">CONSTITUTION</option>
-                                        <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
-                                        <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
-                                        <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="innate:-u">INNATE:</span>
-                                    <input type="text" name="attr_innate" placeholder="1/day" value="">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="output:-u">OUTPUT:</span>
-                                    <select name="attr_hackoutput">
-                                        <option value="HACKCARD" data-i18n="hackcard-u">HACKCARD</option>
-                                        <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" class="hackattackinfoflag" name="attr_hackoutput">
-                                <div class="hackattackinfo">
-                                    <div class="row">
-                                        <span data-i18n="hack-atk:-u">HACK ATTACK:</span>
-                                        <select name="attr_hackattack">
-                                            <option value="None" data-i18n="none">None</option>
-                                            <option value="Melee" data-i18n="melee">Melee</option>
-                                            <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                        </select>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage:-u">DAMAGE:</span>
-                                        <input type="text" name="attr_hackdamage" style="width: 50px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                        <input type="text" name="attr_hackdamage2" style="width: 45px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype2" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="healing:-u">HEALING:</span>
-                                        <input type="text" name="attr_hackhealing" style="width: 45px;">
-                                    </div>
-                                    <div class="row">
-                                        <input type="checkbox" name="attr_hackdmgmod" value="Yes">
-                                        <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                        <select name="attr_hacksave">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="Strength" data-i18n="str-u">STR</option>
-                                            <option value="Dexterity" data-i18n="dex-u">DEX</option>
-                                            <option value="Constitution" data-i18n="con-u">CON</option>
-                                            <option value="Intelligence" data-i18n="int-u">INT</option>
-                                            <option value="Wisdom" data-i18n="wis-u">WIS</option>
-                                            <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                        </select>
-                                        <span data-i18n="effect:-u">EFFECT:</span>
-                                        <input type="text" name="attr_hacksavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL HACK DMG:</span>
-                                        <input type="text" name="attr_hackhldie" placeholder="1" style="width: 15px; text-align: right;">
-                                        <select name="attr_hackhldietype">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="d4">d4</option>
-                                            <option value="d6">d6</option>
-                                            <option value="d8">d8</option>
-                                            <option value="d10">d10</option>
-                                            <option value="d12">d12</option>
-                                            <option value="d20">d20</option>
-                                        </select>
-                                        <span>+</span>
-                                        <input type="text" name="attr_hackhlbonus" placeholder="0" style="width: 15px; text-align: center;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="include_hack_desc:-u">INCLUDE HACK DESCRIPTION IN ATTACK:</span>
-                                        <select name="attr_includedesc">
-                                            <option value="off" selected="selected" data-i18n="off">Off</option>
-                                            <option value="partial" data-i18n="partial">Partial</option>
-                                            <option value="on" data-i18n="on">On</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="description:-u">DESCRIPTION:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackdescription"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="class:-u">CLASS:</span>
-                                    <input type="text" name="attr_hackclass" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_hacksource" style="width: 45px;">
-                                </div>
-                                <input type="hidden" name="attr_hackattackid">
-                                <input type="hidden" name="attr_hacklevel" value="cantrip">
-                                <label class="options-done">
-                                    <input type="checkbox" name="attr_options-flag" checked="checked">
-                                    <span class="label" data-i18n="done">Done</span>
-                                </label>
-                            </div>
-                            <div class="details">
-                                <span class="row">
-                                    <span name="attr_hackname"></span><input class="innate_flag" type="hidden" name="attr_innate" value=""><span class="innate" name="attr_innate"></span>
-                                </span>
-                                <div class="row italics">
-                                    <span name="attr_hackschool"></span>
-                                    <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
-                                    <span name="attr_hackingtime"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="range:">Range:</span>
-                                    <span name="attr_hackrange"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="target:">Target:</span>
-                                    <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="duration:">Duration:</span>
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration">Concentration</span>
-                                    <span name="attr_hackduration"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="description:">Description:</span>
-                                </div>
-                                <div class="row">
-                                    <span name="attr_hackdescription"></span>
-                                </div>
-                                <input type="hidden" name="attr_hackathigherlevels" value="">
-                                <div class="row">
-                                    <span class="bold italics" data-i18n="at-higher-lvl">At Higher Levels</span>
-                                    <span name="attr_hackathigherlevels"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-
             <span class="hack-labels">
                 <span data-i18n="slots_total-u" style="margin-right: 45px;">SLOTS TOTAL</span>
                 <span data-i18n="slots_remaining-u">SLOTS REMAINING</span>
@@ -2243,25 +1973,15 @@
                 <fieldset class="repeating_hack-1">
                     <div class="hack">
                         <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
+                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}}{{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
                             <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
                             <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
                                 <span class="hackname" name="attr_hackname"></span>
                                 <input class="innate_flag" type="hidden" name="attr_innate" value="">
                                 <span class="innate" name="attr_innate"></span>
                             </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
                             <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
                             <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
                         </div>
                         <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
                         <div class="wrapper">
@@ -2283,11 +2003,9 @@
                                         <option value="necromancy" data-i18n="necromancy">Necromancy</option>
                                         <option value="transmutation" data-i18n="transmutation">Transmutation</option>
                                     </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
+                                    <span data-i18n="launch-time:-u">LAUNCH TIME:</span>
                                     <input type="text" name="attr_hackingtime">
                                 </div>
                                 <div class="row">
@@ -2297,17 +2015,6 @@
                                 <div class="row">
                                     <span data-i18n="target:-u">TARGET:</span>
                                     <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
@@ -2443,11 +2150,9 @@
                                 <div class="row italics">
                                     <span name="attr_hackschool"></span>
                                     <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
                                 </div>
                                 <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
+                                    <span class="bold" data-i18n="launch-time:">Launch Time:</span>
                                     <span name="attr_hackingtime"></span>
                                 </div>
                                 <div class="row">
@@ -2457,12 +2162,6 @@
                                 <div class="row">
                                     <span class="bold" data-i18n="target:">Target:</span>
                                     <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
                                 </div>
                                 <div class="row">
                                     <span class="bold" data-i18n="duration:">Duration:</span>
@@ -2502,25 +2201,15 @@
                 <fieldset class="repeating_hack-2">
                     <div class="hack">
                         <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
+                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
                             <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
                             <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
                                 <span class="hackname" name="attr_hackname"></span>
                                 <input class="innate_flag" type="hidden" name="attr_innate" value="">
                                 <span class="innate" name="attr_innate"></span>
                             </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
                             <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
                             <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
                         </div>
                         <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
                         <div class="wrapper">
@@ -2542,11 +2231,9 @@
                                         <option value="necromancy" data-i18n="necromancy">Necromancy</option>
                                         <option value="transmutation" data-i18n="transmutation">Transmutation</option>
                                     </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
+                                    <span data-i18n="launch-time:-u">LAUNCH TIME:</span>
                                     <input type="text" name="attr_hackingtime">
                                 </div>
                                 <div class="row">
@@ -2556,17 +2243,6 @@
                                 <div class="row">
                                     <span data-i18n="target:-u">TARGET:</span>
                                     <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
@@ -2702,11 +2378,9 @@
                                 <div class="row italics">
                                     <span name="attr_hackschool"></span>
                                     <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
                                 </div>
                                 <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
+                                    <span class="bold" data-i18n="launch-time:">Launch Time:</span>
                                     <span name="attr_hackingtime"></span>
                                 </div>
                                 <div class="row">
@@ -2716,12 +2390,6 @@
                                 <div class="row">
                                     <span class="bold" data-i18n="target:">Target:</span>
                                     <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
                                 </div>
                                 <div class="row">
                                     <span class="bold" data-i18n="duration:">Duration:</span>
@@ -2764,25 +2432,15 @@
                 <fieldset class="repeating_hack-3">
                     <div class="hack">
                         <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
+                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
                             <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
                             <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
                                 <span class="hackname" name="attr_hackname"></span>
                                 <input class="innate_flag" type="hidden" name="attr_innate" value="">
                                 <span class="innate" name="attr_innate"></span>
                             </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
                             <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
                             <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
                         </div>
                         <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
                         <div class="wrapper">
@@ -2804,11 +2462,9 @@
                                         <option value="necromancy" data-i18n="necromancy">Necromancy</option>
                                         <option value="transmutation" data-i18n="transmutation">Transmutation</option>
                                     </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
+                                    <span data-i18n="launch-time:-u">LAUNCH TIME:</span>
                                     <input type="text" name="attr_hackingtime">
                                 </div>
                                 <div class="row">
@@ -2818,17 +2474,6 @@
                                 <div class="row">
                                     <span data-i18n="target:-u">TARGET:</span>
                                     <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
@@ -2964,11 +2609,9 @@
                                 <div class="row italics">
                                     <span name="attr_hackschool"></span>
                                     <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
                                 </div>
                                 <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
+                                    <span class="bold" data-i18n="launch-time:">Launch Time:</span>
                                     <span name="attr_hackingtime"></span>
                                 </div>
                                 <div class="row">
@@ -2978,12 +2621,6 @@
                                 <div class="row">
                                     <span class="bold" data-i18n="target:">Target:</span>
                                     <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
                                 </div>
                                 <div class="row">
                                     <span class="bold" data-i18n="duration:">Duration:</span>
@@ -3023,25 +2660,15 @@
                 <fieldset class="repeating_hack-4">
                     <div class="hack">
                         <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
+                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
                             <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
                             <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
                                 <span class="hackname" name="attr_hackname"></span>
                                 <input class="innate_flag" type="hidden" name="attr_innate" value="">
                                 <span class="innate" name="attr_innate"></span>
                             </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
                             <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
                             <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
                         </div>
                         <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
                         <div class="wrapper">
@@ -3063,11 +2690,9 @@
                                         <option value="necromancy" data-i18n="necromancy">Necromancy</option>
                                         <option value="transmutation" data-i18n="transmutation">Transmutation</option>
                                     </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
+                                    <span data-i18n="launch-time:-u">LAUNCH TIME:</span>
                                     <input type="text" name="attr_hackingtime">
                                 </div>
                                 <div class="row">
@@ -3077,17 +2702,6 @@
                                 <div class="row">
                                     <span data-i18n="target:-u">TARGET:</span>
                                     <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
@@ -3223,11 +2837,9 @@
                                 <div class="row italics">
                                     <span name="attr_hackschool"></span>
                                     <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
                                 </div>
                                 <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
+                                    <span class="bold" data-i18n="launch-time:">Launch Time:</span>
                                     <span name="attr_hackingtime"></span>
                                 </div>
                                 <div class="row">
@@ -3237,12 +2849,6 @@
                                 <div class="row">
                                     <span class="bold" data-i18n="target:">Target:</span>
                                     <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
                                 </div>
                                 <div class="row">
                                     <span class="bold" data-i18n="duration:">Duration:</span>
@@ -3266,7 +2872,8 @@
                     </div>
                 </fieldset>
             </div>
-
+        </div>
+        <div class="col col3">
             <div class="hack-level">
                 <div class="level">
                     <span class="label">5</span>
@@ -3282,25 +2889,15 @@
                 <fieldset class="repeating_hack-5">
                     <div class="hack">
                         <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
+                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
                             <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
                             <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
                                 <span class="hackname" name="attr_hackname"></span>
                                 <input class="innate_flag" type="hidden" name="attr_innate" value="">
                                 <span class="innate" name="attr_innate"></span>
                             </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
                             <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
                             <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
                         </div>
                         <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
                         <div class="wrapper">
@@ -3322,11 +2919,9 @@
                                         <option value="necromancy" data-i18n="necromancy">Necromancy</option>
                                         <option value="transmutation" data-i18n="transmutation">Transmutation</option>
                                     </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
+                                    <span data-i18n="launch-time:-u">LAUNCH TIME:</span>
                                     <input type="text" name="attr_hackingtime">
                                 </div>
                                 <div class="row">
@@ -3336,17 +2931,6 @@
                                 <div class="row">
                                     <span data-i18n="target:-u">TARGET:</span>
                                     <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
@@ -3482,11 +3066,9 @@
                                 <div class="row italics">
                                     <span name="attr_hackschool"></span>
                                     <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
                                 </div>
                                 <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
+                                    <span class="bold" data-i18n="launch-time:">Launch Time:</span>
                                     <span name="attr_hackingtime"></span>
                                 </div>
                                 <div class="row">
@@ -3496,12 +3078,6 @@
                                 <div class="row">
                                     <span class="bold" data-i18n="target:">Target:</span>
                                     <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
                                 </div>
                                 <div class="row">
                                     <span class="bold" data-i18n="duration:">Duration:</span>
@@ -3526,1044 +3102,6 @@
                 </fieldset>
             </div>
 
-        </div>
-        <div class="col col3">
-
-            <div class="hack-level">
-                <div class="level">
-                    <span class="label">6</span>
-                </div>
-                <div class="total">
-                    <span name="attr_lvl6_slots_total"></span>
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl6_slots_expended" value="0">
-                </div>
-            </div>
-            <div class="hack-container">
-                <fieldset class="repeating_hack-6">
-                    <div class="hack">
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
-                            <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
-                            <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
-                                <span class="hackname" name="attr_hackname"></span>
-                                <input class="innate_flag" type="hidden" name="attr_innate" value="">
-                                <span class="innate" name="attr_innate"></span>
-                            </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
-                            <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
-                            <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
-                        </div>
-                        <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
-                        <div class="wrapper">
-                            <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                            <div class="options">
-                                <div class="row">
-                                    <span data-i18n="name:-u">NAME:</span>
-                                    <input type="text" name="attr_hackname">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="school:-u">SCHOOL:</span>
-                                    <select name="attr_hackschool">
-                                        <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                        <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                        <option value="divination" data-i18n="divination">Divination</option>
-                                        <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                        <option value="evocation" data-i18n="evocation">Evocation</option>
-                                        <option value="illusion" data-i18n="illusion">Illusion</option>
-                                        <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                        <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                    </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
-                                    <input type="text" name="attr_hackingtime">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="range:-u">RANGE:</span>
-                                    <input type="text" name="attr_hackrange">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="target:-u">TARGET:</span>
-                                    <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration-u">CONCENTRATION</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="duration:-u">DURATION:</span>
-                                    <input type="text" name="attr_hackduration">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="hack-ability-u">HACKING ABILITY</span>
-                                    <select name="attr_hack_ability">
-                                        <option value="0*" data-i18n="none-u">NONE</option>
-                                        <option value="hack" data-i18n="hack-u">HACK</option>
-                                        <option value="@{strength_mod}+" data-i18n="strength-u">STRENGTH</option>
-                                        <option value="@{dexterity_mod}+" data-i18n="dexterity-u">DEXTERITY</option>
-                                        <option value="@{constitution_mod}+" data-i18n="constitution-u">CONSTITUTION</option>
-                                        <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
-                                        <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
-                                        <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="innate:-u">INNATE:</span>
-                                    <input type="text" name="attr_innate" placeholder="1/day" value="">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="output:-u">OUTPUT:</span>
-                                    <select name="attr_hackoutput">
-                                        <option value="HACKCARD" data-i18n="hackcard-u">HACKCARD</option>
-                                        <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" class="hackattackinfoflag" name="attr_hackoutput">
-                                <div class="hackattackinfo">
-                                    <div class="row">
-                                        <span data-i18n="hack-atk:-u">HACK ATTACK:</span>
-                                        <select name="attr_hackattack">
-                                            <option value="None" data-i18n="none">None</option>
-                                            <option value="Melee" data-i18n="melee">Melee</option>
-                                            <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                        </select>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage:-u">DAMAGE:</span>
-                                        <input type="text" name="attr_hackdamage" style="width: 50px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                        <input type="text" name="attr_hackdamage2" style="width: 45px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype2" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="healing:-u">HEALING:</span>
-                                        <input type="text" name="attr_hackhealing" style="width: 45px;">
-                                    </div>
-                                    <div class="row">
-                                        <input type="checkbox" name="attr_hackdmgmod" value="Yes">
-                                        <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                        <select name="attr_hacksave">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="Strength" data-i18n="str-u">STR</option>
-                                            <option value="Dexterity" data-i18n="dex-u">DEX</option>
-                                            <option value="Constitution" data-i18n="con-u">CON</option>
-                                            <option value="Intelligence" data-i18n="int-u">INT</option>
-                                            <option value="Wisdom" data-i18n="wis-u">WIS</option>
-                                            <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                        </select>
-                                        <span data-i18n="effect:-u">EFFECT:</span>
-                                        <input type="text" name="attr_hacksavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL HACK DMG:</span>
-                                        <input type="text" name="attr_hackhldie" placeholder="1" style="width: 15px; text-align: right;">
-                                        <select name="attr_hackhldietype">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="d4">d4</option>
-                                            <option value="d6">d6</option>
-                                            <option value="d8">d8</option>
-                                            <option value="d10">d10</option>
-                                            <option value="d12">d12</option>
-                                            <option value="d20">d20</option>
-                                        </select>
-                                        <span>+</span>
-                                        <input type="text" name="attr_hackhlbonus" placeholder="0" style="width: 15px; text-align: center;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="include_hack_desc:-u">INCLUDE HACK DESCRIPTION IN ATTACK:</span>
-                                        <select name="attr_includedesc">
-                                            <option value="off" selected="selected" data-i18n="off">Off</option>
-                                            <option value="partial" data-i18n="partial">Partial</option>
-                                            <option value="on" data-i18n="on">On</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="description:-u">DESCRIPTION:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackdescription"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="class:-u">CLASS:</span>
-                                    <input type="text" name="attr_hackclass" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_hacksource" style="width: 45px;">
-                                </div>
-                                <input type="hidden" name="attr_hackattackid">
-                                <input type="hidden" name="attr_hacklevel" value="6">
-                                <label class="options-done">
-                                    <input type="checkbox" name="attr_options-flag" checked="checked">
-                                    <span class="label" data-i18n="done">Done</span>
-                                </label>
-                            </div>
-                            <div class="details">
-                                <span class="row">
-                                    <span name="attr_hackname"></span><input class="innate_flag" type="hidden" name="attr_innate" value=""><span class="innate" name="attr_innate"></span>
-                                </span>
-                                <div class="row italics">
-                                    <span name="attr_hackschool"></span>
-                                    <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
-                                    <span name="attr_hackingtime"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="range:">Range:</span>
-                                    <span name="attr_hackrange"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="target:">Target:</span>
-                                    <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="duration:">Duration:</span>
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration">Concentration</span>
-                                    <span name="attr_hackduration"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="description:">Description:</span>
-                                </div>
-                                <div class="row">
-                                    <span name="attr_hackdescription"></span>
-                                </div>
-                                <input type="hidden" name="attr_hackathigherlevels" value="">
-                                <div class="row">
-                                    <span class="bold italics" data-i18n="at-higher-lvl">At Higher Levels</span>
-                                    <span name="attr_hackathigherlevels"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-
-            <div class="hack-level">
-                <div class="level">
-                    <span class="label">7</span>
-                </div>
-                <div class="total">
-                    <span name="attr_lvl7_slots_total"></span>
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl7_slots_expended" value="0">
-                </div>
-            </div>
-            <div class="hack-container">
-                <fieldset class="repeating_hack-7">
-                    <div class="hack">
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
-                            <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
-                            <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
-                                <span class="hackname" name="attr_hackname"></span>
-                                <input class="innate_flag" type="hidden" name="attr_innate" value="">
-                                <span class="innate" name="attr_innate"></span>
-                            </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
-                            <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
-                            <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
-                        </div>
-                        <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
-                        <div class="wrapper">
-                            <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                            <div class="options">
-                                <div class="row">
-                                    <span data-i18n="name:-u">NAME:</span>
-                                    <input type="text" name="attr_hackname">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="school:-u">SCHOOL:</span>
-                                    <select name="attr_hackschool">
-                                        <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                        <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                        <option value="divination" data-i18n="divination">Divination</option>
-                                        <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                        <option value="evocation" data-i18n="evocation">Evocation</option>
-                                        <option value="illusion" data-i18n="illusion">Illusion</option>
-                                        <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                        <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                    </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
-                                    <input type="text" name="attr_hackingtime">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="range:-u">RANGE:</span>
-                                    <input type="text" name="attr_hackrange">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="target:-u">TARGET:</span>
-                                    <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration-u">CONCENTRATION</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="duration:-u">DURATION:</span>
-                                    <input type="text" name="attr_hackduration">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="hack-ability-u">HACKING ABILITY</span>
-                                    <select name="attr_hack_ability">
-                                        <option value="0*" data-i18n="none-u">NONE</option>
-                                        <option value="hack" data-i18n="hack-u">HACK</option>
-                                        <option value="@{strength_mod}+" data-i18n="strength-u">STRENGTH</option>
-                                        <option value="@{dexterity_mod}+" data-i18n="dexterity-u">DEXTERITY</option>
-                                        <option value="@{constitution_mod}+" data-i18n="constitution-u">CONSTITUTION</option>
-                                        <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
-                                        <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
-                                        <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="innate:-u">INNATE:</span>
-                                    <input type="text" name="attr_innate" placeholder="1/day" value="">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="output:-u">OUTPUT:</span>
-                                    <select name="attr_hackoutput">
-                                        <option value="HACKCARD" data-i18n="hackcard-u">HACKCARD</option>
-                                        <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" class="hackattackinfoflag" name="attr_hackoutput">
-                                <div class="hackattackinfo">
-                                    <div class="row">
-                                        <span data-i18n="hack-atk:-u">HACK ATTACK:</span>
-                                        <select name="attr_hackattack">
-                                            <option value="None" data-i18n="none">None</option>
-                                            <option value="Melee" data-i18n="melee">Melee</option>
-                                            <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                        </select>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage:-u">DAMAGE:</span>
-                                        <input type="text" name="attr_hackdamage" style="width: 50px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                        <input type="text" name="attr_hackdamage2" style="width: 45px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype2" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="healing:-u">HEALING:</span>
-                                        <input type="text" name="attr_hackhealing" style="width: 45px;">
-                                    </div>
-                                    <div class="row">
-                                        <input type="checkbox" name="attr_hackdmgmod" value="Yes">
-                                        <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                        <select name="attr_hacksave">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="Strength" data-i18n="str-u">STR</option>
-                                            <option value="Dexterity" data-i18n="dex-u">DEX</option>
-                                            <option value="Constitution" data-i18n="con-u">CON</option>
-                                            <option value="Intelligence" data-i18n="int-u">INT</option>
-                                            <option value="Wisdom" data-i18n="wis-u">WIS</option>
-                                            <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                        </select>
-                                        <span data-i18n="effect:-u">EFFECT:</span>
-                                        <input type="text" name="attr_hacksavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL HACK DMG:</span>
-                                        <input type="text" name="attr_hackhldie" placeholder="1" style="width: 15px; text-align: right;">
-                                        <select name="attr_hackhldietype">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="d4">d4</option>
-                                            <option value="d6">d6</option>
-                                            <option value="d8">d8</option>
-                                            <option value="d10">d10</option>
-                                            <option value="d12">d12</option>
-                                            <option value="d20">d20</option>
-                                        </select>
-                                        <span>+</span>
-                                        <input type="text" name="attr_hackhlbonus" placeholder="0" style="width: 15px; text-align: center;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="include_hack_desc:-u">INCLUDE HACK DESCRIPTION IN ATTACK:</span>
-                                        <select name="attr_includedesc">
-                                            <option value="off" selected="selected" data-i18n="off">Off</option>
-                                            <option value="partial" data-i18n="partial">Partial</option>
-                                            <option value="on" data-i18n="on">On</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="description:-u">DESCRIPTION:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackdescription"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="class:-u">CLASS:</span>
-                                    <input type="text" name="attr_hackclass" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_hacksource" style="width: 45px;">
-                                </div>
-                                <input type="hidden" name="attr_hackattackid">
-                                <input type="hidden" name="attr_hacklevel" value="7">
-                                <label class="options-done">
-                                    <input type="checkbox" name="attr_options-flag" checked="checked">
-                                    <span class="label" data-i18n="done">Done</span>
-                                </label>
-                            </div>
-                            <div class="details">
-                                <span class="row">
-                                    <span name="attr_hackname"></span><input class="innate_flag" type="hidden" name="attr_innate" value=""><span class="innate" name="attr_innate"></span>
-                                </span>
-                                <div class="row italics">
-                                    <span name="attr_hackschool"></span>
-                                    <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
-                                    <span name="attr_hackingtime"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="range:">Range:</span>
-                                    <span name="attr_hackrange"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="target:">Target:</span>
-                                    <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="duration:">Duration:</span>
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration">Concentration</span>
-                                    <span name="attr_hackduration"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="description:">Description:</span>
-                                </div>
-                                <div class="row">
-                                    <span name="attr_hackdescription"></span>
-                                </div>
-                                <input type="hidden" name="attr_hackathigherlevels" value="">
-                                <div class="row">
-                                    <span class="bold italics" data-i18n="at-higher-lvl">At Higher Levels</span>
-                                    <span name="attr_hackathigherlevels"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-
-            <div class="hack-level">
-                <div class="level">
-                    <span class="label">8</span>
-                </div>
-                <div class="total">
-                    <span name="attr_lvl8_slots_total"></span>
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl8_slots_expended" value="0">
-                </div>
-            </div>
-            <div class="hack-container">
-                <fieldset class="repeating_hack-8">
-                    <div class="hack">
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
-                            <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
-                            <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
-                                <span class="hackname" name="attr_hackname"></span>
-                                <input class="innate_flag" type="hidden" name="attr_innate" value="">
-                                <span class="innate" name="attr_innate"></span>
-                            </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
-                            <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
-                            <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
-                        </div>
-                        <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
-                        <div class="wrapper">
-                            <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                            <div class="options">
-                                <div class="row">
-                                    <span data-i18n="name:-u">NAME:</span>
-                                    <input type="text" name="attr_hackname">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="school:-u">SCHOOL:</span>
-                                    <select name="attr_hackschool">
-                                        <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                        <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                        <option value="divination" data-i18n="divination">Divination</option>
-                                        <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                        <option value="evocation" data-i18n="evocation">Evocation</option>
-                                        <option value="illusion" data-i18n="illusion">Illusion</option>
-                                        <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                        <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                    </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
-                                    <input type="text" name="attr_hackingtime">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="range:-u">RANGE:</span>
-                                    <input type="text" name="attr_hackrange">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="target:-u">TARGET:</span>
-                                    <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration-u">CONCENTRATION</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="duration:-u">DURATION:</span>
-                                    <input type="text" name="attr_hackduration">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="hack-ability-u">HACKING ABILITY</span>
-                                    <select name="attr_hack_ability">
-                                        <option value="0*" data-i18n="none-u">NONE</option>
-                                        <option value="hack" data-i18n="hack-u">HACK</option>
-                                        <option value="@{strength_mod}+" data-i18n="strength-u">STRENGTH</option>
-                                        <option value="@{dexterity_mod}+" data-i18n="dexterity-u">DEXTERITY</option>
-                                        <option value="@{constitution_mod}+" data-i18n="constitution-u">CONSTITUTION</option>
-                                        <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
-                                        <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
-                                        <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="innate:-u">INNATE:</span>
-                                    <input type="text" name="attr_innate" placeholder="1/day" value="">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="output:-u">OUTPUT:</span>
-                                    <select name="attr_hackoutput">
-                                        <option value="HACKCARD" data-i18n="hackcard-u">HACKCARD</option>
-                                        <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" class="hackattackinfoflag" name="attr_hackoutput">
-                                <div class="hackattackinfo">
-                                    <div class="row">
-                                        <span data-i18n="hack-atk:-u">HACK ATTACK:</span>
-                                        <select name="attr_hackattack">
-                                            <option value="None" data-i18n="none">None</option>
-                                            <option value="Melee" data-i18n="melee">Melee</option>
-                                            <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                        </select>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage:-u">DAMAGE:</span>
-                                        <input type="text" name="attr_hackdamage" style="width: 50px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                        <input type="text" name="attr_hackdamage2" style="width: 45px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype2" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="healing:-u">HEALING:</span>
-                                        <input type="text" name="attr_hackhealing" style="width: 45px;">
-                                    </div>
-                                    <div class="row">
-                                        <input type="checkbox" name="attr_hackdmgmod" value="Yes">
-                                        <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                        <select name="attr_hacksave">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="Strength" data-i18n="str-u">STR</option>
-                                            <option value="Dexterity" data-i18n="dex-u">DEX</option>
-                                            <option value="Constitution" data-i18n="con-u">CON</option>
-                                            <option value="Intelligence" data-i18n="int-u">INT</option>
-                                            <option value="Wisdom" data-i18n="wis-u">WIS</option>
-                                            <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                        </select>
-                                        <span data-i18n="effect:-u">EFFECT:</span>
-                                        <input type="text" name="attr_hacksavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL HACK DMG:</span>
-                                        <input type="text" name="attr_hackhldie" placeholder="1" style="width: 15px; text-align: right;">
-                                        <select name="attr_hackhldietype">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="d4">d4</option>
-                                            <option value="d6">d6</option>
-                                            <option value="d8">d8</option>
-                                            <option value="d10">d10</option>
-                                            <option value="d12">d12</option>
-                                            <option value="d20">d20</option>
-                                        </select>
-                                        <span>+</span>
-                                        <input type="text" name="attr_hackhlbonus" placeholder="0" style="width: 15px; text-align: center;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="include_hack_desc:-u">INCLUDE HACK DESCRIPTION IN ATTACK:</span>
-                                        <select name="attr_includedesc">
-                                            <option value="off" selected="selected" data-i18n="off">Off</option>
-                                            <option value="partial" data-i18n="partial">Partial</option>
-                                            <option value="on" data-i18n="on">On</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="description:-u">DESCRIPTION:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackdescription"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="class:-u">CLASS:</span>
-                                    <input type="text" name="attr_hackclass" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_hacksource" style="width: 45px;">
-                                </div>
-                                <input type="hidden" name="attr_hackattackid">
-                                <input type="hidden" name="attr_hacklevel" value="8">
-                                <label class="options-done">
-                                    <input type="checkbox" name="attr_options-flag" checked="checked">
-                                    <span class="label" data-i18n="done">Done</span>
-                                </label>
-                            </div>
-                            <div class="details">
-                                <span class="row">
-                                    <span name="attr_hackname"></span><input class="innate_flag" type="hidden" name="attr_innate" value=""><span class="innate" name="attr_innate"></span>
-                                </span>
-                                <div class="row italics">
-                                    <span name="attr_hackschool"></span>
-                                    <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
-                                    <span name="attr_hackingtime"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="range:">Range:</span>
-                                    <span name="attr_hackrange"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="target:">Target:</span>
-                                    <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="duration:">Duration:</span>
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration">Concentration</span>
-                                    <span name="attr_hackduration"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="description:">Description:</span>
-                                </div>
-                                <div class="row">
-                                    <span name="attr_hackdescription"></span>
-                                </div>
-                                <input type="hidden" name="attr_hackathigherlevels" value="">
-                                <div class="row">
-                                    <span class="bold italics" data-i18n="at-higher-lvl">At Higher Levels</span>
-                                    <span name="attr_hackathigherlevels"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-
-            <div class="hack-level">
-                <div class="level">
-                    <span class="label">9</span>
-                </div>
-                <div class="total">
-                    <span name="attr_lvl9_slots_total"></span>
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl9_slots_expended" value="0">
-                </div>
-            </div>
-            <div class="hack-container">
-                <fieldset class="repeating_hack-9">
-                    <div class="hack">
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:hack} {{level=@{hackschool} @{hacklevel}}}  {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}">
-                            <input type="checkbox" name="attr_hackprepared" value="1" class="sheet-prep-box"><span class="prep"></span>
-                            <button class="hackcard" type="roll" name="roll_hack" value="@{rollcontent}">
-                                <span class="hackname" name="attr_hackname"></span>
-                                <input class="innate_flag" type="hidden" name="attr_innate" value="">
-                                <span class="innate" name="attr_innate"></span>
-                            </button>
-                            <input type="hidden" class="hackritual" name="attr_hackritual" value="0">
-                            <input type="hidden" class="hackconcentration" name="attr_hackconcentration" value="0">
-                            <input type="hidden" class="v" name="attr_hackcomp_v" value="{{v=1}}">
-                            <input type="hidden" class="s" name="attr_hackcomp_s" value="{{s=1}}">
-                            <input type="hidden" class="m" name="attr_hackcomp_m" value="{{m=1}}">
-                            <span class="hackritual" data-i18n="hack-ritual">R</span>
-                            <span class="hackconcentration" data-i18n="hack-concentration">C</span>
-                            <span class="componentscontainer">
-                                <span class="v" data-i18n="hack-component-verbal">V</span>
-                                <span class="s" data-i18n="hack-component-somatic">S</span>
-                                <span class="m" data-i18n="hack-component-material">M</span>
-                            </span>
-                        </div>
-                        <input class="details-flag" type="checkbox" name="attr_details-flag" checked="checked"><span>i</span>
-                        <div class="wrapper">
-                            <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                            <div class="options">
-                                <div class="row">
-                                    <span data-i18n="name:-u">NAME:</span>
-                                    <input type="text" name="attr_hackname">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="school:-u">SCHOOL:</span>
-                                    <select name="attr_hackschool">
-                                        <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                        <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                        <option value="divination" data-i18n="divination">Divination</option>
-                                        <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                        <option value="evocation" data-i18n="evocation">Evocation</option>
-                                        <option value="illusion" data-i18n="illusion">Illusion</option>
-                                        <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                        <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                    </select>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span data-i18n="ritual-u">RITUAL</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="execution-time:-u">EXECUTION TIME:</span>
-                                    <input type="text" name="attr_hackingtime">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="range:-u">RANGE:</span>
-                                    <input type="text" name="attr_hackrange">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="target:-u">TARGET:</span>
-                                    <input type="text" name="attr_hacktarget">
-                                </div>
-                                <input type="hidden" name="attr_hackcomp">
-                                <div class="row">
-                                    <span data-i18n="components:-u">COMPONENTS:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked">
-                                    <span data-i18n="hack-component-verbal">V</span>
-                                    <input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked">
-                                    <span data-i18n="hack-component-somatic">S</span>
-                                    <input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked">
-                                    <span data-i18n="hack-component-material">M</span>
-                                    <input type="text" name="attr_hackcomp_materials" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration-u">CONCENTRATION</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="duration:-u">DURATION:</span>
-                                    <input type="text" name="attr_hackduration">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="hack-ability-u">HACKING ABILITY</span>
-                                    <select name="attr_hack_ability">
-                                        <option value="0*" data-i18n="none-u">NONE</option>
-                                        <option value="hack" data-i18n="hack-u">HACK</option>
-                                        <option value="@{strength_mod}+" data-i18n="strength-u">STRENGTH</option>
-                                        <option value="@{dexterity_mod}+" data-i18n="dexterity-u">DEXTERITY</option>
-                                        <option value="@{constitution_mod}+" data-i18n="constitution-u">CONSTITUTION</option>
-                                        <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
-                                        <option value="@{wisdom_mod}+" data-i18n="wisdom-u">WISDOM</option>
-                                        <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="innate:-u">INNATE:</span>
-                                    <input type="text" name="attr_innate" placeholder="1/day" value="">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="output:-u">OUTPUT:</span>
-                                    <select name="attr_hackoutput">
-                                        <option value="HACKCARD" data-i18n="hackcard-u">HACKCARD</option>
-                                        <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" class="hackattackinfoflag" name="attr_hackoutput">
-                                <div class="hackattackinfo">
-                                    <div class="row">
-                                        <span data-i18n="hack-atk:-u">HACK ATTACK:</span>
-                                        <select name="attr_hackattack">
-                                            <option value="None" data-i18n="none">None</option>
-                                            <option value="Melee" data-i18n="melee">Melee</option>
-                                            <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                        </select>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage:-u">DAMAGE:</span>
-                                        <input type="text" name="attr_hackdamage" style="width: 50px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                        <input type="text" name="attr_hackdamage2" style="width: 45px;">
-                                        <span data-i18n="type:-u">TYPE:</span>
-                                        <input type="text" name="attr_hackdamagetype2" style="width: 103px;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="healing:-u">HEALING:</span>
-                                        <input type="text" name="attr_hackhealing" style="width: 45px;">
-                                    </div>
-                                    <div class="row">
-                                        <input type="checkbox" name="attr_hackdmgmod" value="Yes">
-                                        <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                        <select name="attr_hacksave">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="Strength" data-i18n="str-u">STR</option>
-                                            <option value="Dexterity" data-i18n="dex-u">DEX</option>
-                                            <option value="Constitution" data-i18n="con-u">CON</option>
-                                            <option value="Intelligence" data-i18n="int-u">INT</option>
-                                            <option value="Wisdom" data-i18n="wis-u">WIS</option>
-                                            <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                        </select>
-                                        <span data-i18n="effect:-u">EFFECT:</span>
-                                        <input type="text" name="attr_hacksavesuccess" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL HACK DMG:</span>
-                                        <input type="text" name="attr_hackhldie" placeholder="1" style="width: 15px; text-align: right;">
-                                        <select name="attr_hackhldietype">
-                                            <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                            <option value="d4">d4</option>
-                                            <option value="d6">d6</option>
-                                            <option value="d8">d8</option>
-                                            <option value="d10">d10</option>
-                                            <option value="d12">d12</option>
-                                            <option value="d20">d20</option>
-                                        </select>
-                                        <span>+</span>
-                                        <input type="text" name="attr_hackhlbonus" placeholder="0" style="width: 15px; text-align: center;">
-                                    </div>
-                                    <div class="row">
-                                        <span data-i18n="include_hack_desc:-u">INCLUDE HACK DESCRIPTION IN ATTACK:</span>
-                                        <select name="attr_includedesc">
-                                            <option value="off" selected="selected" data-i18n="off">Off</option>
-                                            <option value="partial" data-i18n="partial">Partial</option>
-                                            <option value="on" data-i18n="on">On</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="description:-u">DESCRIPTION:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackdescription"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                                </div>
-                                <div class="row">
-                                    <textarea name="attr_hackathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="class:-u">CLASS:</span>
-                                    <input type="text" name="attr_hackclass" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_hacksource" style="width: 45px;">
-                                </div>
-                                <input type="hidden" name="attr_hackattackid">
-                                <input type="hidden" name="attr_hacklevel" value="9">
-                                <label class="options-done">
-                                    <input type="checkbox" name="attr_options-flag" checked="checked">
-                                    <span class="label" data-i18n="done">Done</span>
-                                </label>
-                            </div>
-                            <div class="details">
-                                <span class="row">
-                                    <span name="attr_hackname"></span><input class="innate_flag" type="hidden" name="attr_innate" value=""><span class="innate" name="attr_innate"></span>
-                                </span>
-                                <div class="row italics">
-                                    <span name="attr_hackschool"></span>
-                                    <span name="attr_hacklevel"></span>
-                                    <input type="checkbox" name="attr_hackritual" value="{{ritual=1}}">
-                                    <span>(<span data-i18n="ritual-l">ritual</span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="execution-time:">Execution Time:</span>
-                                    <span name="attr_hackingtime"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="range:">Range:</span>
-                                    <span name="attr_hackrange"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="target:">Target:</span>
-                                    <span name="attr_hacktarget"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="components:">Components:</span>
-                                    <input type="checkbox" name="attr_hackcomp_v" value="{{v=1}}" checked="checked"><span data-i18n="hack-component-verbal">V</span><input type="checkbox" name="attr_hackcomp_s" value="{{s=1}}" checked="checked"><span data-i18n="hack-component-somatic">S</span><input type="checkbox" name="attr_hackcomp_m" value="{{m=1}}" checked="checked"><span class="hackcomp_m" data-i18n="hack-component-material">M</span>
-                                    <input type="hidden" name="attr_hackcomp_materials" value="">
-                                    <span>(<span name="attr_hackcomp_materials"></span>)</span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="duration:">Duration:</span>
-                                    <input type="checkbox" name="attr_hackconcentration" value="{{concentration=1}}">
-                                    <span data-i18n="concentration">Concentration</span>
-                                    <span name="attr_hackduration"></span>
-                                </div>
-                                <div class="row">
-                                    <span class="bold" data-i18n="description:">Description:</span>
-                                </div>
-                                <div class="row">
-                                    <span name="attr_hackdescription"></span>
-                                </div>
-                                <input type="hidden" name="attr_hackathigherlevels" value="">
-                                <div class="row">
-                                    <span class="bold italics" data-i18n="at-higher-lvl">At Higher Levels</span>
-                                    <span name="attr_hackathigherlevels"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
         </div>
     </div>
     </div>
@@ -6040,14 +4578,14 @@
                 <span>{{name}}</span>{{#innate}}<span class="grey">, {{innate}}</span>{{/innate}}
             </div>
             <div class="italics row">
-                <span>{{level}}{{#ritual}} (<span data-i18n="ritual-l"></span>){{/ritual}}</span>
+                <span>{{level}}</span>
             </div>
             <div class="spacer"></div>
-            {{#executiontime}}
+            {{#launchtime}}
             <div class="row">
-                <span class="bold" data-i18n="execution-time:">Execution Time:</span> <span>{{executiontime}}</span>
+                <span class="bold" data-i18n="launch-time:">Launch Time:</span> <span>{{launchtime}}</span>
             </div>
-            {{/executiontime}}
+            {{/launchtime}}
             {{#range}}
             <div class="row">
                 <span class="bold" data-i18n="range:">Range:</span> <span>{{range}}</span>
@@ -6058,14 +4596,6 @@
                 <span class="bold" data-i18n="target:">Target:</span> <span>{{target}}</span>
             </div>
             {{/target}}
-            <div class="row">
-                <span class="bold" data-i18n="components:">Components:</span>
-                <span>
-                    {{#v}}V{{#s}}, {{/s}}{{^s}}{{#m}}, {{/m}}{{/s}}{{/v}}
-                    {{#s}}S{{#m}}, {{/m}}{{/s}}
-                    {{#m}}M {{#material}}({{material}}){{/material}}{{/m}}
-                </span>
-            </div>
             {{#duration}}
             <div class="row">
                 <span class="bold" data-i18n="duration:">Duration:</span> <span>{{#concentration}}<span data-i18n="concentration">Concentration</span> {{/concentration}}{{duration}}</span>
@@ -6558,8 +5088,8 @@
                     callback(results);
                 }
             }
-            var hackSections = ["hack-cantrip"];
-            for(var x=1; x<=9; x++) {
+            var hackSections = [];
+            for(var x=1; x<=5; x++) {
                 hackSections.push("hack-" + x);
             }
 
@@ -6940,7 +5470,7 @@
         update_ac();
     });
 
-   ['hack-cantrip','hack-1','hack-2','hack-3','hack-4','hack-5','hack-6','hack-7','hack-8','hack-9'].forEach(attr => {
+   ['hack-1','hack-2','hack-3','hack-4','hack-5'].forEach(attr => {
         on(`change:repeating_${attr}:includedesc change:repeating_${attr}:innate change:repeating_${attr}:hack_ability change:repeating_${attr}:hack_updateflag change:repeating_${attr}:hackathigherlevels change:repeating_${attr}:hackattack change:repeating_${attr}:hackdamage change:repeating_${attr}:hackdamage2 change:repeating_${attr}:hackdamagetype change:repeating_${attr}:hackdamagetype2 change:repeating_${attr}:hackdescription change:repeating_${attr}:hackdmgmod change:repeating_${attr}:hackhealing change:repeating_${attr}:hackhlbonus change:repeating_${attr}:hackhldie change:repeating_${attr}:hackhldietype change:repeating_${attr}:hackname change:repeating_${attr}:hackprepared change:repeating_${attr}:hackrange change:repeating_${attr}:hacksave change:repeating_${attr}:hacksavesuccess change:repeating_${attr}:hacktarget change:repeating_${attr}:hack_damage_progression`, (eventinfo) => {
             if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") { return; }
 
@@ -6955,7 +5485,7 @@
         });
     });
 
-    ['hack-cantrip','hack-1','hack-2','hack-3','hack-4','hack-5','hack-6','hack-7','hack-8','hack-9'].forEach(attr => {
+    ['hack-1','hack-2','hack-3','hack-4','hack-5'].forEach(attr => {
         on(`change:repeating_${attr}:hackoutput`, (eventinfo) => {
             if(eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {return;}
 
@@ -6977,7 +5507,7 @@
         });
     });
 
-    ['hack-cantrip','hack-1','hack-2','hack-3','hack-4','hack-5','hack-6','hack-7','hack-8','hack-9'].forEach(attr => {
+    ['hack-1','hack-2','hack-3','hack-4','hack-5'].forEach(attr => {
         on(`change:repeating_${attr}:hackathigherlevels`, (eventinfo) => {
             if(eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {return;}
 
@@ -7005,7 +5535,7 @@
             }
             hacklevel = `?{Execute at what level? ${hacklevel}}`;
         }
-        update[repeating_source + "_rollcontent"] = `@{wtype}&{template:hack} {{level=@{hackschool} ${hacklevel}}} {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}`;
+        update[repeating_source + "_rollcontent"] = `@{wtype}&{template:hack} {{level=@{hackschool} ${hacklevel}}} {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}`;
         setAttrs(update, {silent: true});
     };
 
@@ -7261,7 +5791,7 @@
         setAttrs(update, {silent: true});
     });
 
-    on("remove:repeating_hack-cantrip remove:repeating_hack-1 remove:repeating_hack-2 remove:repeating_hack-3 remove:repeating_hack-4 remove:repeating_hack-5 remove:repeating_hack-6 remove:repeating_hack-7 remove:repeating_hack-8 remove:repeating_hack-9", function(eventinfo) {
+    on("remove:repeating_hack-1 remove:repeating_hack-2 remove:repeating_hack-3 remove:repeating_hack-4 remove:repeating_hack-5", function(eventinfo) {
         var attackid = eventinfo.removedInfo[eventinfo.sourceAttribute + "_hackattackid"];
         if(attackid) {
             remove_attack(attackid);
@@ -7622,7 +6152,6 @@
             {name: "tool", list: ["toolname", "toolattr_base"]},
             {name: "traits", list: ["name", "source", "source_type"]},
             {name: "resource", list: ["resource_left_name", "resource_right_name"]},
-            {name: "hack-cantrip", list: ["hackname", "hackattackid", "hacksource", "hackattackid"]},
             {name: "savemod", list: ["global_save_name"]},
             {name: "tohitmod", list: ["global_attack_name"]},
             {name: "damagemod", list: ["global_damage_name"]},
@@ -7631,7 +6160,7 @@
             {name: "attack", list: ["atkname", "hackid"]},
             {name: "hpmod", list: ["levels", "source", "mod"]}
         ];
-        for(var x=1; x<=9; x++) {
+        for(var x=1; x<=5; x++) {
             getList.push({ name: "hack-" + x, list: ["hackname", "hackattackid", "hacksource", "hackattackid"] });
         }
         var repeating = {prof_names: [], traits: []};
@@ -7931,13 +6460,13 @@
                 (page.data[`${attr}`]) ? update[`repeating_hack-${lvl}_${id}_${suffix}`] = page.data[`${attr}`] : false;
             });
 
-           ["Add Hacking Modifier", "Execution Time", "Concentration", "Damage Type", "Damage", "Duration", "Healing", "Material", "Range", "Ritual", "Save", "Save Success", "School", "Secondary Damage", "Secondary Damage Type", "Target"].forEach((attr) => {
+           ["Add Hacking Modifier", "Launch Time", "Concentration", "Damage Type", "Damage", "Duration", "Healing", "Range", "Save", "Save Success", "School", "Secondary Damage", "Secondary Damage Type", "Target"].forEach((attr) => {
                 if(page.data[`${attr}`]) {
                     //Adjust the array entry to match the attribute name in the HTML
-                    const name           = (attr === "Add Hacking Modifier") ? "dmgmod" : (attr === "Material") ? `comp_materials` : (attr.includes("Secondary Damage")) ? attr.split("Secondary ")[0] + "2" : attr;
+                    const name           = (attr === "Add Hacking Modifier") ? "dmgmod" : (attr.includes("Secondary Damage")) ? attr.split("Secondary ")[0] + "2" : attr;
                     const hackattribute = name.toLowerCase().replace(" ", "");
-                    //Concentration, Ritual, and School are exceptions to norm
-                    const updateValue = (attr === "Concentration" || attr === "Ritual") ? `{{${hackattribute}=1}}` : (attr === "School") ? page.data["School"].toLowerCase() : page.data[`${attr}`];
+                    //Concentration and School are exceptions to norm
+                    const updateValue = (attr === "Concentration") ? `{{${hackattribute}=1}}` : (attr === "School") ? page.data["School"].toLowerCase() : page.data[`${attr}`];
                     update[`repeating_hack-${lvl}_${id}_hack${hackattribute}`] = updateValue;
                 };
             });
@@ -7949,12 +6478,6 @@
                 };
             });
 
-            if(page.data["Components"]) {
-                ["v", "s", "m"].forEach((comp) => {
-                    if(page.data["Components"].toLowerCase().indexOf(comp) === -1) {update[`repeating_hack-${lvl}_${id}_hackcomp_${comp}`] = "0"};
-                });
-            };
-
             if (page.data["Hack Attack"]) {
                 update[`repeating_hack-${lvl}_${id}_hackattack`] = page.data[`Hack Attack`];
             };
@@ -7965,14 +6488,13 @@
             }
             else if(page.data["Higher Hack Slot Desc"] && page.data["Higher Hack Slot Desc"] != "") {
                 var hacklevel = "?{Execute at what level?";
-                for(i = 0; i < 10-lvl; i++) {
-                    hacklevel = hacklevel + "|Level " + (parseInt(i, 10) + parseInt(lvl, 10)) + "," + (parseInt(i, 10) + parseInt(lvl, 10));
+                for(i = 0; i < 6-lvl; i++) {
+                    hacklevel = hacklevel + "|Level " + (parseInt(i, 6) + parseInt(lvl, 6)) + "," + (parseInt(i, 6) + parseInt(lvl, 6));
                 };
                 hacklevel = hacklevel + "}";
-                update[`repeating_hack-${lvl}_${id}_rollcontent`] = `@{wtype}&{template:hack} {{level=@{hackschool} ${hacklevel}}} {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}`;
+                update[`repeating_hack-${lvl}_${id}_rollcontent`] = `@{wtype}&{template:hack} {{level=@{hackschool} ${hacklevel}}} {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}`;
             };
 
-            if(page.data["data-Cantrip Scaling"] && lvl == "cantrip") {update[`repeating_hack-${lvl}_${id}_hack_damage_progression`] = "Cantrip " + page.data["data-Cantrip Scaling"].charAt(0).toUpperCase() + page.data["data-Cantrip Scaling"].slice(1);};
             update[`repeating_hack-${lvl}_${id}_options-flag`] = "0";
         };
         if(category === "Monsters") {
@@ -8205,19 +6727,18 @@
                             (hack[`${attr}`]) ? update[`${repeatingRow}_${suffix}`] = hack[`${attr}`] : false;
                         });
 
-                        ["Add Hacking Modifier", "Execution Time", "Concentration", "Damage Type", "Damage", "Duration", "Healing", "Material", "Range", "Ritual", "Save", "Save Success", "School", "Secondary Damage", "Secondary Damage Type", "Hack Attack", "Target"].forEach((attr) => {
+                        ["Add Hacking Modifier", "Launch Time", "Concentration", "Damage Type", "Damage", "Duration", "Healing", "Range", "Save", "Save Success", "School", "Secondary Damage", "Secondary Damage Type", "Hack Attack", "Target"].forEach((attr) => {
                             if (hack[`${attr}`]) {
                                 //Adjust the array entry to match the attribute name in the HTML
                                 const name =
                                     (attr === "Add Hacking Modifier") ? "dmgmod" :
-                                    (attr === "Material") ? `comp_materials` :
                                     (attr === "Hack Attack") ? `attack` :
                                     (attr.includes("Secondary Damage")) ? attr.split("Secondary ")[0] + "2" :
                                     attr;
                                 const hackattribute = name.toLowerCase().replace(" ", "");
-                                //Concentration, Ritual, and School are exceptions to norm
+                                //Concentration and School are exceptions to norm
                                 const updateValue =
-                                    (attr === "Concentration" || attr === "Ritual") ? `{{${hackattribute}=1}}` :
+                                    (attr === "Concentration") ? `{{${hackattribute}=1}}` :
                                     (attr === "School") ? hack["School"].toLowerCase() :
                                     hack[`${attr}`];
                                 update[`${repeatingRow}_hack${hackattribute}`] = updateValue;
@@ -8231,21 +6752,11 @@
                             };
                         });
 
-                        if (hack["Components"]) {
-                            ["v", "s", "m"].forEach((comp) => {
-                                if (hack["Components"].toLowerCase().indexOf(comp) === -1) {update[`${repeatingRow}_hackcomp_${comp}`] = "0"};
-                            });
-                        };
-
                         if(page.data["Damage"] || page.data["Healing"]) {
                             //This needs to run the create_attack_from_hack
                             callbacks.push(() => { create_attack_from_hack(lvl, newrowid, currentData.character_id); });
                         } else if (page.data["Higher Hack Slot Desc"] && page.data["Higher Hack Slot Desc"] != "") {
                             //This needs to run the update_hackoutput
-                        };
-
-                        if (hack["data-Cantrip Scaling"] && lvl == "cantrip") {
-                            update[`${repeatingRow}_hack_damage_progression`] = "Cantrip " + hack["data-Cantrip Scaling"].charAt(0).toUpperCase() + hack["data-Cantrip Scaling"].slice(1);
                         };
 
                         if (innate) {
@@ -8734,17 +7245,10 @@
                         update["repeating_hack-" + lvl + "_" + id + "_hacksource"] = hack["hacksource"];
                     }
                     update["repeating_hack-" + lvl + "_" + id + "_hackname"] = hack.Name;
-                    if(hack["Ritual"]) {update["repeating_hack-" + lvl + "_" + id + "_hackritual"] = "{{ritual=1}}"};
                     if(hack["School"]) {update["repeating_hack-" + lvl + "_" + id + "_hackschool"] = hack["School"].toLowerCase()};
-                    if(hack["Execution Time"]) {update["repeating_hack-" + lvl + "_" + id + "_hackingtime"] = hack["Execution Time"]};
+                    if(hack["Launch Time"]) {update["repeating_hack-" + lvl + "_" + id + "_hackingtime"] = hack["Launch Time"]};
                     if(hack["Range"]) {update["repeating_hack-" + lvl + "_" + id + "_hackrange"] = hack["Range"]};
                     if(hack["Target"]) {update["repeating_hack-" + lvl + "_" + id + "_hacktarget"] = hack["Target"]};
-                    if(hack["Components"]) {
-                        if(hack["Components"].toLowerCase().indexOf("v") === -1) {update["repeating_hack-" + lvl + "_" + id + "_hackcomp_v"] = "0"};
-                        if(hack["Components"].toLowerCase().indexOf("s") === -1) {update["repeating_hack-" + lvl + "_" + id + "_hackcomp_s"] = "0"};
-                        if(hack["Components"].toLowerCase().indexOf("m") === -1) {update["repeating_hack-" + lvl + "_" + id + "_hackcomp_m"] = "0"};
-                    };
-                    if(hack["Material"]) {update["repeating_hack-" + lvl + "_" + id + "_hackcomp_materials"] = hack["Material"]};
                     if(hack["Concentration"]) {update["repeating_hack-" + lvl + "_" + id + "_hackconcentration"] = "{{concentration=1}}"};
                     if(hack["Duration"]) {update["repeating_hack-" + lvl + "_" + id + "_hackduration"] = hack["Duration"]};
                     if(hack["Damage"] || hack["Healing"]) {
@@ -8757,7 +7261,7 @@
                             hacklevel = hacklevel + "|Level " + (parseInt(i, 10) + parseInt(lvl, 10)) + "," + (parseInt(i, 10) + parseInt(lvl, 10));
                         }
                         hacklevel = hacklevel + "}";
-                        update["repeating_hack-" + lvl + "_" + id + "_rollcontent"] = `@{wtype}&{template:hack} {{level=@{hackschool} ${hacklevel}}} {{name=@{hackname}}} {{executiontime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} @{hackcomp_v} @{hackcomp_s} @{hackcomp_m} {{material=@{hackcomp_materials}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} @{hackritual} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}`;
+                        update["repeating_hack-" + lvl + "_" + id + "_rollcontent"] = `@{wtype}&{template:hack} {{level=@{hackschool} ${hacklevel}}} {{name=@{hackname}}} {{launchtime=@{hackingtime}}} {{range=@{hackrange}}} {{target=@{hacktarget}}} {{duration=@{hackduration}}} {{description=@{hackdescription}}} {{athigherlevels=@{hackathigherlevels}}} {{innate=@{innate}}} @{hackconcentration} @{charname_output} {{licensedsheet=@{licensedsheet}}}`;
                     };
                     if(hack["Hack Attack"]) {update["repeating_hack-" + lvl + "_" + id + "_hackattack"] = hack["Hack Attack"]};
                     if(hack["Damage"]) {update["repeating_hack-" + lvl + "_" + id + "_hackdamage"] = hack["Damage"]};
@@ -8772,7 +7276,6 @@
                     if(hack["Higher Hack Slot Die"]) {update["repeating_hack-" + lvl + "_" + id + "_hackhldietype"] = hack["Higher Hack Slot Die"]};
                     if(hack["Higher Hack Slot Bonus"]) {update["repeating_hack-" + lvl + "_" + id + "_hackhlbonus"] = hack["Higher Hack Slot Bonus"]};
                     if(hack["Higher Hack Slot Desc"]) {update["repeating_hack-" + lvl + "_" + id + "_hackathigherlevels"] = hack["Higher Hack Slot Desc"]};
-                    if(hack["data-Cantrip Scaling"] && lvl == "cantrip") {update["repeating_hack-" + lvl + "_" + id + "_hack_damage_progression"] = "Cantrip " + hack["data-Cantrip Scaling"].charAt(0).toUpperCase() + hack["data-Cantrip Scaling"].slice(1);};
                     if(hack["data-description"]) { update["repeating_hack-" + lvl + "_" + id + "_hackdescription"] = hack["data-description"]};
                     update["repeating_hack-" + lvl + "_" + id + "_options-flag"] = "0";
                 })
@@ -10947,69 +9450,44 @@ Hack                    if (hackattackmod != 0) {hbonus += ` + ${hackattackmod}[
                                                 };
                                                 // Set all hacks without a given modifier to 'hack'
                                                 var spgetList = [];
-                                                getSectionIDs("hack-cantrip", function(secIds0) {
-                                                    _.each(secIds0, function(x) {
-                                                        spgetList.push("repeating_hack-cantrip_" + x + "_hack_ability");
-                                                    });
-                                                    getSectionIDs("hack-1", function(secIds1) {
-                                                        _.each(secIds1, function(x) {
-                                                            spgetList.push("repeating_hack-1_" + x + "_hack_ability");
-                                                        });
-                                                        getSectionIDs("hack-2", function(secIds2) {
-                                                            _.each(secIds2, function(x) {
-                                                                spgetList.push("repeating_hack-2_" + x + "_hack_ability");
-                                                            });
-                                                            getSectionIDs("hack-3", function(secIds3) {
-                                                                _.each(secIds3, function(x) {
-                                                                    spgetList.push("repeating_hack-3_" + x + "_hack_ability");
-                                                                });
-                                                                getSectionIDs("hack-4", function(secIds4) {
-                                                                    _.each(secIds4, function(x) {
-                                                                        spgetList.push("repeating_hack-4_" + x + "_hack_ability");
-                                                                    });
-                                                                    getSectionIDs("hack-5", function(secIds5) {
-                                                                        _.each(secIds5, function(x) {
-                                                                            spgetList.push("repeating_hack-5_" + x + "_hack_ability");
-                                                                        });
-                                                                        getSectionIDs("hack-6", function(secIds6) {
-                                                                            _.each(secIds6, function(x) {
-                                                                                spgetList.push("repeating_hack-6_" + x + "_hack_ability");
-                                                                            });
-                                                                            getSectionIDs("hack-7", function(secIds7) {
-                                                                                _.each(secIds7, function(x) {
-                                                                                    spgetList.push("repeating_hack-7_" + x + "_hack_ability");
-                                                                                });
-                                                                                getSectionIDs("hack-8", function(secIds8) {
-                                                                                    _.each(secIds8, function(x) {
-                                                                                        spgetList.push("repeating_hack-8_" + x + "_hack_ability");
-                                                                                    });
-                                                                                    getSectionIDs("hack-9", function(secIds9) {
-                                                                                        _.each(secIds9, function(x) {
-                                                                                            spgetList.push("repeating_hack-9_" + x + "_hack_ability");
-                                                                                        });
-                                                                                        getAttrs(spgetList, function(hackAbilities) {
-                                                                                            spupdate = {};
-                                                                                            _.each(hackAbilities, function(ability, attributeName) {
-                                                                                                if (ability == "0*") {
-                                                                                                    console.log("UPDATING HACK: " + attributeName);
-                                                                                                    spupdate[attributeName] = "hack";
-                                                                                                }
-                                                                                            });
-                                                                                            setAttrs(spupdate, function() {
-                                                                                                update_attacks("hacks");
-                                                                                                update_challenge();
-                                                                                                doneupdating();
-                                                                                            });
-                                                                                        });
-                                                                                    });
-                                                                                });
-                                                                            });
-                                                                        });
-                                                                    });
-                                                                });
-                                                            });
-                                                        });
-                                                    });
+												getSectionIDs("hack-1", function(secIds1) {
+													_.each(secIds1, function(x) {
+														spgetList.push("repeating_hack-1_" + x + "_hack_ability");
+													});
+													getSectionIDs("hack-2", function(secIds2) {
+														_.each(secIds2, function(x) {
+															spgetList.push("repeating_hack-2_" + x + "_hack_ability");
+														});
+														getSectionIDs("hack-3", function(secIds3) {
+															_.each(secIds3, function(x) {
+																spgetList.push("repeating_hack-3_" + x + "_hack_ability");
+															});
+															getSectionIDs("hack-4", function(secIds4) {
+																_.each(secIds4, function(x) {
+																	spgetList.push("repeating_hack-4_" + x + "_hack_ability");
+																});
+																getSectionIDs("hack-5", function(secIds5) {
+																	_.each(secIds5, function(x) {
+																		spgetList.push("repeating_hack-5_" + x + "_hack_ability");
+																	});
+																	getAttrs(spgetList, function(hackAbilities) {
+																		spupdate = {};
+																		_.each(hackAbilities, function(ability, attributeName) {
+																			if (ability == "0*") {
+																				console.log("UPDATING HACK: " + attributeName);
+																				spupdate[attributeName] = "hack";
+																			}
+																		});
+																		setAttrs(spupdate, function() {
+																			update_attacks("hacks");
+																			update_challenge();
+																			doneupdating();
+																		});
+																	});
+																});
+															});
+														});
+													});
                                                 });
                                             });
                                         });
@@ -14339,7 +12817,7 @@ Hack                    if (hackattackmod != 0) {hbonus += ` + ${hackattackmod}[
         var eraseSections = ["attack", "inventory", "traits", "resource", "proficiencies", "tool", "damagemod", "hack-cantrip", "hpmod", "acmod", "tohitmod", "savemod", "skillmod"];
         console.log(blobs);
         console.log(hacks);
-        for(var x=1; x<=9; x++) {
+        for(var x=1; x<=5; x++) {
             eraseSections.push("hack-" + x);
         }
         //first set is silent to make sure certain things don't trigger workers
@@ -14805,7 +13283,7 @@ Hack                    if (hackattackmod != 0) {hbonus += ` + ${hackattackmod}[
         var hackSections = ["hack-cantrip"];
         var allSkills = ["athletics", "acrobatics", "sleight_of_hand", "stealth", "investigation", "life_science", "mechanics", "physical_science", "social_science", "streetwise", "computers", "bureaucracy", "drive", "insight", "perception", "survival","deception", "intimidation", "performance", "persuasion"];
         var skillget = [];
-        for(var x=1; x<=9; x++) {
+        for(var x=1; x<=5; x++) {
             hackSections.push("hack-" + x);
         }
 
@@ -16293,7 +14771,7 @@ Hack                    if (hackattackmod != 0) {hbonus += ` + ${hackattackmod}[
             allowed = hackpage.values.newcantrips || 0;
         } else {
             update[cantripsection + " .sheet-hackstext .sheet-levels"] = "";
-            for(var x=1; x <= 9; x++) {
+            for(var x=1; x <= 5; x++) {
                 var thissection = replist.find((y) => {return y.includes("_hack-holder-" + x)});
                 allowed = hackpage.values.newhacks;
                 allowedreplace = hackpage.values.replace;
