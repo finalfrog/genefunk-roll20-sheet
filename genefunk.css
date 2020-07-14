@@ -112,8 +112,8 @@ input[type=radio].sheet-tab-button:checked + span {
 .sheet-toggleflag[value="1"] + .sheet-row.sheet-hidden {
   display: block; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc,
-.sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-header {
+.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc,
+.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header {
   display: block;
   visibility: hidden;
   width: 0px;
@@ -121,18 +121,18 @@ input[type=radio].sheet-tab-button:checked + span {
   margin: 0px;
   padding: 0px; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells {
+.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks {
   display: block; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-core,
-.sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-bio,
-.sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-options {
+.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-core,
+.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-bio,
+.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-options {
   display: none; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-body {
+.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body {
   visibility: visible; }
 
-.sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-body .sheet-col {
+.sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col {
   display: block; }
 
 .sheet-hidden,
@@ -162,7 +162,7 @@ input[type=radio].sheet-tab-button:checked + span {
 
 input[type=radio].sheet-tab-button.sheet-core:checked ~ .sheet-page.sheet-core,
 input[type=radio].sheet-tab-button.sheet-bio:checked ~ .sheet-page.sheet-bio,
-input[type=radio].sheet-tab-button.sheet-spells:checked ~ .sheet-page.sheet-spells,
+input[type=radio].sheet-tab-button.sheet-hacks:checked ~ .sheet-page.sheet-hacks,
 input[type=radio].sheet-tab-button.sheet-options:checked ~ .sheet-page.sheet-options {
   display: block; }
 
@@ -176,8 +176,8 @@ input[type=radio].sheet-tab-button.sheet-bio + span {
   right: 83px;
   width: 30px; }
 
-input[type=radio].sheet-tab-button.sheet-spells,
-input[type=radio].sheet-tab-button.sheet-spells + span {
+input[type=radio].sheet-tab-button.sheet-hacks,
+input[type=radio].sheet-tab-button.sheet-hacks + span {
   right: 20px;
   width: 60px; }
 
@@ -346,7 +346,7 @@ input[type=radio].sheet-tab-button.sheet-spells + span {
 
 button[type=roll]:hover,
 button[type=roll]:hover *,
-.sheet-spell button[type=roll]:hover input[type=text],
+.sheet-hack button[type=roll]:hover input[type=text],
 .sheet-action .sheet-display button[type=roll]:hover * {
   color: #EC2127; }
 
@@ -470,7 +470,7 @@ button[type=roll] * {
 .sheet-tool input,
 .sheet-proficiencies input,
 .sheet-pc .sheet-traits input,
-.sheet-spell input,
+.sheet-hack input,
 .sheet-options .sheet-body input,
 .sheet-resources input[type=number] {
   width: 100%;
@@ -544,7 +544,7 @@ button[type=roll] * {
 .sheet-tool_proficiencies span,
 .sheet-proficiencies span,
 .sheet-traits span,
-.sheet-spells span,
+.sheet-hacks span,
 .sheet-options .sheet-body span {
   display: block;
   font-size: 9px;
@@ -594,7 +594,7 @@ button[type=roll] * {
 
 .sheet-skill button span,
 .sheet-options .sheet-body .sheet-skill span span,
-.sheet-rolltemplate-spell .sheet-grey {
+.sheet-rolltemplate-hack .sheet-grey {
   color: #A0A0A0;
   font-weight: normal; }
 
@@ -865,9 +865,9 @@ button[type=roll] * {
   font-size: 10px;
   display: inline; }
 
-.sheet-spell .sheet-details-flag,
+.sheet-hack .sheet-details-flag,
 .sheet-attacks .sheet-options-flag,
-.sheet-spell .sheet-options-flag,
+.sheet-hack .sheet-options-flag,
 .sheet-tool .sheet-options-flag,
 .sheet-npc .sheet-npc_options-flag,
 .sheet-pc .sheet-trait .sheet-options-flag,
@@ -886,9 +886,9 @@ button[type=roll] * {
   height: 18px;
   z-index: 2; }
 
-.sheet-spell .sheet-details-flag + span,
+.sheet-hack .sheet-details-flag + span,
 .sheet-attacks .sheet-options-flag + span,
-.sheet-spell .sheet-options-flag + span,
+.sheet-hack .sheet-options-flag + span,
 .sheet-tool .sheet-options-flag + span,
 .sheet-npc .sheet-npc_options-flag + span,
 .sheet-trait .sheet-options-flag + span,
@@ -915,9 +915,9 @@ button[type=roll] * {
   margin-top: 0px;
   display: none; }
 
-.sheet-spell .sheet-details-flag:hover + span,
+.sheet-hack .sheet-details-flag:hover + span,
 .sheet-attacks .sheet-options-flag:hover + span,
-.sheet-spell .sheet-options-flag:hover + span,
+.sheet-hack .sheet-options-flag:hover + span,
 .sheet-tool .sheet-options-flag:hover + span,
 .sheet-npc .sheet-npc_options-flag:hover + span,
 .sheet-trait .sheet-options-flag:hover + span,
@@ -935,9 +935,9 @@ button[type=roll] * {
   width: 80%;
   display: inline-block; }
 
-.sheet-spell .sheet-details-flag:checked + span,
+.sheet-hack .sheet-details-flag:checked + span,
 .sheet-attacks .sheet-options-flag:checked + span,
-.sheet-spell .sheet-options-flag:checked + span,
+.sheet-hack .sheet-options-flag:checked + span,
 .sheet-tool .sheet-options-flag:checked + span,
 .sheet-npc .sheet-npc_options-flag:checked + span,
 .sheet-trait .sheet-options-flag:checked + span,
@@ -953,8 +953,8 @@ button[type=roll] * {
   display: -ms-flexbox;
   display: flex; }
 
-.sheet-spell:hover .sheet-details-flag + span,
-.sheet-spell:hover .sheet-options-flag + span,
+.sheet-hack:hover .sheet-details-flag + span,
+.sheet-hack:hover .sheet-options-flag + span,
 .sheet-attacks .sheet-attack:hover .sheet-options-flag + span,
 .sheet-tool:hover .sheet-options-flag + span,
 .sheet-npc:hover > .sheet-npc_options-flag + span,
@@ -1017,7 +1017,7 @@ button[type=roll] * {
 
 .sheet-licensecontainer,
 .sheet-attack,
-.sheet-spell,
+.sheet-hack,
 .sheet-tool,
 .sheet-npc,
 .sheet-action,
@@ -1027,7 +1027,7 @@ button[type=roll] * {
   position: relative; }
 
 .sheet-attack .sheet-options,
-.sheet-spell .sheet-options,
+.sheet-hack .sheet-options,
 .sheet-tool .sheet-options,
 .sheet-npc .sheet-npc_options,
 .sheet-trait .sheet-options,
@@ -1077,7 +1077,7 @@ button[type=roll] * {
 .sheet-header .sheet-options-flag:checked ~ .sheet-display {
   display: none; }
 
-.sheet-spell-level {
+.sheet-hack-level {
   position: relative;
   margin-bottom: 5px; }
 
@@ -1135,15 +1135,15 @@ button[type=roll] * {
   font-weight: bold;
   margin-top: 8px; }
 
-.sheet-spell-labels {
+.sheet-hack-labels {
   color: #A0A0A0; }
 
-.sheet-spell-labels span {
+.sheet-hack-labels span {
   display: inline;
   font-weight: normal;
   font-size: 8px; }
 
-.sheet-spell-level input {
+.sheet-hack-level input {
   width: 100%;
   text-align: center;
   font-size: 20px;
@@ -1160,8 +1160,8 @@ button[type=roll] * {
   margin: 2px;
   height: 100%; }
 
-.sheet-spell-level .sheet-total,
-.sheet-spell-level .sheet-expended {
+.sheet-hack-level .sheet-total,
+.sheet-hack-level .sheet-expended {
   display: inline-block;
   border: 1px solid black;
   height: 25px;
@@ -1170,29 +1170,29 @@ button[type=roll] * {
   margin-left: -20px;
   background-color: white; }
 
-.sheet-spell-level .sheet-total {
+.sheet-hack-level .sheet-total {
   width: 114px;
   vertical-align: bottom; }
 
-.sheet-spell-level .sheet-total span {
+.sheet-hack-level .sheet-total span {
   font-size: 20px;
   font-weight: normal;
   position: relative;
   top: 3px; }
 
-.sheet-spell-level .sheet-expended {
+.sheet-hack-level .sheet-expended {
   width: 139px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px; }
 
-.sheet-spell {
+.sheet-hack {
   margin-bottom: 5px;
   width: 245px; }
 
-.sheet-spell .sheet-wrapper button.sheet-spell_link::before {
+.sheet-hack .sheet-wrapper button.sheet-hack_link::before {
   content: '|'; }
 
-.sheet-spell .sheet-wrapper button.sheet-spell_link {
+.sheet-hack .sheet-wrapper button.sheet-hack_link {
   position: absolute;
   top: 0;
   right: 5px;
@@ -1202,92 +1202,92 @@ button[type=roll] * {
   margin: 0;
   padding: 0; }
 
-.sheet-spell .sheet-wrapper button.sheet-spell_link:hover {
+.sheet-hack .sheet-wrapper button.sheet-hack_link:hover {
   color: #000000; }
 
-.sheet-spell .sheet-wrapper {
+.sheet-hack .sheet-wrapper {
   position: relative; }
 
-.charsheet .sheet-spells .sheet-details span {
+.charsheet .sheet-hacks .sheet-details span {
   font-size: 12px; }
 
-.charsheet .sheet-spells .sheet-details span[name="attr_spelldescription"] {
+.charsheet .sheet-hacks .sheet-details span[name="attr_hackdescription"] {
   white-space: pre-line; }
 
-.repcontainer .sheet-spell .sheet-details-flag:not(:checked) ~ .sheet-wrapper {
+.repcontainer .sheet-hack .sheet-details-flag:not(:checked) ~ .sheet-wrapper {
   display: none; }
 
-.sheet-spell .sheet-wrapper .sheet-options-flag,
-.sheet-spell .sheet-wrapper .sheet-options-flag + span {
+.sheet-hack .sheet-wrapper .sheet-options-flag,
+.sheet-hack .sheet-wrapper .sheet-options-flag + span {
   display: inherit; }
 
-.repcontainer .sheet-spell .sheet-details-flag:not(:checked) ~ .sheet-wrapper input.sheet-spell_desc + .sheet-options-flag,
-.repcontainer .sheet-spell .sheet-details-flag:not(:checked) ~ .sheet-wrapper input.sheet-spell_desc + .sheet-options-flag + span {
+.repcontainer .sheet-hack .sheet-details-flag:not(:checked) ~ .sheet-wrapper input.sheet-hack_desc + .sheet-options-flag,
+.repcontainer .sheet-hack .sheet-details-flag:not(:checked) ~ .sheet-wrapper input.sheet-hack_desc + .sheet-options-flag + span {
   display: none; }
 
-.repcontainer .sheet-spell .sheet-wrapper .sheet-options .sheet-options-flag + span {
+.repcontainer .sheet-hack .sheet-wrapper .sheet-options .sheet-options-flag + span {
   right: 23.5px;
   width: 18px;
   height: 18px; }
 
-.repcontainer .sheet-spell .sheet-wrapper input.sheet-spell_desc[value] + .sheet-options-flag:not(:checked) ~ .sheet-options {
+.repcontainer .sheet-hack .sheet-wrapper input.sheet-hack_desc[value] + .sheet-options-flag:not(:checked) ~ .sheet-options {
   display: none; }
 
-.repcontainer .sheet-spell .sheet-wrapper .sheet-options-flag:not(:checked) ~ .sheet-options {
+.repcontainer .sheet-hack .sheet-wrapper .sheet-options-flag:not(:checked) ~ .sheet-options {
   display: none; }
 
-.sheet-spell .sheet-wrapper .sheet-options-flag:checked ~ .sheet-details {
+.sheet-hack .sheet-wrapper .sheet-options-flag:checked ~ .sheet-details {
   display: none; }
 
-.sheet-spell .sheet-wrapper .sheet-options-flag:checked ~ .sheet-options {
+.sheet-hack .sheet-wrapper .sheet-options-flag:checked ~ .sheet-options {
   display: inherit; }
 
-.sheet-spell .sheet-wrapper .sheet-options-flag {
+.sheet-hack .sheet-wrapper .sheet-options-flag {
   z-index: 10; }
 
-.sheet-spell .sheet-wrapper .sheet-options-flag,
-.sheet-spell .sheet-wrapper .sheet-options-flag + span {
+.sheet-hack .sheet-wrapper .sheet-options-flag,
+.sheet-hack .sheet-wrapper .sheet-options-flag + span {
   right: 23.5px; }
 
-.sheet-spell .sheet-details span:not(.sheet-innate) {
+.sheet-hack .sheet-details span:not(.sheet-innate) {
   display: inline;
   font-weight: normal; }
 
-.sheet-spell .sheet-details span.sheet-bold {
+.sheet-hack .sheet-details span.sheet-bold {
   font-weight: bold; }
 
-.sheet-spell .sheet-details .sheet-italics {
+.sheet-hack .sheet-details .sheet-italics {
   font-style: italic; }
 
-.sheet-spell .sheet-details input[type="checkbox"] {
+.sheet-hack .sheet-details input[type="checkbox"] {
   display: none; }
 
-.sheet-spell .sheet-details input[type="checkbox"] + span {
+.sheet-hack .sheet-details input[type="checkbox"] + span {
   display: none; }
 
-.sheet-spell .sheet-details input[type="checkbox"]:checked + span {
+.sheet-hack .sheet-details input[type="checkbox"]:checked + span {
   display: inline; }
 
-.sheet-spell .sheet-details input[type="checkbox"]:checked ~ input[type="checkbox"]:checked + span::before {
+.sheet-hack .sheet-details input[type="checkbox"]:checked ~ input[type="checkbox"]:checked + span::before {
   content: ', '; }
 
-.sheet-spell .sheet-details span[name="attr_spellname"] {
+.sheet-hack .sheet-details span[name="attr_hackname"] {
   font-family: "Times New Roman", Times, serif;
   font-size: 16px;
   text-transform: capitalize;
   font-variant: small-caps;
   color: #7e2d40; }
 
-.sheet-spell .sheet-details input[name="attr_spellcomp_materials"][value=""] + span,
-.sheet-spell .sheet-details input[name="attr_spellathigherlevels"][value=""] + div {
+.sheet-hack .sheet-details input[name="attr_hackcomp_materials"][value=""] + span,
+.sheet-hack .sheet-details input[name="attr_hackathigherlevels"][value=""] + div {
   display: none; }
 
-.sheet-spell .sheet-options {
+.sheet-hack .sheet-options {
   border-top: none;
   border-bottom: 2px dashed gold;
   padding-bottom: 40px; }
 
-.sheet-spell .sheet-options-done {
+.sheet-hack .sheet-options-done {
   display: inline-block;
   margin-top: 5px;
   padding: 3px 10px;
@@ -1299,23 +1299,23 @@ button[type=roll] * {
   float: right;
   cursor: pointer; }
 
-.sheet-spell .sheet-options-done:hover {
+.sheet-hack .sheet-options-done:hover {
   opacity: 0.6; }
 
-.sheet-spell .sheet-options-done::before {
+.sheet-hack .sheet-options-done::before {
   content: '3';
   font-family: pictos; }
 
-.sheet-spell .sheet-options-done input[type="checkbox"] {
+.sheet-hack .sheet-options-done input[type="checkbox"] {
   display: none; }
 
-.sheet-spell .sheet-options-done span.sheet-label {
+.sheet-hack .sheet-options-done span.sheet-label {
   margin-top: 0; }
 
-.sheet-spell .sheet-display {
+.sheet-hack .sheet-display {
   position: relative; }
 
-.sheet-spell .sheet-display button[type=roll] {
+.sheet-hack .sheet-display button[type=roll] {
   background-color: transparent;
   color: black;
   border-top: none;
@@ -1332,11 +1332,11 @@ button[type=roll] * {
   font-weight: bold;
   text-align: left; }
 
-.sheet-spell .sheet-display button[type=roll]::before {
+.sheet-hack .sheet-display button[type=roll]::before {
   content: "" !important; }
 
-span.sheet-spellritual,
-span.sheet-spellconcentration {
+span.sheet-hackritual,
+span.sheet-hackconcentration {
   display: none;
   font-size: 8px;
   font-weight: normal;
@@ -1349,34 +1349,34 @@ span.sheet-spellconcentration {
   top: 0px;
   line-height: 10px; }
 
-.sheet-spellicon_flag:not([value="none"]) + .sheet-body .sheet-spell .sheet-display .sheet-spellritual:not([value="0"]) ~ span.sheet-spellritual {
+.sheet-hackicon_flag:not([value="none"]) + .sheet-body .sheet-hack .sheet-display .sheet-hackritual:not([value="0"]) ~ span.sheet-hackritual {
   display: inline-block;
   right: 11px; }
 
-.sheet-spellicon_flag:not([value="none"]) + .sheet-body .sheet-spell .sheet-display .sheet-spellconcentration:not([value="0"]) ~ span.sheet-spellconcentration {
+.sheet-hackicon_flag:not([value="none"]) + .sheet-body .sheet-hack .sheet-display .sheet-hackconcentration:not([value="0"]) ~ span.sheet-hackconcentration {
   border-radius: 100%;
   display: inline-block;
   right: 0; }
 
-.sheet-spell .sheet-display .sheet-componentscontainer {
+.sheet-hack .sheet-display .sheet-componentscontainer {
   position: absolute;
   top: 3px;
   right: 0;
   width: auto; }
 
-.sheet-spell .sheet-display .sheet-v,
-.sheet-spell .sheet-display .sheet-s,
-.sheet-spell .sheet-display .sheet-m {
+.sheet-hack .sheet-display .sheet-v,
+.sheet-hack .sheet-display .sheet-s,
+.sheet-hack .sheet-display .sheet-m {
   display: none; }
 
-.sheet-spellicon_flag[value="all"] + .sheet-body .sheet-spell .sheet-display input.sheet-v:not([value="0"]) ~ .sheet-componentscontainer span.sheet-v,
-.sheet-spellicon_flag[value="all"] + .sheet-body .sheet-spell .sheet-display input.sheet-s:not([value="0"]) ~ .sheet-componentscontainer span.sheet-s,
-.sheet-spellicon_flag[value="all"] + .sheet-body .sheet-spell .sheet-display input.sheet-m:not([value="0"]) ~ .sheet-componentscontainer span.sheet-m {
+.sheet-hackicon_flag[value="all"] + .sheet-body .sheet-hack .sheet-display input.sheet-v:not([value="0"]) ~ .sheet-componentscontainer span.sheet-v,
+.sheet-hackicon_flag[value="all"] + .sheet-body .sheet-hack .sheet-display input.sheet-s:not([value="0"]) ~ .sheet-componentscontainer span.sheet-s,
+.sheet-hackicon_flag[value="all"] + .sheet-body .sheet-hack .sheet-display input.sheet-m:not([value="0"]) ~ .sheet-componentscontainer span.sheet-m {
   display: inline;
   width: initial;
   font-size: 8px; }
 
-.sheet-spell .sheet-display input[type=text] {
+.sheet-hack .sheet-display input[type=text] {
   font-size: 12px;
   line-height: 12px;
   cursor: pointer;
@@ -1394,7 +1394,7 @@ span.sheet-spellconcentration {
   margin: 0px;
   width: 100%; }
 
-.sheet-spell .sheet-display span.sheet-spellname {
+.sheet-hack .sheet-display span.sheet-hackname {
   font-size: 12px;
   text-align: left;
   font-weight: normal;
@@ -1407,7 +1407,7 @@ span.sheet-spellconcentration {
   white-space: nowrap;
   max-width: 220px; }
 
-.sheet-spell .sheet-display .sheet-prep ~ span.sheet-spellname {
+.sheet-hack .sheet-display .sheet-prep ~ span.sheet-hackname {
   margin-left: 14px; }
 
 .repcontrol {
@@ -1484,7 +1484,7 @@ span.sheet-spellconcentration {
 
 .sheet-tool .sheet-options,
 .sheet-attack .sheet-options,
-.sheet-spell .sheet-options,
+.sheet-hack .sheet-options,
 .sheet-proficiencies .sheet-options,
 .sheet-traits .sheet-options,
 .sheet-global-mod .sheet-options {
@@ -1492,7 +1492,7 @@ span.sheet-spellconcentration {
 
 .sheet-tool .sheet-options span,
 .sheet-attack .sheet-options span,
-.sheet-spell .sheet-options span,
+.sheet-hack .sheet-options span,
 .sheet-options .sheet-body span,
 .sheet-proficiencies .sheet-options span,
 .sheet-traits .sheet-options span,
@@ -1503,7 +1503,7 @@ span.sheet-spellconcentration {
 
 .sheet-tool .sheet-options input,
 .sheet-attack .sheet-options input[type=text],
-.sheet-spell .sheet-options input[type=text],
+.sheet-hack .sheet-options input[type=text],
 .sheet-options .sheet-body input[type=text],
 .sheet-proficiencies .sheet-options input[type=text],
 .sheet-traits .sheet-options input[type=text],
@@ -1517,7 +1517,7 @@ span.sheet-spellconcentration {
 
 .sheet-tool .sheet-options select,
 .sheet-attack .sheet-options select,
-.sheet-spell .sheet-options select,
+.sheet-hack .sheet-options select,
 .sheet-options .sheet-body select,
 .sheet-proficiencies .sheet-options select,
 .sheet-traits .sheet-options select {
@@ -1543,7 +1543,7 @@ span.sheet-spellconcentration {
 
 .sheet-tool .sheet-options input[type=checkbox],
 .sheet-attack .sheet-options input[type=checkbox],
-.sheet-spell .sheet-options input[type=checkbox],
+.sheet-hack .sheet-options input[type=checkbox],
 .sheet-options .sheet-body input[type=checkbox],
 .sheet-npc .sheet-npc_options input[type=checkbox],
 .sheet-proficiencies .sheet-options input[type=checkbox],
@@ -1559,29 +1559,29 @@ span.sheet-spellconcentration {
   width: 15px;
   text-align: center; }
 
-.sheet-spell .sheet-options textarea {
+.sheet-hack .sheet-options textarea {
   width: calc(100% - 10px);
   resize: vertical;
   margin-bottom: 0px; }
 
-.sheet-spell-container {
+.sheet-hack-container {
   min-height: 60px;
   margin-bottom: 1px; }
 
-.sheet-spell-container input[name="attr_spellcastingtime"] {
+.sheet-hack-container input[name="attr_hackcastingtime"] {
   width: 168px; }
 
-.sheet-spell-container input[name="attr_spellrange"] {
+.sheet-hack-container input[name="attr_hackrange"] {
   width: 201px; }
 
-.sheet-spell-container input[name="attr_spelltarget"] {
+.sheet-hack-container input[name="attr_hacktarget"] {
   width: 199px; }
 
-.sheet-spell-container .sheet-spell .sheet-options input[name="attr_spellcomp_materials"] {
+.sheet-hack-container .sheet-hack .sheet-options input[name="attr_hackcomp_materials"] {
   margin-left: 17px;
   width: 223px; }
 
-.sheet-spell-container input[name="attr_spellduration"] {
+.sheet-hack-container input[name="attr_hackduration"] {
   width: 186px; }
 
 .sheet-options .sheet-row {
@@ -1622,19 +1622,19 @@ span.sheet-spellconcentration {
 .sheet-options .sheet-row > span {
   color: black; }
 
-.sheet-spell .sheet-details-flag,
-.sheet-spell .sheet-details-flag + span {
+.sheet-hack .sheet-details-flag,
+.sheet-hack .sheet-details-flag + span {
   position: absolute;
   top: 0px;
   right: 23px;
   width: 18px;
   height: 18px; }
 
-.sheet-spell .sheet-details-flag {
+.sheet-hack .sheet-details-flag {
   opacity: 0;
   z-index: 2; }
 
-.sheet-spell .sheet-details-flag + span {
+.sheet-hack .sheet-details-flag + span {
   white-space: nowrap;
   font-size: 20px;
   font-family: pictos;
@@ -1644,19 +1644,19 @@ span.sheet-spellconcentration {
   display: none;
   line-height: 18px; }
 
-.sheet-spell .sheet-options-flag,
-.sheet-spell .sheet-options-flag + span {
+.sheet-hack .sheet-options-flag,
+.sheet-hack .sheet-options-flag + span {
   position: absolute;
   top: 0px;
   right: 23px;
   width: 18px;
   height: 18px; }
 
-.sheet-spell .sheet-options-flag {
+.sheet-hack .sheet-options-flag {
   opacity: 0;
   z-index: 2; }
 
-.sheet-spell .sheet-options-flag + span {
+.sheet-hack .sheet-options-flag + span {
   white-space: nowrap;
   font-size: 20px;
   font-family: pictos;
@@ -1664,78 +1664,78 @@ span.sheet-spellconcentration {
   cursor: pointer;
   margin-top: 0px; }
 
-.sheet-spell .sheet-details button.sheet-spell_link::before {
+.sheet-hack .sheet-details button.sheet-hack_link::before {
   content: '|'; }
 
-.sheet-spell .sheet-details button.sheet-spell_link {
+.sheet-hack .sheet-details button.sheet-hack_link {
   float: right;
   border: none;
   background: none;
   color: #A0A0A0; }
 
-.sheet-spell .sheet-details button.sheet-spell_link:hover {
+.sheet-hack .sheet-details button.sheet-hack_link:hover {
   color: #000000; }
 
-.sheet-spell .sheet-details-flag:checked + span {
+.sheet-hack .sheet-details-flag:checked + span {
   display: block;
   color: #000000; }
 
-.sheet-spell:hover .sheet-details-flag + span {
+.sheet-hack:hover .sheet-details-flag + span {
   display: block; }
 
-.sheet-spell .sheet-details-flag ~ .sheet-details {
+.sheet-hack .sheet-details-flag ~ .sheet-details {
   display: none; }
 
-.sheet-spell .sheet-details-flag:checked ~ .sheet-details {
+.sheet-hack .sheet-details-flag:checked ~ .sheet-details {
   display: block; }
 
-.sheet-spell .sheet-details {
+.sheet-hack .sheet-details {
   margin: 15px 10px; }
 
-.sheet-spell .sheet-options {
+.sheet-hack .sheet-options {
   margin: 15px 10px;
   padding: 0;
   overflow-x: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis; }
 
-.sheet-spell .sheet-details span:not(.sheet-innate) {
+.sheet-hack .sheet-details span:not(.sheet-innate) {
   display: inline;
   font-weight: normal; }
 
-.sheet-spell .sheet-details span.sheet-bold {
+.sheet-hack .sheet-details span.sheet-bold {
   font-weight: bold; }
 
-.sheet-spell .sheet-details .sheet-italics {
+.sheet-hack .sheet-details .sheet-italics {
   font-style: italic; }
 
-.sheet-spell .sheet-details input[type="checkbox"] {
+.sheet-hack .sheet-details input[type="checkbox"] {
   display: none; }
 
-.sheet-spell .sheet-details input[type="checkbox"] + span {
+.sheet-hack .sheet-details input[type="checkbox"] + span {
   display: none; }
 
-.sheet-spell .sheet-details input[type="checkbox"]:checked + span {
+.sheet-hack .sheet-details input[type="checkbox"]:checked + span {
   display: inline; }
 
-.sheet-spell .sheet-details input[type="checkbox"]:checked ~ input[type="checkbox"]:checked + span::before {
+.sheet-hack .sheet-details input[type="checkbox"]:checked ~ input[type="checkbox"]:checked + span::before {
   content: ', '; }
 
-.sheet-spell .sheet-details span[name="attr_spellname"] {
+.sheet-hack .sheet-details span[name="attr_hackname"] {
   font-family: "Times New Roman", Times, serif;
   font-size: 16px;
   text-transform: capitalize;
   font-variant: small-caps;
   color: #7e2d40; }
 
-.sheet-spell .sheet-details input[name="attr_spellcomp_materials"][value=""] + span,
-.sheet-spell .sheet-details input[name="attr_spellathigherlevels"][value=""] + div {
+.sheet-hack .sheet-details input[name="attr_hackcomp_materials"][value=""] + span,
+.sheet-hack .sheet-details input[name="attr_hackathigherlevels"][value=""] + div {
   display: none; }
 
-.sheet-spell .sheet-display {
+.sheet-hack .sheet-display {
   position: relative; }
 
-.sheet-spell .sheet-prep {
+.sheet-hack .sheet-prep {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -1743,10 +1743,10 @@ span.sheet-spellconcentration {
   top: 0px;
   border: 1px solid black; }
 
-.sheet-spell input[type=checkbox]:checked ~ span.sheet-prep {
+.sheet-hack input[type=checkbox]:checked ~ span.sheet-prep {
   background-color: #EC2127; }
 
-.sheet-spell .sheet-prep-box {
+.sheet-hack .sheet-prep-box {
   -webkit-appearance: checkbox;
   -moz-appearance: checkbox;
   opacity: 0;
@@ -1754,7 +1754,7 @@ span.sheet-spellconcentration {
   position: relative;
   width: 12px; }
 
-.charsheet .sheet-spell .sheet-display button[type=roll].sheet-spellcard {
+.charsheet .sheet-hack .sheet-display button[type=roll].sheet-hackcard {
   width: calc(100% - 18px); }
 
 .sheet-rolltemplates {
@@ -2152,8 +2152,8 @@ By Miguel
 .sheet-rolltemplate-atk a[href^="~"]:visited {
   pointer-events: none; }
 
-.sheet-rolltemplate-spell .sheet-container {
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/spellbg.jpg") center center;
+.sheet-rolltemplate-hack .sheet-container {
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/hackbg.jpg") center center;
   background-repeat: repeat;
   background-size: auto;
   border: 1px solid black;
@@ -2163,25 +2163,25 @@ By Miguel
   padding: 0.5em;
   width: 19em; }
 
-.withoutavatars .sheet-rolltemplate-spell .sheet-container {
+.withoutavatars .sheet-rolltemplate-hack .sheet-container {
   margin-left: -15px; }
 
-.sheet-rolltemplate-spell .sheet-row {
+.sheet-rolltemplate-hack .sheet-row {
   display: block; }
 
-.sheet-rolltemplate-spell .sheet-title {
+.sheet-rolltemplate-hack .sheet-title {
   color: #7e2d40;
   font-size: 1.2em; }
 
-.sheet-rolltemplate-spell .sheet-italics,
+.sheet-rolltemplate-hack .sheet-italics,
 .sheet-npc .sheet-italics {
   font-style: italic; }
 
-.sheet-rolltemplate-spell .sheet-bold,
+.sheet-rolltemplate-hack .sheet-bold,
 .sheet-actions .sheet-bold {
   font-weight: bold; }
 
-.sheet-rolltemplate-spell .sheet-spacer {
+.sheet-rolltemplate-hack .sheet-spacer {
   height: 5px; }
 
 .sheet-rolltemplate-mancerroll .sheet-container,
@@ -2617,14 +2617,14 @@ By Miguel
   margin-bottom: 15px;
   color: #555555; }
 
-.sheet-npcspelloptions {
+.sheet-npchackoptions {
   display: inline-block;
   margin-left: 17px; }
 
 .sheet-container.sheet-npc .sheet-legendary,
 .sheet-container.sheet-npc .sheet-reaction,
-.sheet-npcspell_flag[value="0"] ~ .sheet-npcspell,
-.sheet-npcspellcastingflag:not(:checked) ~ .sheet-npcspelloptions {
+.sheet-npchack_flag[value="0"] ~ .sheet-npchack,
+.sheet-npchackcastingflag:not(:checked) ~ .sheet-npchackoptions {
   display: none; }
 
 .sheet-legendary_flag:not([value="0"]) ~ .sheet-legendary,
@@ -2929,11 +2929,11 @@ By Miguel
   border-bottom: none;
   width: 20px; }
 
-.sheet-spellattackinfo {
+.sheet-hackattackinfo {
   display: none; }
 
-.charsheet .sheet-spells .sheet-spellattackinfoflag[value="ATTACK"] ~ .sheet-spellattackinfo,
-.charsheet .sheet-npc .sheet-spellattackinfoflag[value="ATTACK"] ~ .sheet-spellattackinfo {
+.charsheet .sheet-hacks .sheet-hackattackinfoflag[value="ATTACK"] ~ .sheet-hackattackinfo,
+.charsheet .sheet-npc .sheet-hackattackinfoflag[value="ATTACK"] ~ .sheet-hackattackinfo {
   display: block; }
 
 .sheet-attack input[type=text].sheet-flat {
@@ -3048,11 +3048,11 @@ By Miguel
   font-size: 15px;
   position: absolute; }
 
-.sheet-spell_slot_mods .sheet-column {
+.sheet-hack_slot_mods .sheet-column {
   width: 32%;
   display: inline-block; }
 
-.sheet-spell_slot_mods .sheet-num_plus {
+.sheet-hack_slot_mods .sheet-num_plus {
   margin-left: 2px; }
 
 .sheet-licensecontainer.active-drop-target.dropping,
@@ -3216,14 +3216,14 @@ By Miguel
 .sheet-missing-info-desc:hover {
   display: block; }
 
-.sheet-actions.sheet-npcspell.sheet-spells,
+.sheet-actions.sheet-npchack.sheet-hacks,
 .sheet-missing-info-desc {
   display: none; }
 
-.sheet-npcspell_flag[value="1"] + .sheet-actions.sheet-npcspell.sheet-spells {
+.sheet-npchack_flag[value="1"] + .sheet-actions.sheet-npchack.sheet-hacks {
   display: block; }
 
-.sheet-spells .sheet-innate {
+.sheet-hacks .sheet-innate {
   color: #A0A0A0;
   display: none;
   font-size: 12px;
@@ -3243,16 +3243,16 @@ By Miguel
 
 /* Translation Overrides */
 /* Spanish */
-.lang-es .sheet-spell-container input[name="attr_spellcastingtime"] {
+.lang-es .sheet-hack-container input[name="attr_hackcastingtime"] {
   width: 115px; }
 
-.lang-es .sheet-spell-container input[name="attr_spellrange"] {
+.lang-es .sheet-hack-container input[name="attr_hackrange"] {
   width: 200px; }
 
-.lang-es .sheet-spell-container input[name="attr_spelltarget"] {
+.lang-es .sheet-hack-container input[name="attr_hacktarget"] {
   width: 188px; }
 
-.lang-es .sheet-spell-container input[name="attr_spellduration"] {
+.lang-es .sheet-hack-container input[name="attr_hackduration"] {
   width: 184px; }
 
 .lang-es .sheet-ac-init-speed-container div {
@@ -3316,8 +3316,8 @@ By Miguel
   right: 103px;
   width: 30px; }
 
-.lang-es input[type=radio].sheet-tab-button.sheet-spells,
-.lang-es input[type=radio].sheet-tab-button.sheet-spells + span {
+.lang-es input[type=radio].sheet-tab-button.sheet-hacks,
+.lang-es input[type=radio].sheet-tab-button.sheet-hacks + span {
   right: 21px;
   width: 78px; }
 
@@ -3326,13 +3326,13 @@ By Miguel
 .charsheet.lang-cs input[type=radio].sheet-tab-button.sheet-core + span {
   width: 53px; }
 
-.charsheet.lang-cs select[name=attr_cust_spellslots] {
+.charsheet.lang-cs select[name=attr_cust_hackslots] {
   font-size: 9px; }
 
-.charsheet.lang-cs .sheet-spell .sheet-options span[data-i18n="at-higher-lvl-dmg:-u"],
-.charsheet.lang-cs .sheet-spell .sheet-options span[data-i18n="add-ability-mod-u"],
-.charsheet.lang-cs .sheet-spell .sheet-options span[data-i18n="saving-throw:-u"],
-.charsheet.lang-cs .sheet-spell .sheet-options span[data-i18n="effect:-u"],
+.charsheet.lang-cs .sheet-hack .sheet-options span[data-i18n="at-higher-lvl-dmg:-u"],
+.charsheet.lang-cs .sheet-hack .sheet-options span[data-i18n="add-ability-mod-u"],
+.charsheet.lang-cs .sheet-hack .sheet-options span[data-i18n="saving-throw:-u"],
+.charsheet.lang-cs .sheet-hack .sheet-options span[data-i18n="effect:-u"],
 .charsheet.lang-cs .sheet-ac-init-speed-container .sheet-ac > span {
   font-size: 8px; }
 
@@ -3366,12 +3366,12 @@ By Miguel
   right: 113px;
   width: 30px; }
 
-.charsheet.lang-it input[type=radio].sheet-tab-button.sheet-spells,
-.charsheet.lang-it input[type=radio].sheet-tab-button.sheet-spells + span {
+.charsheet.lang-it input[type=radio].sheet-tab-button.sheet-hacks,
+.charsheet.lang-it input[type=radio].sheet-tab-button.sheet-hacks + span {
   right: 20px;
   width: 90px; }
 
-.charsheet.lang-it div.sheet-licensecontainer .sheet-container.sheet-pc .sheet-spells .sheet-header .sheet-header-info .sheet-part {
+.charsheet.lang-it div.sheet-licensecontainer .sheet-container.sheet-pc .sheet-hacks .sheet-header .sheet-header-info .sheet-part {
   width: 23%; }
 
 .charsheet.lang-it div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-page div.sheet-header div.sheet-name-container span {
@@ -3723,7 +3723,7 @@ By Miguel
 .sheet-charmancer .sheet-gold_option input[type=number] {
   width: 4.5em; }
 
-.sheet-manver .sheet-yes_spells {
+.sheet-manver .sheet-yes_hacks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -3881,7 +3881,7 @@ By Miguel
 .sheet-custom-trait:last-of-type button {
   display: block; }
 
-.sheet-charmancer .sheet-choices.sheet-spellslide {
+.sheet-charmancer .sheet-choices.sheet-hackslide {
   -webkit-box-flex: 45%;
   -ms-flex: 45%;
   flex: 45%;
@@ -3889,7 +3889,7 @@ By Miguel
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-.sheet-charmancer .sheet-info.sheet-spellslide {
+.sheet-charmancer .sheet-info.sheet-hackslide {
   position: -webkit-sticky;
   position: sticky;
   -webkit-box-flex: 55%;
@@ -3899,59 +3899,59 @@ By Miguel
   min-height: 50%;
   height: 100%; }
 
-.sheet-spells-summary div div {
+.sheet-hacks-summary div div {
   display: inline-block; }
 
-.sheet-spells-summary .sheet-title {
+.sheet-hacks-summary .sheet-title {
   width: 15%;
   text-align: right;
   vertical-align: top; }
 
-.sheet-spells-summary .sheet-list {
+.sheet-hacks-summary .sheet-list {
   width: 85%;
   padding-left: .5em;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-.sheet-spells-summary .sheet-list span:not(:last-of-type)::after {
+.sheet-hacks-summary .sheet-list span:not(:last-of-type)::after {
   content: ",";
   color: black;
   text-decoration: none; }
 
-.sheet-spells-summary .sheet-list span::before {
+.sheet-hacks-summary .sheet-list span::before {
   content: " "; }
 
-.sheet-spells-summary .sheet-new {
+.sheet-hacks-summary .sheet-new {
   /*color: #447877;*/
   color: green;
   font-weight: bold; }
 
-.sheet-spells-summary .sheet-removed {
+.sheet-hacks-summary .sheet-removed {
   text-decoration: line-through; }
 
-.sheet-spellslide .sheet-cantripinfo {
+.sheet-hackslide .sheet-cantripinfo {
   margin-bottom: -1em; }
 
-.sheet-spellslide .sheet-cantripinfo p {
+.sheet-hackslide .sheet-cantripinfo p {
   margin: 0; }
 
-.sheet-charmancer .sheet-spellslide .sheet-row {
+.sheet-charmancer .sheet-hackslide .sheet-row {
   padding-left: 0; }
 
-.sheet-charmancer .sheet-spellslide .sheet-instructions {
+.sheet-charmancer .sheet-hackslide .sheet-instructions {
   font-weight: bold; }
 
-.sheet-charmancer .sheet-spellslide .sheet-spell-summary {
+.sheet-charmancer .sheet-hackslide .sheet-hack-summary {
   margin: 0; }
 
 .sheet-charmancer label.sheet-nostyle * {
   display: inline;
   margin-top: 0; }
 
-.sheet-charmancer .sheet-spell-holder {
+.sheet-charmancer .sheet-hack-holder {
   margin: 1em 0; }
 
-.sheet-charmancer .sheet-spell-holder label {
+.sheet-charmancer .sheet-hack-holder label {
   border: 1px solid black;
   background-color: #efefef;
   margin: 0;
@@ -3959,12 +3959,12 @@ By Miguel
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-.sheet-charmancer .sheet-spell-holder label .sheet-title {
+.sheet-charmancer .sheet-hack-holder label .sheet-title {
   display: inline;
   padding: 1em;
   line-height: 2em; }
 
-.sheet-charmancer .sheet-spell-holder label .sheet-title span.sheet-choice-showing {
+.sheet-charmancer .sheet-hack-holder label .sheet-title span.sheet-choice-showing {
   font-family: pictos;
   color: red;
   display: inline;
@@ -3974,18 +3974,18 @@ By Miguel
   position: relative;
   bottom: .3em; }
 
-.sheet-charmancer .sheet-spell-holder label .sheet-number {
+.sheet-charmancer .sheet-hack-holder label .sheet-number {
   float: right;
   font-weight: normal;
   margin-right: .7em;
   line-height: .8em; }
 
-.sheet-charmancer .sheet-spell-holder .sheet-spellheader input {
+.sheet-charmancer .sheet-hack-holder .sheet-hackheader input {
   display: inline;
   float: right;
   opacity: 0; }
 
-.sheet-charmancer .sheet-spell-holder label .sheet-number::after {
+.sheet-charmancer .sheet-hack-holder label .sheet-number::after {
   content: "9";
   font-family: pictos;
   position: absolute;
@@ -3996,13 +3996,13 @@ By Miguel
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg); }
 
-.sheet-charmancer .sheet-spell-holder label input:checked ~ .sheet-number::after {
+.sheet-charmancer .sheet-hack-holder label input:checked ~ .sheet-number::after {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
   margin-left: .4em; }
 
-.sheet-charmancer .sheet-spell-holder .sheet-container {
+.sheet-charmancer .sheet-hack-holder .sheet-container {
   width: 100%;
   border: 1px solid black;
   border-top: 0;
@@ -4010,11 +4010,11 @@ By Miguel
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-.sheet-charmancer .sheet-spell-item {
+.sheet-charmancer .sheet-hack-item {
   padding: 0 .5em;
   line-height: 1.5em; }
 
-.sheet-charmancer .sheet-spell-item label {
+.sheet-charmancer .sheet-hack-item label {
   border: 0;
   margin: 0;
   padding: 0;
@@ -4025,7 +4025,7 @@ By Miguel
   display: inline;
   line-height: 1.4em; }
 
-.sheet-charmancer .sheet-spell-item .sheet-mancer_info {
+.sheet-charmancer .sheet-hack-item .sheet-mancer_info {
   font-size: 1em;
   margin-top: .25em;
   background-color: #777;
@@ -4033,43 +4033,43 @@ By Miguel
   position: absolute;
   left: 93%; }
 
-.sheet-charmancer .sheet-spell-item .sheet-classes {
+.sheet-charmancer .sheet-hack-item .sheet-classes {
   font-size: 0.6em;
   float: right;
   margin-right: 7%; }
 
-.sheet-charmancer .sheet-spell-item .sheet-classes span:not(:last-child)::after {
+.sheet-charmancer .sheet-hack-item .sheet-classes span:not(:last-child)::after {
   content: ", ";
   color: #000; }
 
-.sheet-charmancer .sheet-spell-item .sheet-known {
+.sheet-charmancer .sheet-hack-item .sheet-known {
   color: #000;
   font-style: italic; }
 
-.sheet-charmancer .sheet-spell-item .sheet-class0 {
+.sheet-charmancer .sheet-hack-item .sheet-class0 {
   color: #7e2d40; }
 
-.sheet-charmancer .sheet-spell-item .sheet-class1 {
+.sheet-charmancer .sheet-hack-item .sheet-class1 {
   color: #000; }
 
-.sheet-charmancer .sheet-spell-item .sheet-class2 {
+.sheet-charmancer .sheet-hack-item .sheet-class2 {
   color: #ec2127; }
 
-.sheet-charmancer .sheet-spell-item .sheet-class3 {
+.sheet-charmancer .sheet-hack-item .sheet-class3 {
   color: #447877; }
 
-.sheet-charmancer .sheet-container .sheet-spell-item .sheet-spellcheck {
+.sheet-charmancer .sheet-container .sheet-hack-item .sheet-hackcheck {
   margin-bottom: .3em;
   margin-right: .3em; }
 
-.sheet-charmancer .sheet-spell-item .sheet-lock:not(:empty) ~ label,
-.sheet-charmancer .sheet-spell-item .sheet-hardlock:not(:empty) ~ label {
+.sheet-charmancer .sheet-hack-item .sheet-lock:not(:empty) ~ label,
+.sheet-charmancer .sheet-hack-item .sheet-hardlock:not(:empty) ~ label {
   pointer-events: none; }
 
-.sheet-charmancer .sheet-spell-item .sheet-existing[value="1"] ~ label .sheet-name {
+.sheet-charmancer .sheet-hack-item .sheet-existing[value="1"] ~ label .sheet-name {
   font-style: italic; }
 
-.sheet-charmancer .sheet-spell-item .sheet-existing[value="1"] ~ label input:not(:checked) ~ .sheet-name::before {
+.sheet-charmancer .sheet-hack-item .sheet-existing[value="1"] ~ label input:not(:checked) ~ .sheet-name::before {
   content: 'r';
   font-family: pictos;
   color: red;
@@ -4077,18 +4077,18 @@ By Miguel
   padding-right: .3em;
   line-height: 1em; }
 
-.sheet-charmancer .sheet-spell-item .sheet-lock:not(:empty) ~ label *,
-.sheet-charmancer .sheet-spell-item .sheet-hardlock:not(:empty) ~ label * {
+.sheet-charmancer .sheet-hack-item .sheet-lock:not(:empty) ~ label *,
+.sheet-charmancer .sheet-hack-item .sheet-hardlock:not(:empty) ~ label * {
   opacity: 0.6; }
 
-.sheet-charmancer .sheet-container .sheet-spell-item:nth-child(even) {
+.sheet-charmancer .sheet-container .sheet-hack-item:nth-child(even) {
   background-color: #efefef; }
 
-.sheet-charmancer .sheet-spell-holder .sheet-controller:not(:empty) + .sheet-container {
+.sheet-charmancer .sheet-hack-holder .sheet-controller:not(:empty) + .sheet-container {
   height: 0;
   display: none; }
 
-.sheet-charmancer .sheet-spell-holder .sheet-spellinfo:not(:empty) {
+.sheet-charmancer .sheet-hack-holder .sheet-hackinfo:not(:empty) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4097,18 +4097,18 @@ By Miguel
   justify-content: space-between;
   margin-top: 1em; }
 
-.sheet-charmancer .sheet-spell-holder .sheet-spellinfo div {
+.sheet-charmancer .sheet-hack-holder .sheet-hackinfo div {
   width: 49%; }
 
-.sheet-charmancer .sheet-spell-holder .sheet-spellinfo div div {
+.sheet-charmancer .sheet-hack-holder .sheet-hackinfo div div {
   width: 100%;
   padding-bottom: .3em; }
 
-.sheet-charmancer .sheet-spell-holder .sheet-spellinfo p {
+.sheet-charmancer .sheet-hack-holder .sheet-hackinfo p {
   margin: 0;
   font-size: 1em; }
 
-.sheet-charmancer .sheet-pagelock:empty + .sheet-spellslide * {
+.sheet-charmancer .sheet-pagelock:empty + .sheet-hackslide * {
   pointer-events: none; }
 
 .sheet-charmancer .sheet-replace-info span {
@@ -4623,7 +4623,7 @@ div.sheet-globaldisplay span {
   margin-top: .5em;
   display: inline-block !important; }
 
-/* styling the featured slide's spell selection */
+/* styling the featured slide's hack selection */
 .sheet-charmancer .sheet-choices .sheet-utilityrow {
   margin-bottom: 1em; }
 
@@ -4668,8 +4668,8 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 2px center; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-page.sheet-spells > div.sheet-header,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-page.sheet-spells > div.sheet-header {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-page.sheet-hacks > div.sheet-header,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-page.sheet-hacks > div.sheet-header {
     background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/SpellScroll.svg?sanitize=true");
     background-repeat: no-repeat;
     background-size: cover;
@@ -4733,16 +4733,16 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
   div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_hair],
   input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_hair] {
     width: 140px !important; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-spells div.sheet-header-info div.sheet-part,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-spells div.sheet-header-info div.sheet-part {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part {
     width: 144px; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-spells div.sheet-header-info div.sheet-part select,
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-spells div.sheet-header-info div.sheet-part input,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-spells div.sheet-header-info div.sheet-part select,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-spells div.sheet-header-info div.sheet-part input {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select,
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part input,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part input {
     border: none; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-spells div.sheet-header-info div.sheet-part select[name=attr_spellcasting_ability],
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-spells div.sheet-header-info div.sheet-part select[name=attr_spellcasting_ability] {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select[name=attr_hackcasting_ability],
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-hacks div.sheet-header-info div.sheet-part select[name=attr_hackcasting_ability] {
     text-align-last: center; }
   div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-header div.sheet-part span.sheet-display,
   input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-header div.sheet-part span.sheet-display {
@@ -4784,16 +4784,16 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
     background-position: 0;
     padding: 14px;
     background-size: cover; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container.sheet-pc .sheet-spells .sheet-header .sheet-header-info,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container.sheet-pc .sheet-spells .sheet-header .sheet-header-info {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container.sheet-pc .sheet-hacks .sheet-header .sheet-header-info,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container.sheet-pc .sheet-hacks .sheet-header .sheet-header-info {
     background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/SpellBox.svg?sanitize=true");
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     -ms-flex-pack: distribute;
     justify-content: space-around; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container.sheet-pc .sheet-spells .sheet-header .sheet-header-info .sheet-part,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container.sheet-pc .sheet-spells .sheet-header .sheet-header-info .sheet-part {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container.sheet-pc .sheet-hacks .sheet-header .sheet-header-info .sheet-part,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container.sheet-pc .sheet-hacks .sheet-header .sheet-header-info .sheet-part {
     background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/SpellHeadBlock.svg?sanitize=true");
     background-position: top center;
     background-size: contain;
@@ -5227,34 +5227,34 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
     text-align: left;
     width: calc(100% - 20px);
     background: transparent; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-spell-level,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-spell-level {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-hack-level,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-hack-level {
     background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/SpellLevel.svg?sanitize=true");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     height: 50px; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-col1 .sheet-spell-level:nth-child(1),
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-col1 .sheet-spell-level:nth-child(1) {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-col1 .sheet-hack-level:nth-child(1),
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-col1 .sheet-hack-level:nth-child(1) {
     background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/Cantrip.svg?sanitize=true"); }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-level,
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-level::before,
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-level::after,
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-total,
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-expended,
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-cantrips,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-level,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-level::before,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-level::after,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-total,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-expended,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-cantrips {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-level,
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-level::before,
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-level::after,
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-total,
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-expended,
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-cantrips,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-level,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-level::before,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-level::after,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-total,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-expended,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-cantrips {
     border: 0;
     background: transparent;
     position: relative;
     top: 11px; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-level span,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-spell-level .sheet-level span {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-level span,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-hack-level .sheet-level span {
     left: 7px; }
   div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) textarea[name="attr_global_save_rollstring"],
   input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) textarea[name="attr_global_save_rollstring"] {
@@ -5280,19 +5280,19 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
     flex-flow: wrap;
     margin-bottom: 2%;
     min-width: 100%; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-spell-labels [data-i18n="slots_total-u"],
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-spell-labels [data-i18n="slots_remaining-u"],
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-header,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-spell-labels [data-i18n="slots_total-u"],
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-spell-labels [data-i18n="slots_remaining-u"],
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-header {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_total-u"],
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_remaining-u"],
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_total-u"],
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-hack-labels [data-i18n="slots_remaining-u"],
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-header {
     display: none; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc {
     top: unset;
     width: 100%; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-body,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-body {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -5303,8 +5303,8 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-body .sheet-col,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npcspellcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-spells .sheet-body .sheet-col {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-npc_toggle[value="1"] + .sheet-npchackcastingflag[value="1"] ~ .sheet-pc .sheet-page.sheet-hacks .sheet-body .sheet-col {
     background: #fff;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -5506,7 +5506,7 @@ div.sheet-charmancer div.sheet-licensedsheet-flag:not(:empty) ~ .sheet-summary:n
 .sheet-rolltemplate-dmg div[class|="sheet-licensedsheet-flag"],
 .sheet-rolltemplate-atkdmg div[class|="sheet-licensedsheet-flag"],
 .sheet-rolltemplate-desc div[class|="sheet-licensedsheet-flag"],
-.sheet-rolltemplate-spell div[class|="sheet-licensedsheet-flag"],
+.sheet-rolltemplate-hack div[class|="sheet-licensedsheet-flag"],
 .sheet-rolltemplate-traits div[class|="sheet-licensedsheet-flag"],
 .sheet-rolltemplate-npc div[class|="sheet-licensedsheet-flag"],
 .sheet-rolltemplate-npcatk div[class|="sheet-licensedsheet-flag"],
