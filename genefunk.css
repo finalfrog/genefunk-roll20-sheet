@@ -2969,7 +2969,7 @@ By Miguel
 .sheet-hlabel-container [name="attr_race_display"] {
   width: 200px; }
 
-.sheet-hlabel-container [name="attr_alignment"] {
+.sheet-hlabel-container [name="attr_appearance"] {
   width: 180px; }
 
 .sheet-hlabel-container [name="attr_experience"] {
@@ -3279,7 +3279,7 @@ By Miguel
 .lang-es .sheet-hlabel-container input[name="attr_race"] {
   width: 190px; }
 
-.lang-es .sheet-hlabel-container input[name="attr_alignment"] {
+.lang-es .sheet-hlabel-container input[name="attr_appearance"] {
   width: 170px; }
 
 .lang-es .sheet-hlabel-container input[name="attr_experience"] {
@@ -4709,8 +4709,8 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
   div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_race],
   input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_race] {
     width: 180px !important; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_alignment],
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_alignment] {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_appearance],
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_appearance] {
     width: 140px !important; }
   div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_experience],
   input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) div.sheet-header-info div.sheet-hlabel-container input[name=attr_experience] {

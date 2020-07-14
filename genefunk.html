@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <span data-i18n="npc-type-u">NPC TYPE</span>
-            <input type="text" name="attr_npc_type" placeholder="Medium fiend, any evil alignment" data-i18n-placeholder="npc-type-place">
+            <input type="text" name="attr_npc_type" placeholder="Medium beast" data-i18n-placeholder="npc-type-place">
         </div>
         <div class="row">
             <span data-i18n="armor-class-u">ARMOR CLASS</span>
@@ -1017,9 +1017,9 @@
                 <input type="number" class="class-level" style="width: 40px" name="attr_base_level" value="1">
             </div>
             <div class="sheet-row">
-                <span data-i18n="race:-u">RACE:</span>
+                <span data-i18n="race:-u">GENOME:</span>
                 <input type="text" name="attr_race">
-                <span data-i18n="subrace:-u">SUBRACE:</span>
+                <span data-i18n="subrace:-u">SUBGENOME:</span>
                 <input type="text" name="attr_subrace">
             </div>
         </div>
@@ -1037,11 +1037,11 @@
             <div class="bottom">
                 <div class="hlabel-container">
                     <input type="text" name="attr_race_display" class="sheet-no_events">
-                    <span class="label" data-i18n="race-u">RACE</span>
+                    <span class="label" data-i18n="race-u">GENOME</span>
                 </div>
                 <div class="hlabel-container">
-                    <input type="text" name="attr_alignment">
-                    <span class="label" data-i18n="alignment-u">ALIGNMENT</span>
+                    <input type="text" name="attr_appearance">
+                    <span class="label" data-i18n="appearance-u">APPEARANCE</span>
                 </div>
                 <div class="hlabel-container" style="position: relative;">
                     <input type="text" name="attr_experience">
@@ -1910,7 +1910,7 @@
                                 <div class="row">
                                     <span data-i18n="source:-u">SOURCE:</span>
                                     <select name="attr_source">
-                                        <option selected="selected" data-i18n="racial">Racial</option>
+                                        <option selected="selected" data-i18n="genomic">Genomic</option>
                                         <option data-i18n="class">Class</option>
                                         <option data-i18n="feat">Feat</option>
                                         <option data-i18n="background">Background</option>
@@ -4678,9 +4678,9 @@
                 <input type="number" class="class-level" style="width: 40px" name="attr_base_level" value="1">
             </div>
             <div class="sheet-row">
-                <span data-i18n="race:-u">RACE:</span>
+                <span data-i18n="race:-u">GENOME:</span>
                 <input type="text" name="attr_race">
-                <span data-i18n="subrace:-u">SUBRACE:</span>
+                <span data-i18n="subrace:-u">SUBGENOME:</span>
                 <input type="text" name="attr_subrace">
             </div>
         </div>
@@ -4698,11 +4698,11 @@
             <div class="bottom">
                 <div class="hlabel-container">
                     <input type="text" name="attr_race_display" class="sheet-no_events">
-                    <span class="label" data-i18n="race-u">RACE</span>
+                    <span class="label" data-i18n="race-u">GENOME</span>
                 </div>
                 <div class="hlabel-container">
-                    <input type="text" name="attr_alignment">
-                    <span class="label" data-i18n="alignment-u">ALIGNMENT</span>
+                    <input type="text" name="attr_appearance">
+                    <span class="label" data-i18n="appearance-u">APPEARANCE</span>
                 </div>
                 <div class="hlabel-container" style="position: relative;">
                     <input type="text" name="attr_experience">
@@ -8088,11 +8088,11 @@
             //XP
             if(page.data["data-XP"]) { update["npc_xp"] = page.data["data-XP"].toString().replace(",","");  };
 
-            //SIZE, TYPE, ALIGNMENT
+            //SIZE, TYPE, APPEARANCE
             var type = "";
             if(page.data["Size"]) {      type = page.data["Size"] };
             if(page.data["Type"]) {      type = (type.length > 0) ? type + " " + page.data["Type"].toLowerCase() : page.data["Type"].toLowerCase(); };
-            if(page.data["Alignment"]) { type = (type.length > 0) ? type + ", " + page.data["Alignment"] : page.data["Alignment"]; };
+            if(page.data["Appearance"]) { type = (type.length > 0) ? type + ", " + page.data["Appearance"] : page.data["Appearance"]; };
             update["npc_type"] = type;
 
             ["AC", "HP"].forEach((achp) => {
@@ -8487,7 +8487,7 @@
                 switch (category) {
                     case "Races":
                     case "Subraces":
-                        traitsource = "Racial";
+                        traitsource = "Genomic";
                         break;
                     case "Classes":
                     case "Subclasses":
@@ -13923,7 +13923,7 @@
 
         if(mancerdata["l1-race"] && racename) {
             set["race_info"] = '<p>Your race is ' + racename + '</p>';
-            if(!mancerdata["l1-race"].values.alignment) set["race_info"] += '<p class="sheet-warning">You haven\'t chosen your alignment.</p>';
+            if(!mancerdata["l1-race"].values.appearance) set["race_info"] += '<p class="sheet-warning">You haven\'t chosen your appearance.</p>';
             set["race_info"] += handleMissing("race");
             if(mancerdata["l1-race"].values["has_subrace"] == "true") {
                 if(subracename) {
@@ -14134,7 +14134,7 @@
                         toDelete.push("race_level1_choice" + x);
                     }
                     if(raceHacks > 0 && mancerdata["l1-hacks"].values.race_number > 0) {
-                        set["hack_info"] += '<p class="sheet-warning">Your racial hacks were reset because your options have changed.</p>';
+                        set["hack_info"] += '<p class="sheet-warning">Your genomic hacks were reset because your options have changed.</p>';
                     }
                 }
                 if(prevClass != currentClass || mancerdata["l1-hacks"].values.class_number > classHacks) {
@@ -14405,7 +14405,7 @@
         var silentset = {};
         var silentattrs = ["class_resource_name", "class_resource", "class_resource_max", "other_resource_name", "other_resource", "other_resource_max", "other_resource_itemid", "class", "class_display", "subclass", "hitdietype", "hitdie_final", "race", "subrace", "race_display", "custom_class", "cust_classname"];
         var clearset = {};
-        var clearattrs = ["hp", "hp_max", "size", "speed", "gp", "alignment", "global_damage_mod_flag", "hackcasting_ability", "cust_hitdietype", "cust_hackslots", "cust_hackcasting_ability", "ac", "jack_bonus", "jack_attr", "death_save_bonus", "weighttotal", "initiative_bonus", "hit_dice", "hit_dice_max", "pb", "jack", "caster_level", "hack_attack_mod", "hack_attack_bonus", "hack_save_dc", "passive_wisdom", "custom_ac_base", "custom_ac_part1", "custom_ac_part2", "custom_ac_shield", "background", "global_ac_mod_flag", "global_attack_mod_flag", "global_save_mod_flag", "global_skill_mod_flag"];
+        var clearattrs = ["hp", "hp_max", "size", "speed", "gp", "appearance", "global_damage_mod_flag", "hackcasting_ability", "cust_hitdietype", "cust_hackslots", "cust_hackcasting_ability", "ac", "jack_bonus", "jack_attr", "death_save_bonus", "weighttotal", "initiative_bonus", "hit_dice", "hit_dice_max", "pb", "jack", "caster_level", "hack_attack_mod", "hack_attack_bonus", "hack_save_dc", "passive_wisdom", "custom_ac_base", "custom_ac_part1", "custom_ac_part2", "custom_ac_shield", "background", "global_ac_mod_flag", "global_attack_mod_flag", "global_save_mod_flag", "global_skill_mod_flag"];
         var classname = "";
         var set = {gp: 0};
         var allDrops = [];
@@ -14610,7 +14610,7 @@
             var hackdata = {name: "Hacks:" + hack.Name};
             hackdata.data = {"hackcasting_ability": hack.Ability};
             if(hack.Source == "race") {
-                hackdata.data.hackclass = "Racial";
+                hackdata.data.hackclass = "Genomic";
             } else {
                 hackdata.data.hackclass = classname;
             };
@@ -14638,7 +14638,7 @@
         //By Miguel
 
         //Set up the final setAttrs()
-        set["alignment"] = data["l1-race"].values.alignment || "";
+        set["appearance"] = data["l1-race"].values.appearance || "";
         set["hp"] = stats.hp;
         set["hp_max"] = stats.hp;
         set["l1mancer_status"] = "completed";
@@ -15831,7 +15831,7 @@
         _.each(previoushacks, function(hack) {
             hackdata[hack.hackname] = {level: hack.hacklevel};
             if(hack.hackclass) hackdata[hack.hackname].hackclass = hack.hackclass;
-            if(hack.hackclass && hack.hackclass.toLowerCase() == "racial") hackdata[hack.hackname].known = "Racial";
+            if(hack.hackclass && hack.hackclass.toLowerCase() == "genomic") hackdata[hack.hackname].known = "Genomic";
             if(hack.hacksource) hackdata[hack.hackname].known = hack.hacksource;
         });
         _.each(leveldata, function(level) {
@@ -15870,7 +15870,7 @@
                                             hackdata[hack].hackclass = thisclass.classname;
                                             if(dataname.substring(0,5) != "class") {
                                                 hackdata[hack].known = data.Category.substring(0, data.Category.length - 1);
-                                                hackdata[hack].hackclass = data.Category == "Races" ? "Racial" : data.Category.substring(0, data.Category.length - 1);
+                                                hackdata[hack].hackclass = data.Category == "Races" ? "Genomic" : data.Category.substring(0, data.Category.length - 1);
                                             }
                                             if(blobhack.Ability) {
                                                 hackdata[hack].ability = blobhack.Ability;
@@ -17246,7 +17246,7 @@
                             if(hack.Known) {
                                 _.each(hack.Known, function(hackname) {
                                     var thishack = {name: "Hacks:" + hackname, data: {}};
-                                    var thisclass = name.substring(0,5) === "class" ? _.last(data["lp-levels"].values[name.split("_")[0]].split(":")) : "Racial";
+                                    var thisclass = name.substring(0,5) === "class" ? _.last(data["lp-levels"].values[name.split("_")[0]].split(":")) : "Genomic";
                                     if(hack.Ability) thishack.data["hackcasting_ability"] = hack.Ability;
                                     if(hack.Source) thishack.data["hacksource"] = hack.Source;
                                     thishack.data["hackclass"] = thisclass;
@@ -17667,8 +17667,8 @@
                     </label>
                 </div>
                 <div class="choice row race_always custom_race">
-                    <label><span data-i18n="alignment">Alignment:</span>
-                        <select name="comp_alignment"> <!-- Character%20Advancement#h-Alignment -->
+                    <label><span data-i18n="appearance">Appearance:</span>
+                        <select name="comp_appearance"> <!-- Character%20Advancement#h-Appearance -->
                             <option value="" data-i18n="choose">Choose</option>
                             <option value="Lawful Good" data-i18n="lawful-good">Lawful Good</option>
                             <option value="Neutral Good" data-i18n="neutral-good">Neutral Good</option>
@@ -18676,7 +18676,7 @@
                 </div>
                 <div class="choice returnblock race_button">
                     <span data-i18n="return-to:">Return to: </span>
-                    <button class="step" type="back" value="l1-race" data-i18n="race-u">RACE</button>
+                    <button class="step" type="back" value="l1-race" data-i18n="race-u">GENOME</button>
                 </div>
             </div>
             <div class="summary">
