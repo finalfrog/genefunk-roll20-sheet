@@ -1821,7 +1821,7 @@
                                 </div>
                                 <div class="row">
                                     <span data-i18n="source-type:-u">SOURCE TYPE:</span>
-                                    <input type="text" name="attr_source_type" style="width: 160px;" placeholder="Dwarf/Fighter/4th Level">
+                                    <input type="text" name="attr_source_type" style="width: 160px;" placeholder="Canary/Biohacker/4th Level">
                                 </div>
                                 <div class="row">
                                     <textarea name="attr_description" style="min-height: 200px; height: 200px;"></textarea>
@@ -5891,7 +5891,7 @@
     };
 
     var update_skills = function (skills_array) {
-        var skill_parent = {athletics: "strength", acrobatics: "dexterity", sleight_of_hand: "dexterity", stealth: "dexterity", investigation: "intelligence", life_science: "intelligence", computers: "intelligence", bureaucracy: "intelligence", drive: "dexterity", insight: "wisdom", perception: "wisdom", survival: "wisdom", deception: "charisma", intimidation: "charisma", performance: "charisma", persuasion: "charisma"};
+        var skill_parent = {athletics: "strength", acrobatics: "dexterity", sleight_of_hand: "dexterity", stealth: "dexterity", investigation: "intelligence", life_science: "intelligence", mechanics : "intelligence", physical_science : "intelligence", social_science : "intelligence", streetwise : "intelligence", computers: "intelligence", bureaucracy: "intelligence", drive: "dexterity", insight: "wisdom", perception: "wisdom", survival: "wisdom", deception: "charisma", intimidation: "charisma", performance: "charisma", persuasion: "charisma"};
         var attrs_to_get = ["pb","pb_type","jack_of_all_trades","jack"];
         var update = {};
         var callbacks = [];
