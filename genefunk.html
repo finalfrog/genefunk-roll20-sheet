@@ -36,8 +36,8 @@
             <input class="num" type="text" name="attr_npc_ac" placeholder="10">
             <span data-i18n="type-u">TYPE</span>
             <input type="text" name="attr_npc_actype" placeholder="armor vest" data-i18n-placeholder="npc-armor-place" value="">
-            <span data-i18n="damage-threshold-u">DAMAGE THRESHOLD</span>
-            <input class="num" type="text" name="attr_npc_dt" placeholder="0">
+            <span data-i18n="damage-reduction-u">DAMAGE REDUCTION</span>
+            <input class="num" type="text" name="attr_npc_dr" placeholder="0">
         </div>
         <div class="row">
             <span data-i18n="hit-points-u">HIT POINTS</span>
@@ -342,8 +342,8 @@
             </button>
         </div>
         <div class="row red">
-            <span data-i18n="dt" class="bold">Damage Threshold</span>
-            <span class="num" name="attr_npc_dt"></span>
+            <span data-i18n="dr" class="bold">Damage Threshold</span>
+            <span class="num" name="attr_npc_dr"></span>
         </div>
         <div class="row red">
             <span data-i18n="hp" class="bold">Hit Points</span>
@@ -1338,9 +1338,9 @@
                     <input type="text" name="attr_ac" title="@{ac}">
                     <span class="label pc-ac" data-i18n="armor-class-u">ARMOR CLASS</span>
                 </div>
-                <div class="dt">
-                    <input type="text" name="attr_dt" title="@{dt}">
-                    <span class="label pc-dt" data-i18n="damage-threshold-u">DAMAGE THRESHOLD</span>
+                <div class="dr">
+                    <input type="text" name="attr_dr" title="@{dr}">
+                    <span class="label pc-dr" data-i18n="damage-reduction-u">DAMAGE REDUCTION</span>
                 </div>
                 <div class="init">
                     <span name="attr_initiative_bonus" title="@{initiative_bonus}"></span>

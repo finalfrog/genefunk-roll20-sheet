@@ -4961,19 +4961,19 @@ input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer {
     width: 50% !important;
     margin: 0 auto;
     line-height: 8px !important; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-dt,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-dt {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-dr,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-dr {
     background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/AC.svg?sanitize=true");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
     min-height: 75px !important;
     border: 0 !important; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-dt input,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-dt input {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-dr input,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-dr input {
     margin-top: 10px; }
-  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-ac .sheet-pc-dt,
-  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-ac .sheet-pc-dt {
+  div.sheet-licensecontainer.sheet-licensedsheet .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-ac .sheet-pc-dr,
+  input.sheet-licensedsheet[value="1"] + div.sheet-licensecontainer .sheet-container:not(.sheet-npc) .sheet-ac-init-speed-container .sheet-ac .sheet-pc-dr {
     width: 50% !important;
     margin: 0 auto;
     line-height: 8px !important; }
