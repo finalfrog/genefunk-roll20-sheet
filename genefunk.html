@@ -3698,14 +3698,6 @@
                     </select>
                 </div>
                 <div class="row">
-                    <span data-i18n="encumbrance:-u">ENCUMBRANCE:</span>
-                    <select name="attr_encumberance_setting">
-                        <option value="off" data-i18n="simple">Simple</option>
-                        <option value="on" data-i18n="variant-phb">Variant (PHB p176)</option>
-                        <option value="disabled" data-i18n="off">Off</option>
-                    </select>
-                </div>
-                <div class="row">
                     <span data-i18n="inventory:-u">INVENTORY:</span>
                     <select name="attr_simpleinventory">
                         <option value="complex" data-i18n="compendium-compatible">Compendium Compatible</option>
@@ -5378,7 +5370,7 @@
         });
     });
 
-    on("change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:encumberance_setting change:size change:carrying_capacity_mod", function() {
+    on("change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:size change:carrying_capacity_mod", function() {
         update_weight();
     });
 
@@ -8112,7 +8104,7 @@
     const update_weight = function() {
         let update = {};
         let wtotal = 0;
-        let weight_attrs = ["encumberance_setting","strength","size","carrying_capacity_mod"];
+        let weight_attrs = ["strength","size","carrying_capacity_mod"];
         getSectionIDs("repeating_inventory", (idarray) => {
             _.each(idarray, (currentID, i) => {
                 weight_attrs.push(`repeating_inventory_${currentID}_itemweight`);
@@ -8149,17 +8141,7 @@
                     }
                 }
 
-                if (!v.encumberance_setting || v.encumberance_setting === "off") {
-                    update["encumberance"] = (wtotal > str*15) ? "OVER CARRYING CAPACITY" : " ";
-                } else if (v.encumberance_setting === "on") {
-                    update["encumberance"] =
-                        (wtotal > str*15) ? "IMMOBILE" :
-                        (wtotal > str*10) ? "HEAVILY ENCUMBERED" :
-                        (wtotal > str*5)  ? "ENCUMBERED" :
-                        " ";
-                } else {
-                    update["encumberance"] = " ";
-                }
+				update["encumberance"] = (wtotal > str*7) ? "OVER CARRYING CAPACITY" : " ";
 
                 setAttrs(update, {silent: true});
 
