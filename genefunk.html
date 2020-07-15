@@ -1628,24 +1628,16 @@
             <div class="equipment">
                 <div class="money">
                     <div class="coin">
-                        <span class="label" data-i18n="copper-piece-u">CP</span>
-                        <input type="text" name="attr_cp" title="@{cp}">
+                        <span class="label" data-i18n="satoshi-u">シ</span>
+                        <input type="text" name="attr_satoshi" title="@{satoshi}">
                     </div>
                     <div class="coin">
-                        <span class="label" data-i18n="silver-piece-u">SP</span>
-                        <input type="text" name="attr_sp" title="@{sp}">
+                        <span class="label" data-i18n="bit-u">u₿</span>
+                        <input type="text" name="attr_uB" title="@{uB}">
                     </div>
                     <div class="coin">
-                        <span class="label" data-i18n="electrum-piece-u">EP</span>
-                        <input type="text" name="attr_ep" title="@{ep}">
-                    </div>
-                    <div class="coin">
-                        <span class="label" data-i18n="gold-piece-u">GP</span>
-                        <input type="text" name="attr_gp" title="@{gp}">
-                    </div>
-                    <div class="coin">
-                        <span class="label" data-i18n="platinum-piece-u">PP</span>
-                        <input type="text" name="attr_pp" title="@{pp}">
+                        <span class="label" data-i18n="bitcoin-u">₿</span>
+                        <input type="text" name="attr_B" title="@{B}">
                     </div>
                 </div>
                 <input type="hidden" class="inventoryflag" name="attr_simpleinventory" value="complex">
@@ -3191,7 +3183,7 @@
                     <span data-i18n="hack-icons:-u">HACK ICONS:</span>
                     <select name="attr_hackicon_flag">
                         <option value="all" data-i18n="show_all">Show All</option>
-                        <option value="cp" data-i18n="cr_only">C&R Only</option>
+                        <option value="satoshi" data-i18n="cr_only">C&R Only</option>
                         <option value="none" data-i18n="none">None</option>
                     </select>
                 </div>
@@ -5386,7 +5378,7 @@
         });
     });
 
-    on("change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:cp change:sp change:ep change:gp change:pp change:encumberance_setting change:size change:carrying_capacity_mod", function() {
+    on("change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:encumberance_setting change:size change:carrying_capacity_mod", function() {
         update_weight();
     });
 
@@ -8120,19 +8112,13 @@
     const update_weight = function() {
         let update = {};
         let wtotal = 0;
-        let weight_attrs = ["cp","sp","ep","gp","pp","encumberance_setting","strength","size","carrying_capacity_mod"];
+        let weight_attrs = ["encumberance_setting","strength","size","carrying_capacity_mod"];
         getSectionIDs("repeating_inventory", (idarray) => {
             _.each(idarray, (currentID, i) => {
                 weight_attrs.push(`repeating_inventory_${currentID}_itemweight`);
                 weight_attrs.push(`repeating_inventory_${currentID}_itemcount`);
             });
             getAttrs(weight_attrs, (v) => {
-                let coinWeight = 0;
-                ["cp", "sp", "ep", "gp", "pp"].forEach((type)=> {
-                    coinWeight += (isNaN(parseInt(v[`${type}`], 10)) === false) ? parseInt(v[`${type}`], 10) : 0;
-                });
-                wtotal = wtotal + ((coinWeight) / 50);
-
                 _.each(idarray, (currentID, i) => {
                     if (v[`repeating_inventory_${currentID}_itemweight`] && isNaN(parseInt(v[`repeating_inventory_${currentID}_itemweight`], 10)) === false) {
                         count = v[`repeating_inventory_${currentID}_itemcount`] && isNaN(parseFloat(v[`repeating_inventory_${currentID}_itemcount`])) === false ? parseFloat(v[`repeating_inventory_${currentID}_itemcount`]) : 1;
@@ -12654,7 +12640,7 @@
                     page.name = page.name.replace(/@@!!@@/g,""); // Hacky bugfix to prevent custom names from matching unavailable content
                     nextGet = nextGet.concat(getOtherDrops(page.data));
                     if(page.data["data-Starting Gold"] && !noEquipmentDrop) {
-                        set["gp"] += parseInt(page.data["data-Starting Gold"]);
+                        set["bitcoin"] += parseInt(page.data["data-Starting Gold"]);
                     }
                     allPageData.push(page);
                 });
@@ -12727,9 +12713,9 @@
         var silentset = {};
         var silentattrs = ["class_resource_name", "class_resource", "class_resource_max", "other_resource_name", "other_resource", "other_resource_max", "other_resource_itemid", "class", "class_display", "subclass", "hitdietype", "hitdie_final", "race", "subrace", "race_display", "custom_class", "cust_classname"];
         var clearset = {};
-        var clearattrs = ["hp", "hp_max", "size", "speed", "gp", "appearance", "global_damage_mod_flag", "hacking_ability", "cust_hitdietype", "cust_hackslots", "cust_hacking_ability", "ac", "jack_bonus", "jack_attr", "death_save_bonus", "weighttotal", "initiative_bonus", "hit_dice", "hit_dice_max", "pb", "jack", "hacker_level", "hack_attack_mod", "hack_attack_bonus", "hack_save_dc", "passive_wisdom", "custom_ac_base", "custom_ac_part1", "custom_ac_part2", "custom_ac_shield", "background", "global_ac_mod_flag", "global_attack_mod_flag", "global_save_mod_flag", "global_skill_mod_flag"];
+        var clearattrs = ["hp", "hp_max", "size", "speed", "bitcoin", "appearance", "global_damage_mod_flag", "hacking_ability", "cust_hitdietype", "cust_hackslots", "cust_hacking_ability", "ac", "jack_bonus", "jack_attr", "death_save_bonus", "weighttotal", "initiative_bonus", "hit_dice", "hit_dice_max", "pb", "jack", "hacker_level", "hack_attack_mod", "hack_attack_bonus", "hack_save_dc", "passive_wisdom", "custom_ac_base", "custom_ac_part1", "custom_ac_part2", "custom_ac_shield", "background", "global_ac_mod_flag", "global_attack_mod_flag", "global_save_mod_flag", "global_skill_mod_flag"];
         var classname = "";
-        var set = {gp: 0};
+        var set = {bitcoin: 0};
         var allDrops = [];
         var currentDrop = 0;
         var totalDrops = 1;
@@ -12972,7 +12958,7 @@
                 }
             });
         } else if(data["l1-equipment"].values["equipment_type"] == "gold" && data["l1-equipment"].values["starting_gold"]) {
-            set["gp"] = parseInt(data["l1-equipment"].values["starting_gold"]);
+            set["bitcoin"] = parseInt(data["l1-equipment"].values["starting_gold"]);
         }
         //Add the bio info
         if(data["l1-bio"]) {
@@ -15394,7 +15380,7 @@
                     page.name = page.name.replace(/@@!!@@/g,""); // Hacky bugfix to prevent custom names from matching unavailable content
                     nextGet = nextGet.concat(getOtherDrops(page.data));
                     if(page.data["data-Starting Gold"] && !noEquipmentDrop) {
-                        set["gp"] += parseInt(page.data["data-Starting Gold"]);
+                        set["bitcoin"] += parseInt(page.data["data-Starting Gold"]);
                     }
                     allPageData.push(page);
                 });
