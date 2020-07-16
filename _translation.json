@@ -171,6 +171,7 @@
 	"bot": "Bot",
 	"mind": "Mind",
 	"software": "Software",
+	"software-mind": "Software/Mind",
 	"range:-u": "RANGE:",
 	"range:": "Range:",
 	"hack-concentration": "C",
